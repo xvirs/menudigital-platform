@@ -1,0 +1,1321 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "restaurant",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-05-17T08:23:25.543Z",
+  "updatedAt": "2026-05-17T08:23:25.543Z",
+  "_meta": {
+    "sourcePdfName": "webhook-upload.pdf",
+    "extractedBy": "gemini-2.5-flash",
+    "missingFields": []
+  },
+  "info": {
+    "name": "IT",
+    "location": "_dato no disponible_",
+    "theme": {
+      "primaryColor": "#B71C1C",
+      "backgroundColor": "#F5F5F5",
+      "textColor": "#212121",
+      "accentColor": "#FFD700",
+      "fonts": {
+        "heading": "'Roboto', sans-serif",
+        "body": "'Open Sans', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "entradas",
+      "title": "ENTRADAS",
+      "items": [
+        "berenjenas-al-forno",
+        "tortilla-it-con-huevo-frito",
+        "prosciutto-caprese",
+        "papas-rusticas-con-huevo",
+        "calamari-fritti",
+        "panzerotti-di-carne-fritti"
+      ]
+    },
+    {
+      "id": "ensaladas",
+      "title": "ENSALADAS",
+      "items": [
+        "napoli",
+        "bianco-di-ave",
+        "croccantino",
+        "cesare",
+        "porcion-extra-de-pollo-ensalada",
+        "vegan-bowl"
+      ]
+    },
+    {
+      "id": "pizzas-a-la-piedra",
+      "title": "PIZZAS A LA PIEDRA",
+      "items": [
+        "margherita",
+        "napoletana",
+        "caprese-pizza",
+        "quattro-formaggi",
+        "rucola",
+        "prosciutto-e-peperoni",
+        "pizza-it",
+        "porcion-laminas-de-prosciutto"
+      ]
+    },
+    {
+      "id": "pastas",
+      "title": "PASTAS",
+      "items": [
+        "ravioles-de-berenjena-asada",
+        "spaghetti-con-polpette-di-carne",
+        "gnocchi-caprese",
+        "rigatoni-alla-vodka",
+        "ravioles-de-hongos-gremolata-y-queso-de-cabra",
+        "sorrentinos-de-ojo-de-bife",
+        "agnolotti-de-bondiola-asada",
+        "sorrentino-pomodoro-e-panna",
+        "gnocchi-alla-bolognesa",
+        "sorrentinos-ojo-de-bife-3-unidades",
+        "agnolottis-de-bondiola-asada-3-unidades",
+        "sorrentinos-caprese",
+        "ravioles-de-osobuco",
+        "crepella-di-spinaci",
+        "lasagna-it"
+      ]
+    },
+    {
+      "id": "pollos",
+      "title": "POLLOS",
+      "items": [
+        "milanesa-de-pollo-alla-napoletana",
+        "milanesa-de-pollo-a-caballo",
+        "pollo-alla-pizzaiola",
+        "pollo-dolce",
+        "pettino-di-pollo-con-verdure",
+        "pollo-ai-ferri-con-contorno",
+        "milanesa-mediterranea",
+        "pollo-a-la-parmigiana"
+      ]
+    },
+    {
+      "id": "carnes",
+      "title": "CARNES",
+      "items": [
+        "entrana-grillada",
+        "lomo-grillado",
+        "bistequitos-alla-marsalla",
+        "hamburguesa-it"
+      ]
+    },
+    {
+      "id": "pescados",
+      "title": "PESCADOS",
+      "items": [
+        "trucha-salmonada-con-contorno"
+      ]
+    },
+    {
+      "id": "guarniciones",
+      "title": "GUARNICIONES",
+      "items": [
+        "pure-de-papas",
+        "papas-rusticas",
+        "ensalada-mixta"
+      ]
+    },
+    {
+      "id": "menu-de-ninos",
+      "title": "MENÚ DE NIÑOS",
+      "items": [
+        "menu-ninos-opcion-1"
+      ]
+    },
+    {
+      "id": "postres",
+      "title": "POSTRES",
+      "items": [
+        "flan-tradizionale",
+        "gelato",
+        "tiramisu",
+        "brownie-con-helado",
+        "crepelle-caramellate-al-dolce-di-latte",
+        "cheesecake-de-frutos-rojos",
+        "fragola-merengata",
+        "tentacion-de-chocolate",
+        "creme-brulee",
+        "volcan-de-dulce-de-leche-con-helado",
+        "affogato-italiano"
+      ]
+    },
+    {
+      "id": "vinos-y-espumantes",
+      "title": "VINOS Y ESPUMANTES",
+      "items": [
+        "acordeon-malbec",
+        "finca-ferrer-syrah",
+        "vina-las-perdices-clasico-malbec",
+        "vina-las-perdices-sauvignon-blanc",
+        "vina-las-perdices-reserva-malbec",
+        "don-david-reserva-malbec-torrontes",
+        "don-david-malbec-torrontes",
+        "intocables-malbec",
+        "alma-mora-malbec-dulce-viognier",
+        "piattelli-trinita-blend",
+        "piattelli-reserva-malbec-cafayate",
+        "triventos-golden-reserva-cab-franc",
+        "fausto-malbec",
+        "conejo-verde-malbec-blanc-de-blanc",
+        "chacabuco-chenin-dulce-natural",
+        "hermandad-malbec",
+        "hermandad-chardonnay",
+        "terrazas-de-los-andes-grand-malbec-2020",
+        "bressano-corte-de-malbec",
+        "cafayate-cosecha-tardia",
+        "cafayate-reserva-torrontes",
+        "cafayate-malbec",
+        "santa-julia-malbec",
+        "santa-julia-chenin-dulce-natural",
+        "alambrado-malbec",
+        "zuccardi-serie-a-malbec",
+        "zuccardi-q-malbec-cabernet-franc",
+        "emma-zuccardi-bonarda",
+        "jose-zuccardi-malbec",
+        "zuccardi-concreto-malbec",
+        "de-sangre-white-red-blend-malbec-valle-de-uco",
+        "gran-familia-bianchi-corte",
+        "iv-generacion-gran-malbec",
+        "maria-carmen-chardonnay",
+        "enzo-bianchi-gran-corte-2018",
+        "escorihuela-gascon-chardonnay",
+        "escorihuela-gascon-gran-reserva-rose",
+        "escorihuela-gascon-gran-reserva-chardonnay",
+        "escorihuela-gascon-malbec",
+        "meg-chardonnay",
+        "tension-ribera-malbec-petit-verdot",
+        "latitud-33-malbec",
+        "latitud-33-chardonnay",
+        "fond-de-cave-malbec-sauvignon-blanc",
+        "trapiche-puro-rose",
+        "fond-de-cave-reserva-cab-franc-malbec",
+        "fond-de-cave-gran-reserva-malbec-blend",
+        "fond-de-cave-reserva-blend",
+        "medalla-malbec",
+        "trapiche-reserva-malbec-chardonnay",
+        "nieto-senetiner-patrimonial-bonarda",
+        "don-nicanor-malbec-organico",
+        "portillo-malbec",
+        "salentein-blanc-de-blanc",
+        "federhaus-signature-bonarda",
+        "federhaus-signature-torrontes",
+        "federhaus-reserve-malbec",
+        "chandon-extra-brut",
+        "antonieta-espumante",
+        "baron-b-extra-brut-cuvee-speciale",
+        "segura-viudas-brut",
+        "meg-brut-nature",
+        "nieto-senetiner-grand-cuvee-extra-brut",
+        "veuve-cliqcuot-brut",
+        "dom-perignon"
+      ]
+    },
+    {
+      "id": "bebidas",
+      "title": "BEBIDAS",
+      "items": [
+        "cucumber-lemonade",
+        "gaseosa",
+        "agua-mineral",
+        "mocktail",
+        "copon-de-vino-malbec-reserva",
+        "cerveza-corona",
+        "cerveza-stella-artois",
+        "cerveza-stella-artois-sin-alcohol",
+        "copon-de-vino",
+        "cerveza-patagonia",
+        "red-bull-energy-drink",
+        "red-bull-sugarfree",
+        "red-bull-green-edition",
+        "red-bull-red-edition",
+        "red-bull-green-edition-gin",
+        "red-bull-energy-drink-vodka",
+        "red-bull-red-edition-gin"
+      ]
+    }
+  ],
+  "items": {
+    "berenjenas-al-forno": {
+      "slug": "berenjenas-al-forno",
+      "name": "BERENJENAS AL FORNO",
+      "price": "9000",
+      "description": "Berenjenas al horno, rebozadas con harina, rellenas de jamon y mozzarella gratinadas.",
+      "type": "Tapa",
+      "icon": "🍢"
+    },
+    "tortilla-it-con-huevo-frito": {
+      "slug": "tortilla-it-con-huevo-frito",
+      "name": "TORTILLA IT CON HUEVO FRITO",
+      "price": "12500",
+      "description": "Tortilla de papa casera tradicional con cebolla caramelizada, coronada con huevo frito, un toque de salsa sriracha y pimentón.",
+      "type": "Tapa",
+      "icon": "🍢"
+    },
+    "prosciutto-caprese": {
+      "slug": "prosciutto-caprese",
+      "name": "PROSCIUTTO CAPRESE",
+      "price": "12500",
+      "description": "Jamón crudo seleccionado, mozzarella de búfala, tomates secos, albahaca fresca, aceto balsámico glaze, pimienta negra y aceite.",
+      "type": "Tapa",
+      "icon": "🍢"
+    },
+    "papas-rusticas-con-huevo": {
+      "slug": "papas-rusticas-con-huevo",
+      "name": "PAPAS RÚSTICAS CON HUEVO",
+      "price": "9000",
+      "description": "Gajos de papa rústica con huevo frito y salsa picante.",
+      "type": "Fritura",
+      "icon": "🍟"
+    },
+    "calamari-fritti": {
+      "slug": "calamari-fritti",
+      "name": "CALAMARI FRITTI",
+      "price": "17500",
+      "description": "Aros de calamar crocantes con perejil y limón, acompañados con alioli o mayonesa picante.",
+      "type": "Fritura",
+      "icon": "🍟"
+    },
+    "panzerotti-di-carne-fritti": {
+      "slug": "panzerotti-di-carne-fritti",
+      "name": "PANZEROTTI DI CARNE FRITTI",
+      "price": "15500",
+      "description": "Empanada de carne frita acompañada con dip de salsa de tomate con un toque picante.",
+      "type": "Empanada",
+      "icon": "🥟"
+    },
+    "napoli": {
+      "slug": "napoli",
+      "name": "NAPOLI",
+      "price": "14000",
+      "description": "Quinoa, hojas verdes, tomate, zanahoria, queso tybo, finas láminas de pollo macerada en jugo de limón y aceite de oliva perfumada con jengibre, aderezada con salsa teriyaky y emulsión de rúcula.",
+      "type": "Ensalada",
+      "icon": "🥗"
+    },
+    "bianco-di-ave": {
+      "slug": "bianco-di-ave",
+      "name": "BIANCO DI AVE",
+      "price": "14000",
+      "description": "Hojas verdes, tomate concasé, zanahoria, finas láminas de pollo maceradas con jugo de limón y aceite de oliva, aderezada con mayonesa picante y salsa teriyaky perfumada con jengibre y sésamo.",
+      "type": "Ensalada",
+      "icon": "🥗"
+    },
+    "croccantino": {
+      "slug": "croccantino",
+      "name": "CROCCANTINO",
+      "price": "14500",
+      "description": "Hojas verdes, tomates en dados, zanahoria, finas láminas de pollo crocante, saborizada con mayonesa picante, salsa teriyaky y semillas de sésamo.",
+      "type": "Ensalada",
+      "icon": "🥗"
+    },
+    "cesare": {
+      "slug": "cesare",
+      "name": "CESARE",
+      "price": "15000",
+      "description": "Colchón de hojas verdes, croutones, tomates secos y queso reggiano en hebras, acompañadas de pollo y perfumadas con caesar dreasing y salsa teriyaki.",
+      "type": "Ensalada",
+      "icon": "🥗"
+    },
+    "porcion-extra-de-pollo-ensalada": {
+      "slug": "porcion-extra-de-pollo-ensalada",
+      "name": "PORCIÓN EXTRA DE POLLO",
+      "price": "5000",
+      "type": "Adicional",
+      "icon": "🍽️"
+    },
+    "vegan-bowl": {
+      "slug": "vegan-bowl",
+      "name": "VEGAN BOWL",
+      "price": "15000",
+      "description": "Quinoa, tomate, zanahoria, pepino, aderezada con salsa teriyaky, sésamo y jengibre.",
+      "type": "Ensalada",
+      "icon": "🥗"
+    },
+    "margherita": {
+      "slug": "margherita",
+      "name": "MARGHERITA",
+      "price": "13500",
+      "description": "Mozzarella y salsa de tomate.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "napoletana": {
+      "slug": "napoletana",
+      "name": "NAPOLETANA",
+      "price": "14500",
+      "description": "Salsa de tomate, queso mozzarella y tomates en rodajas.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "caprese-pizza": {
+      "slug": "caprese-pizza",
+      "name": "CAPRESE",
+      "price": "15500",
+      "description": "Tomates concasé, queso mozzarella, albahaca fresca y queso reggiano.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "quattro-formaggi": {
+      "slug": "quattro-formaggi",
+      "name": "QUATTRO FORMAGGI",
+      "price": "15500",
+      "description": "Salsa de tomate, queso mozzarella, queso azul, queso fontina y queso parmesano, perfumada con oliva y pimienta negra.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "rucola": {
+      "slug": "rucola",
+      "name": "RUCOLA",
+      "price": "15500",
+      "description": "Salsa de tomate, queso mozzarella, queso reggiano y rúcula.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "prosciutto-e-peperoni": {
+      "slug": "prosciutto-e-peperoni",
+      "name": "PROSCIUTTO E PEPERONI",
+      "price": "16500",
+      "description": "Salsa de tomate, queso mozzarella, pimientos asados y jamón cocido.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "pizza-it": {
+      "slug": "pizza-it",
+      "name": "IT",
+      "price": "20000",
+      "description": "Salsa de tomate, mozzarella, láminas de prosciutto, tomates secos, queso parmesano y albahaca fresca perfumada con oliva y pimienta negra.",
+      "type": "Pizza",
+      "icon": "🍕"
+    },
+    "porcion-laminas-de-prosciutto": {
+      "slug": "porcion-laminas-de-prosciutto",
+      "name": "PORCIÓN LAMINAS DE PROSCIUTTO",
+      "price": "4500",
+      "type": "Adicional",
+      "icon": "🍽️"
+    },
+    "ravioles-de-berenjena-asada": {
+      "slug": "ravioles-de-berenjena-asada",
+      "name": "RAVIOLES DE BERENJENA ASADA",
+      "price": "15000",
+      "description": "Ravioles de berenjena asada, mozzarella y ricota con sofrito de cebolla, zanahoria y ajos asados, corte de pomodoro y albahaca fresca perfumados con aceite de oliva.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "spaghetti-con-polpette-di-carne": {
+      "slug": "spaghetti-con-polpette-di-carne",
+      "name": "SPAGHETTI CON POLPETTE DI CARNE",
+      "price": "16000",
+      "description": "Pasta seca tradicional con salsa pomodoro, acompañada de albondigas de ternera, perfumadas con albahaca fresca y aceite de oliva.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "gnocchi-caprese": {
+      "slug": "gnocchi-caprese",
+      "name": "GNOCCHI CAPRESE",
+      "price": "14500",
+      "description": "Ñoquis de papa sarteneados con salsa pomodoro, tomates, mozzarella albahaca fresca y aceite de oliva.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "rigatoni-alla-vodka": {
+      "slug": "rigatoni-alla-vodka",
+      "name": "RIGATONI ALLA VODKA",
+      "price": "14500",
+      "description": "Rigatoni salteados en salsa rosada cremosa con reducción de vodka.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "ravioles-de-hongos-gremolata-y-queso-de-cabra": {
+      "slug": "ravioles-de-hongos-gremolata-y-queso-de-cabra",
+      "name": "RAVIOLES DE HONGOS, GREMOLATA Y QUESO DE CABRA",
+      "price": "18000",
+      "description": "Ravioles rellenos con champiñones, mozzarella, ricota, queso de cabra y vino blanco acompañados con salsa crema, corte de pomodoro y albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-ojo-de-bife": {
+      "slug": "sorrentinos-de-ojo-de-bife",
+      "name": "SORRENTINOS DE OJO DE BIFE",
+      "price": "25500",
+      "description": "Sorrentinos con base crocante rellenos de carne de ternera, pimiento rojo y tomates secos, acompañados de salsa reducción de malbec perfumados con albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "agnolotti-de-bondiola-asada": {
+      "slug": "agnolotti-de-bondiola-asada",
+      "name": "AGNOLOTTI DE BONDIOLA ASADA",
+      "price": "22000",
+      "description": "Rellenos de Bondiola asada, cerveza negra, batatas y mozzarella, con salsa reduccion de malbec, panko crocante y albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "sorrentino-pomodoro-e-panna": {
+      "slug": "sorrentino-pomodoro-e-panna",
+      "name": "SORRENTINO POMODORO E PANNA",
+      "price": "16500",
+      "description": "Sorrentino relleno con jamón cocido, mozzarella y ricota, acompañados con salsa crema y corte de pomodoro.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "gnocchi-alla-bolognesa": {
+      "slug": "gnocchi-alla-bolognesa",
+      "name": "GNOCCHI ALLA BOLOGNESA",
+      "price": "16500",
+      "description": "Ñoquis de papa caseros con salsa bolognesa de carne y tomate, perfumados con albahaca fresca y aceite de oliva.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "sorrentinos-ojo-de-bife-3-unidades": {
+      "slug": "sorrentinos-ojo-de-bife-3-unidades",
+      "name": "SORRENTINOS OJO DE BIFE (3 unidades)",
+      "price": "11000",
+      "description": "Sorrentinos con base crocante rellenos de carne de ternera, pimiento rojo y tomates secos, acompañados de salsa reducción de malbec perfumados con albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "agnolottis-de-bondiola-asada-3-unidades": {
+      "slug": "agnolottis-de-bondiola-asada-3-unidades",
+      "name": "AGNOLOTTIS DE BONDIOLA ASADA (3 unidades)",
+      "price": "10000",
+      "description": "Rellenos de Bondiola asada, cerveza negra, batatas y mozzarella, con salsa reduccion de malbec, panko crocante y albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "sorrentinos-caprese": {
+      "slug": "sorrentinos-caprese",
+      "name": "SORRENTINOS CAPRESE",
+      "price": "19500",
+      "description": "Sorrentinos de masa verde, rellenos de ricotta, mozzarella, queso azul, tomate seco y albahaca. Acompañados de salsa pomodoro.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "ravioles-de-osobuco": {
+      "slug": "ravioles-de-osobuco",
+      "name": "RAVIOLES DE OSOBUCO",
+      "price": "19500",
+      "description": "Ravioles de osobuco braseado al malbec con verduras asadas, salsa pomodoro fresco y albahaca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "crepella-di-spinaci": {
+      "slug": "crepella-di-spinaci",
+      "name": "CREPELLA DI SPINACI",
+      "price": "14500",
+      "description": "Crepe de rúcula, relleno con espinaca, queso parmesano y ricota, perfumado con salsa pomodoro y albahaca fresca.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "lasagna-it": {
+      "slug": "lasagna-it",
+      "name": "LASAGNA IT",
+      "price": "22500",
+      "description": "Lasagna rellena de carne, espinaca, jamón cocido y queso reggiano con salsa pomodoro y panna.",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "milanesa-de-pollo-alla-napoletana": {
+      "slug": "milanesa-de-pollo-alla-napoletana",
+      "name": "MILANESA DE POLLO ALLA NAPOLETANA",
+      "price": "18000",
+      "description": "Gratinada con salsa pomodoro, tomate concasé, mozzarella y orégano, acompañado con puré de papas o papas rústicas.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "milanesa-de-pollo-a-caballo": {
+      "slug": "milanesa-de-pollo-a-caballo",
+      "name": "MILANESA DE POLLO A CABALLO",
+      "price": "20000",
+      "description": "Milanesa frita coronada con dos huevos fritos acompañada de papas rústicas y decorada con limón grillado y romer.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "pollo-alla-pizzaiola": {
+      "slug": "pollo-alla-pizzaiola",
+      "name": "POLLO ALLA PIZZAIOLA",
+      "price": "22500",
+      "description": "Pechuga de pollo con salsa pomodoro, tomate concasé, gratinado con queso mozzarella, queso reggiano y albahaca fresca, acompañado con papas rústicas.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "pollo-dolce": {
+      "slug": "pollo-dolce",
+      "name": "POLLO DOLCE",
+      "price": "24000",
+      "description": "Pechuga de pollo grillada con ananá y jamón cocido caramelizado, sobre colchón de papas doré y salsa crema agridulce.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "pettino-di-pollo-con-verdure": {
+      "slug": "pettino-di-pollo-con-verdure",
+      "name": "PETTINO DI POLLO CON VERDURE",
+      "price": "20000",
+      "description": "(Light 455 Kcal.) Pechuga de pollo a la plancha sobre un colchón de rúcula fresca con queso parmesano, vegetales al vapor y salsa cuatro quesos.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "pollo-ai-ferri-con-contorno": {
+      "slug": "pollo-ai-ferri-con-contorno",
+      "name": "POLLO AI FERRI CON CONTORNO",
+      "price": "19000",
+      "description": "Pollo grillé acompañado con puré de papas o papas rústicas.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "milanesa-mediterranea": {
+      "slug": "milanesa-mediterranea",
+      "name": "MILANESA MEDITERRANEA",
+      "price": "21000",
+      "description": "Milanesa de pollo con finas láminas de parmesano, tomate fresco, rúcula, con macerado de aceite de oliva y pimineta negra.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "pollo-a-la-parmigiana": {
+      "slug": "pollo-a-la-parmigiana",
+      "name": "POLLO A LA PARMIGIANA",
+      "price": "22000",
+      "description": "Pechuga de pollo empanizada cubierta con salsa de tomate y mozzarella gratinada acompañada de spaghetti pomodoro.",
+      "type": "Pollo",
+      "icon": "🥩"
+    },
+    "entrana-grillada": {
+      "slug": "entrana-grillada",
+      "name": "ENTRAÑA GRILLADA",
+      "price": "20500",
+      "description": "Acompañadas con papas rústicas salteadas en oliva.",
+      "type": "Carne",
+      "icon": "🥩"
+    },
+    "lomo-grillado": {
+      "slug": "lomo-grillado",
+      "name": "LOMO GRILLADO",
+      "price": "34000",
+      "type": "Carne",
+      "icon": "🥩"
+    },
+    "bistequitos-alla-marsalla": {
+      "slug": "bistequitos-alla-marsalla",
+      "name": "BISTEQUITOS ALLA MARSALLA",
+      "price": "25500",
+      "description": "Bifes de carne salteados con aceite de oliva, desglaseado con vino marsalla y salsa demiglase. Acompañado de puré de papas o ñoquis con salsa cuatro quesos.",
+      "type": "Carne",
+      "icon": "🥩"
+    },
+    "hamburguesa-it": {
+      "slug": "hamburguesa-it",
+      "name": "HAMBURGUESA IT",
+      "price": "31000",
+      "description": "Pan de campo, salsa barbacoa, cebolla caramelizada, panceta, queso cheddar, huevo y mayonesa picante. Acompañada de papas rústicas y salsa alioli.",
+      "type": "Hamburguesa",
+      "icon": "🍔"
+    },
+    "trucha-salmonada-con-contorno": {
+      "slug": "trucha-salmonada-con-contorno",
+      "name": "TRUCHA SALMONADA CON CONTORNO",
+      "price": "22500",
+      "description": "Acompañada de papas rústicas o puré de papas con un dip de crema de rúcula, limón grillado y romero fresco.",
+      "type": "Pescado",
+      "icon": "🐟"
+    },
+    "pure-de-papas": {
+      "slug": "pure-de-papas",
+      "name": "Puré de Papas",
+      "price": "6000",
+      "type": "Guarnición",
+      "icon": "🍽️"
+    },
+    "papas-rusticas": {
+      "slug": "papas-rusticas",
+      "name": "Papas Rústicas",
+      "price": "6000",
+      "type": "Guarnición",
+      "icon": "🍟"
+    },
+    "ensalada-mixta": {
+      "slug": "ensalada-mixta",
+      "name": "Ensalada Mixta",
+      "price": "6000",
+      "type": "Guarnición",
+      "icon": "🥗"
+    },
+    "menu-ninos-opcion-1": {
+      "slug": "menu-ninos-opcion-1",
+      "name": "Ñoquis, Cuerdas de Guitarra o Supremitas de Pollo",
+      "price": "14000",
+      "description": "Incluye gaseosa o agua mineral. Flan o helado. (HASTA 10 AÑOS).",
+      "type": "Menú Infantil",
+      "icon": "🍽️"
+    },
+    "flan-tradizionale": {
+      "slug": "flan-tradizionale",
+      "name": "FLAN TRADIZIONALE",
+      "price": "6700",
+      "description": "Acompañado de dulce de leche y crema chantillí.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "gelato": {
+      "slug": "gelato",
+      "name": "GELATO",
+      "price": "6700",
+      "description": "Dos bochas de crema helada artesanal sabor crema americana, dulce de leche, chocolate, frutilla o limón.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "tiramisu": {
+      "slug": "tiramisu",
+      "name": "TIRAMISÚ",
+      "price": "9800",
+      "description": "Vainillas embebidas en café expreso y cognac, intercaladas con queso mascarpone y cacao amargo.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "brownie-con-helado": {
+      "slug": "brownie-con-helado",
+      "name": "BROWNIE CON HELADO",
+      "price": "10800",
+      "description": "Bizcocho de chocolate con nueces acompañado de helado de crema americana, crema de dulce de leche y salsa de Naranjas.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "crepelle-caramellate-al-dolce-di-latte": {
+      "slug": "crepelle-caramellate-al-dolce-di-latte",
+      "name": "CREPELLE CARAMELLATE AL DOLCE DI LATTE",
+      "price": "10800",
+      "description": "Crepes sellados a fuego, rellenos con dulce de leche, acompañados de helado de crema americana y charlotte de chocolate.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "cheesecake-de-frutos-rojos": {
+      "slug": "cheesecake-de-frutos-rojos",
+      "name": "CHEESECAKE DE FRUTOS ROJOS",
+      "price": "10800",
+      "description": "Deliciosa mezcla de queso suave perfumada con vainilla sobre una base de galletas crocantes, cubierto con un espejo de dulce de fresa.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "fragola-merengata": {
+      "slug": "fragola-merengata",
+      "name": "FRAGOLA MERENGATA",
+      "price": "11800",
+      "description": "Frutillas frescas acompañadas con helado de crema americana, crema chantilly y merengue italiano sobre base de dulce de leche.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "tentacion-de-chocolate": {
+      "slug": "tentacion-de-chocolate",
+      "name": "TENTACIÓN DE CHOCOLATE",
+      "price": "10300",
+      "description": "Mousse de chocolate, crema chantillí, acompañado de frutillas frescas.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "creme-brulee": {
+      "slug": "creme-brulee",
+      "name": "CRÈME BRÛLÉE",
+      "price": "10800",
+      "description": "Crema horneada de vainilla con una fina capa de azúcar tostada en su superficie.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "volcan-de-dulce-de-leche-con-helado": {
+      "slug": "volcan-de-dulce-de-leche-con-helado",
+      "name": "VOLCAN DE DULCE DE LECHE CON HELADO",
+      "price": "11800",
+      "description": "Volcan de dulce de leche con helado de crema, acompañado de dulce de leche, decorado con frutillas y menta fresca.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "affogato-italiano": {
+      "slug": "affogato-italiano",
+      "name": "AFFOGATO ITALIANO",
+      "price": "5300",
+      "description": "Helado de crema bañado en expresso caliente, coronado con virutas de chocolate amargo.",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "acordeon-malbec": {
+      "slug": "acordeon-malbec",
+      "name": "Acordeon Malbec",
+      "price": "26000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "finca-ferrer-syrah": {
+      "slug": "finca-ferrer-syrah",
+      "name": "Finca Ferrer Syrah",
+      "price": "20000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "vina-las-perdices-clasico-malbec": {
+      "slug": "vina-las-perdices-clasico-malbec",
+      "name": "Viña Las Perdices Clásico Malbec",
+      "price": "23500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "vina-las-perdices-sauvignon-blanc": {
+      "slug": "vina-las-perdices-sauvignon-blanc",
+      "name": "Viña Las Perdices Sauvignon Blanc",
+      "price": "16000",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "vina-las-perdices-reserva-malbec": {
+      "slug": "vina-las-perdices-reserva-malbec",
+      "name": "Viña Las Perdices Reserva Malbec",
+      "price": "20000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "don-david-reserva-malbec-torrontes": {
+      "slug": "don-david-reserva-malbec-torrontes",
+      "name": "Don David Reserva Malbec / Torrontes",
+      "price": "20000",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "don-david-malbec-torrontes": {
+      "slug": "don-david-malbec-torrontes",
+      "name": "Don David Malbec / Torrontes",
+      "price": "28500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "intocables-malbec": {
+      "slug": "intocables-malbec",
+      "name": "Intocables Malbec",
+      "price": "13000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "alma-mora-malbec-dulce-viognier": {
+      "slug": "alma-mora-malbec-dulce-viognier",
+      "name": "Alma Mora Malbec / Dulce Viognier",
+      "price": "13000",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "piattelli-trinita-blend": {
+      "slug": "piattelli-trinita-blend",
+      "name": "Piattelli Trinita Blend",
+      "price": "17500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "piattelli-reserva-malbec-cafayate": {
+      "slug": "piattelli-reserva-malbec-cafayate",
+      "name": "Piattelli Reserva Malbec Cafayate",
+      "price": "22500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "triventos-golden-reserva-cab-franc": {
+      "slug": "triventos-golden-reserva-cab-franc",
+      "name": "Triventos Golden Reserva Cab. Franc",
+      "price": "33500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "fausto-malbec": {
+      "slug": "fausto-malbec",
+      "name": "Fausto Malbec",
+      "price": "15500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "conejo-verde-malbec-blanc-de-blanc": {
+      "slug": "conejo-verde-malbec-blanc-de-blanc",
+      "name": "Conejo Verde Malbec / Blanc de Blanc",
+      "price": "14500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "chacabuco-chenin-dulce-natural": {
+      "slug": "chacabuco-chenin-dulce-natural",
+      "name": "Chacabuco Chenin Dulce Natural",
+      "price": "16500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "hermandad-malbec": {
+      "slug": "hermandad-malbec",
+      "name": "Hermandad Malbec",
+      "price": "32500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "hermandad-chardonnay": {
+      "slug": "hermandad-chardonnay",
+      "name": "Hermandad Chardonnay",
+      "price": "47500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "terrazas-de-los-andes-grand-malbec-2020": {
+      "slug": "terrazas-de-los-andes-grand-malbec-2020",
+      "name": "Terrazas de los Andes Grand Malbec 2020",
+      "price": "87000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "bressano-corte-de-malbec": {
+      "slug": "bressano-corte-de-malbec",
+      "name": "Bressano Corte de Malbec",
+      "price": "133500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "cafayate-cosecha-tardia": {
+      "slug": "cafayate-cosecha-tardia",
+      "name": "Cafayate Cosecha Tardia",
+      "price": "16500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "cafayate-reserva-torrontes": {
+      "slug": "cafayate-reserva-torrontes",
+      "name": "Cafayate Reserva Torrontés",
+      "price": "28500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "cafayate-malbec": {
+      "slug": "cafayate-malbec",
+      "name": "Cafayate Malbec",
+      "price": "16500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "santa-julia-malbec": {
+      "slug": "santa-julia-malbec",
+      "name": "Santa Julia Malbec",
+      "price": "14500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "santa-julia-chenin-dulce-natural": {
+      "slug": "santa-julia-chenin-dulce-natural",
+      "name": "Santa Julia Chenin Dulce Natural",
+      "price": "15500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "alambrado-malbec": {
+      "slug": "alambrado-malbec",
+      "name": "Alambrado Malbec",
+      "price": "21000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "zuccardi-serie-a-malbec": {
+      "slug": "zuccardi-serie-a-malbec",
+      "name": "Zuccardi Serie A Malbec",
+      "price": "31500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "zuccardi-q-malbec-cabernet-franc": {
+      "slug": "zuccardi-q-malbec-cabernet-franc",
+      "name": "Zuccardi Q Malbec / Cabernet Franc",
+      "price": "39500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "emma-zuccardi-bonarda": {
+      "slug": "emma-zuccardi-bonarda",
+      "name": "Emma Zuccardi Bonarda",
+      "price": "64500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "jose-zuccardi-malbec": {
+      "slug": "jose-zuccardi-malbec",
+      "name": "Jose Zuccardi Malbec",
+      "price": "117000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "zuccardi-concreto-malbec": {
+      "slug": "zuccardi-concreto-malbec",
+      "name": "Zuccardi Concreto Malbec",
+      "price": "78000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "de-sangre-white-red-blend-malbec-valle-de-uco": {
+      "slug": "de-sangre-white-red-blend-malbec-valle-de-uco",
+      "name": "De Sangre White/Red Blend / Malbec Valle de Uco",
+      "price": "62500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "gran-familia-bianchi-corte": {
+      "slug": "gran-familia-bianchi-corte",
+      "name": "Gran Familia Bianchi Corte",
+      "price": "38500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "iv-generacion-gran-malbec": {
+      "slug": "iv-generacion-gran-malbec",
+      "name": "IV Generacion Gran Malbec",
+      "price": "119000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "maria-carmen-chardonnay": {
+      "slug": "maria-carmen-chardonnay",
+      "name": "Maria Carmen Chardonnay",
+      "price": "120000",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "enzo-bianchi-gran-corte-2018": {
+      "slug": "enzo-bianchi-gran-corte-2018",
+      "name": "Enzo Bianchi Gran Corte 2018",
+      "price": "238000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "escorihuela-gascon-chardonnay": {
+      "slug": "escorihuela-gascon-chardonnay",
+      "name": "Escorihuela Gascon Chardonnay",
+      "price": "46000",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "escorihuela-gascon-gran-reserva-rose": {
+      "slug": "escorihuela-gascon-gran-reserva-rose",
+      "name": "Escorihuela Gascon Gran Reserva Rose",
+      "price": "51500",
+      "type": "Vino Rosado",
+      "icon": "🍷"
+    },
+    "escorihuela-gascon-gran-reserva-chardonnay": {
+      "slug": "escorihuela-gascon-gran-reserva-chardonnay",
+      "name": "Escorihuela Gascon Gran Reserva Chardonnay",
+      "price": "49500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "escorihuela-gascon-malbec": {
+      "slug": "escorihuela-gascon-malbec",
+      "name": "Escorihuela Gascon Malbec",
+      "price": "21500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "meg-chardonnay": {
+      "slug": "meg-chardonnay",
+      "name": "Meg Chardonnay",
+      "price": "143500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "tension-ribera-malbec-petit-verdot": {
+      "slug": "tension-ribera-malbec-petit-verdot",
+      "name": "Tension Ribera Malbec Petit Verdot",
+      "price": "19000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "latitud-33-malbec": {
+      "slug": "latitud-33-malbec",
+      "name": "Latitud 33° Malbec",
+      "price": "13500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "latitud-33-chardonnay": {
+      "slug": "latitud-33-chardonnay",
+      "name": "Latitud 33° Chardonnay",
+      "price": "13500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "fond-de-cave-malbec-sauvignon-blanc": {
+      "slug": "fond-de-cave-malbec-sauvignon-blanc",
+      "name": "Fond De Cave Malbec / Sauvignon Blanc",
+      "price": "20500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "trapiche-puro-rose": {
+      "slug": "trapiche-puro-rose",
+      "name": "Trapiche Puro Rosé",
+      "price": "23000",
+      "type": "Vino Rosado",
+      "icon": "🍷"
+    },
+    "fond-de-cave-reserva-cab-franc-malbec": {
+      "slug": "fond-de-cave-reserva-cab-franc-malbec",
+      "name": "Fond De Cave Reserva Cab. Franc / Malbec",
+      "price": "26000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "fond-de-cave-gran-reserva-malbec-blend": {
+      "slug": "fond-de-cave-gran-reserva-malbec-blend",
+      "name": "Fond De Cave Gran Reserva Malbec / Blend",
+      "price": "35000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "fond-de-cave-reserva-blend": {
+      "slug": "fond-de-cave-reserva-blend",
+      "name": "Fond De Cave Reserva Blend",
+      "price": "34000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "medalla-malbec": {
+      "slug": "medalla-malbec",
+      "name": "Medalla Malbec",
+      "price": "43500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "trapiche-reserva-malbec-chardonnay": {
+      "slug": "trapiche-reserva-malbec-chardonnay",
+      "name": "Trapiche Reserva Malbec / Chardonnay",
+      "price": "20500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "nieto-senetiner-patrimonial-bonarda": {
+      "slug": "nieto-senetiner-patrimonial-bonarda",
+      "name": "Nieto Senetiner Patrimonial Bonarda",
+      "price": "32000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "don-nicanor-malbec-organico": {
+      "slug": "don-nicanor-malbec-organico",
+      "name": "Don Nicanor Malbec Organico",
+      "price": "36000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "portillo-malbec": {
+      "slug": "portillo-malbec",
+      "name": "Portillo Malbec",
+      "price": "13000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "salentein-blanc-de-blanc": {
+      "slug": "salentein-blanc-de-blanc",
+      "name": "Salentein Blanc de Blanc",
+      "price": "34500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "federhaus-signature-bonarda": {
+      "slug": "federhaus-signature-bonarda",
+      "name": "Federhaus Signature Bonarda",
+      "price": "15500",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "federhaus-signature-torrontes": {
+      "slug": "federhaus-signature-torrontes",
+      "name": "Federhaus Signature Torrontes",
+      "price": "15500",
+      "type": "Vino Blanco",
+      "icon": "🍷"
+    },
+    "federhaus-reserve-malbec": {
+      "slug": "federhaus-reserve-malbec",
+      "name": "Federhaus Reserve Malbec",
+      "price": "23000",
+      "type": "Vino Tinto",
+      "icon": "🍷"
+    },
+    "chandon-extra-brut": {
+      "slug": "chandon-extra-brut",
+      "name": "Chandon Extra Brut",
+      "price": "28500",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "antonieta-espumante": {
+      "slug": "antonieta-espumante",
+      "name": "Antonieta Espumante",
+      "price": "34500",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "baron-b-extra-brut-cuvee-speciale": {
+      "slug": "baron-b-extra-brut-cuvee-speciale",
+      "name": "Baron B Extra Brut Cuvée Spéciale",
+      "price": "72000",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "segura-viudas-brut": {
+      "slug": "segura-viudas-brut",
+      "name": "Segura Viudas Brut",
+      "price": "U$D250",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "meg-brut-nature": {
+      "slug": "meg-brut-nature",
+      "name": "Meg Brut Nature",
+      "price": "108500",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "nieto-senetiner-grand-cuvee-extra-brut": {
+      "slug": "nieto-senetiner-grand-cuvee-extra-brut",
+      "name": "Nieto Senetiner Grand Cuvée Extra Brut",
+      "price": "36500",
+      "type": "Espumante",
+      "icon": "🍷"
+    },
+    "veuve-cliqcuot-brut": {
+      "slug": "veuve-cliqcuot-brut",
+      "name": "Veuve Cliqcuot Brut",
+      "price": "U$D450",
+      "type": "Champagne",
+      "icon": "🍷"
+    },
+    "dom-perignon": {
+      "slug": "dom-perignon",
+      "name": "Dom Perignon",
+      "price": "U$D890",
+      "type": "Champagne",
+      "icon": "🍷"
+    },
+    "cucumber-lemonade": {
+      "slug": "cucumber-lemonade",
+      "name": "Cucumber Lemonade",
+      "price": "8800",
+      "type": "Bebida",
+      "icon": "🥤"
+    },
+    "gaseosa": {
+      "slug": "gaseosa",
+      "name": "Gaseosa",
+      "price": "3800",
+      "type": "Bebida",
+      "icon": "🥤"
+    },
+    "agua-mineral": {
+      "slug": "agua-mineral",
+      "name": "Agua mineral",
+      "price": "3800",
+      "type": "Bebida",
+      "icon": "🥤"
+    },
+    "mocktail": {
+      "slug": "mocktail",
+      "name": "Mocktail",
+      "price": "3900",
+      "type": "Bebida",
+      "icon": "🥤"
+    },
+    "copon-de-vino-malbec-reserva": {
+      "slug": "copon-de-vino-malbec-reserva",
+      "name": "Copon de vino Malbec Reserva",
+      "price": "8200",
+      "type": "Vino por Copa",
+      "icon": "🍷"
+    },
+    "cerveza-corona": {
+      "slug": "cerveza-corona",
+      "name": "Cerveza Corona",
+      "price": "8800",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "cerveza-stella-artois": {
+      "slug": "cerveza-stella-artois",
+      "name": "Cerveza Stella Artois",
+      "price": "5700",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "cerveza-stella-artois-sin-alcohol": {
+      "slug": "cerveza-stella-artois-sin-alcohol",
+      "name": "Cerveza Stella Artois Sin Alcohol",
+      "price": "8200",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "copon-de-vino": {
+      "slug": "copon-de-vino",
+      "name": "Copon de vino",
+      "price": "4600",
+      "type": "Vino por Copa",
+      "icon": "🍷"
+    },
+    "cerveza-patagonia": {
+      "slug": "cerveza-patagonia",
+      "name": "Cerveza Patagonia",
+      "price": "13900",
+      "shortDescription": "CONSULTAR VARIEDADES",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "red-bull-energy-drink": {
+      "slug": "red-bull-energy-drink",
+      "name": "Red Bull Energy Drink",
+      "price": "6000",
+      "type": "Bebida Energizante",
+      "icon": "🥤"
+    },
+    "red-bull-sugarfree": {
+      "slug": "red-bull-sugarfree",
+      "name": "Red Bull Sugarfree",
+      "price": "6000",
+      "type": "Bebida Energizante",
+      "icon": "🥤"
+    },
+    "red-bull-green-edition": {
+      "slug": "red-bull-green-edition",
+      "name": "Red Bull Green Edition",
+      "price": "6000",
+      "type": "Bebida Energizante",
+      "icon": "🥤"
+    },
+    "red-bull-red-edition": {
+      "slug": "red-bull-red-edition",
+      "name": "Red Bull Red Edition",
+      "price": "6000",
+      "type": "Bebida Energizante",
+      "icon": "🥤"
+    },
+    "red-bull-green-edition-gin": {
+      "slug": "red-bull-green-edition-gin",
+      "name": "Red Bull Green Edition & Gin",
+      "price": "11000",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "red-bull-energy-drink-vodka": {
+      "slug": "red-bull-energy-drink-vodka",
+      "name": "Red Bull Energy Drink & Vodka",
+      "price": "12000",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "red-bull-red-edition-gin": {
+      "slug": "red-bull-red-edition-gin",
+      "name": "Red Bull Red Edition & Gin",
+      "price": "11000",
+      "type": "Trago",
+      "icon": "🍹"
+    }
+  }
+}

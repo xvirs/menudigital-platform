@@ -1,0 +1,19 @@
+{
+  "name": "menudigital-platform",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Plataforma de menús digitales automatizada para restaurantes argentinos",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.3"
+  }
+}

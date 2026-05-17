@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listRestaurants } from '../../lib/github';
+import '../../styles/admin.css';
+
+let restaurants: Awaited<ReturnType<typeof listRestaurants>> = [];
+let loadError: string | null = null;
+
+try {
+  restaurants = await listRestaurants();
+} catch (err: any) {
+  loadError = err?.message ?? 'Error desconocido leyendo el repo de GitHub.';
+}
+
+const owner = import.meta.env.GITHUB_OWNER;
+const repo = import.meta.env.GITHUB_REPO;
+const branch = import.meta.env.GITHUB_BRANCH || 'main';
+
+const dateFormatter = new Intl.DateTimeFormat('es-AR', {
+  dateStyle: 'short',
+  timeStyle: 'short',
+});
+
+const url = new URL(Astro.request.url);
+const banner = url.searchParams.get('msg');
+const bannerKind = url.searchParams.get('kind') ?? 'ok';
+---
+
+<BaseLayout title="Admin · Restaurantes">
+  <main class="container admin-shell">
+    <header class="admin-shell__header">
+      <div>
+        <h1 class="admin-shell__title">Restaurantes</h1>
+        <p class="admin-shell__sub">
+          Datos en vivo desde <code>{owner}/{repo}@{branch}</code>.
+        </p>
+      </div>
+      <button class="admin-btn admin-btn--primary" type="button" disabled title="Disponible en Fase 4">
+        + Nuevo menú (Fase 4)
+      </button>
+    </header>
+
+    {banner && (
+      <div class={`admin-banner admin-banner--${bannerKind === 'err' ? 'err' : 'ok'}`}>
+        {banner}
+      </div>
+    )}
+
+    {loadError ? (
+      <div class="admin-banner admin-banner--err">
+        <strong>No se pudo leer el repo.</strong> {loadError}
+      </div>
+    ) : restaurants.length === 0 ? (
+      <p class="admin-empty">Todavía no hay restaurantes.</p>
+    ) : (
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Slug</th>
+            <th>Estado</th>
+            <th>Actualizado</th>
+            <th>Warnings</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {restaurants.map((r) => {
+            const editUrl = `https://github.com/${owner}/${repo}/edit/${branch}/content/restaurants/${r.slug}.json`;
+            const publicUrl = `/r/${r.slug}/`;
+            const adminDetail = `/admin/r/${r.slug}`;
+            const nextStatus = r.status === 'active' ? 'hidden' : 'active';
+            const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
+            const formattedDate = (() => {
+              const d = new Date(r.updatedAt);
+              return Number.isNaN(d.getTime()) ? r.updatedAt : dateFormatter.format(d);
+            })();
+            return (
+              <tr>
+                <td><a href={adminDetail}>{r.name}</a></td>
+                <td><code style="font-size: 0.82rem; opacity: 0.75;">{r.slug}</code></td>
+                <td>
+                  <span class={`admin-status admin-status--${r.status}`}>{r.status}</span>
+                </td>
+                <td>{formattedDate}</td>
+                <td>
+                  {r.missingFieldsCount > 0 ? (
+                    <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
+                  ) : (
+                    <span style="opacity: 0.4;">—</span>
+                  )}
+                </td>
+                <td>
+                  <div class="admin-actions">
+                    <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">Ver</a>
+                    <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">Editar JSON</a>
+                    <form method="POST" action="/api/admin/toggle">
+                      <input type="hidden" name="slug" value={r.slug} />
+                      <input type="hidden" name="status" value={nextStatus} />
+                      <button class="admin-btn" type="submit">{toggleLabel}</button>
+                    </form>
+                    <form
+                      method="POST"
+                      action="/api/admin/delete"
+                      onsubmit={`return confirm('¿Eliminar ${r.slug}? El JSON se borra del repo. Esta acción NO se puede deshacer desde el dashboard (solo con git revert manual).')`}
+                    >
+                      <input type="hidden" name="slug" value={r.slug} />
+                      <button class="admin-btn admin-btn--danger" type="submit">Eliminar</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    )}
+  </main>
+</BaseLayout>

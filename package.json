@@ -15,7 +15,9 @@
     "validate-menus": "node scripts/validate-menus.mjs"
   },
   "dependencies": {
-    "astro": "^6.3.3"
+    "@astrojs/vercel": "^10.0.7",
+    "astro": "^6.3.3",
+    "octokit": "^5.0.5"
   },
   "devDependencies": {
     "ajv": "^8.20.0",

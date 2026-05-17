@@ -1,0 +1,751 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "augustopastas",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-05-17T08:26:18.174Z",
+  "updatedAt": "2026-05-17T08:26:18.174Z",
+  "_meta": {
+    "sourcePdfName": "webhook-upload.pdf",
+    "extractedBy": "gemini-2.5-flash",
+    "missingFields": []
+  },
+  "info": {
+    "name": "augustopastas",
+    "location": "Cofico, Córdoba",
+    "subtitle": "DESDE EL 2011 PASTAS FRESCAS Y COMIDAS 100% CASERAS",
+    "theme": {
+      "primaryColor": "#C62828",
+      "backgroundColor": "#FAFAFA",
+      "textColor": "#1A1A1A",
+      "accentColor": "#FFB74D",
+      "fonts": {
+        "heading": "'Playfair Display', serif",
+        "body": "'Roboto', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "para-comenzar",
+      "title": "Para Comenzar",
+      "items": [
+        "combinado-de-fiambres-y-conservas-x-2-pers",
+        "jamon-crudo",
+        "lomito-horneado-ahumado",
+        "salame-de-oncativo",
+        "mortadela-con-pistachos",
+        "queso-holanda",
+        "queso-azul",
+        "queso-parmesano",
+        "queso-camembert",
+        "queso-marinado-en-aceite-ahumado",
+        "hongos-en-escabeche",
+        "pepinillos-en-vinagre",
+        "olivas-negras-picantes",
+        "tomates-confitados-al-romero",
+        "pimientos-asados"
+      ]
+    },
+    {
+      "id": "opcion-de-carne",
+      "title": "Opción de Carne",
+      "items": [
+        "bife-de-chorizo"
+      ]
+    },
+    {
+      "id": "pastas",
+      "title": "Pastas",
+      "items": [
+        "spaghettis",
+        "tagliatelles",
+        "fetuccinis-verdes",
+        "noquis",
+        "malfattis-de-ricota-y-espinaca",
+        "ravioles-de-ricota-y-nuez",
+        "ravioles-de-ricota-y-espinaca",
+        "ravioles-de-carne-y-verdura",
+        "sorrentinos-de-ricota-jamon-y-nuez",
+        "sorrentinos-de-jamon-y-queso",
+        "sorrentinos-caprese",
+        "sorrentinos-de-cuatro-quesos",
+        "sorrentinos-de-mozzarella-hongos-y-castanas-de-caju",
+        "sorrentinos-de-salmon-ricota-y-camarones",
+        "sorrentinos-de-jamon-crudo-mozzarella-olivas-negras-y-verdeo",
+        "combinado-de-sorrentinos",
+        "canelones-de-carne-y-verduras",
+        "canelones-de-cordero-y-espinaca",
+        "canelones-de-crema-de-choclo",
+        "panzottis-rossi",
+        "panzottis-verdes",
+        "creste-di-gallo",
+        "tortellinis-de-ricota-chorizo-colorado-panceta-ahumada-queso-parmesano-y-puerro-ahumado",
+        "lasana-tradicional"
+      ]
+    },
+    {
+      "id": "salsas-basicas",
+      "title": "Salsas Básicas",
+      "items": [
+        "salsa-filetto",
+        "salsa-mixta",
+        "salsa-blanca"
+      ]
+    },
+    {
+      "id": "salsas-especiales",
+      "title": "Salsas Especiales",
+      "items": [
+        "cuatro-quesos",
+        "salteado-de-cubos-de-tomate-con-aceite-de-oliva-perfumado-y-hierbas-frescas",
+        "crema-de-puerro-y-panceta",
+        "salsa-de-pollo-y-tomate-estofado",
+        "albondigas-en-salsa-de-tomate",
+        "carne-de-res-braseada-en-tomate",
+        "abadejo-calamar-langostinos-y-mejillones",
+        "crema-de-champinones-al-oporto",
+        "pesto",
+        "bolonesa",
+        "crema",
+        "adicional-de-crema",
+        "adicional-gratinado",
+        "crema-de-cabutia-gratinada"
+      ]
+    },
+    {
+      "id": "postres",
+      "title": "Postres",
+      "items": [
+        "flan-casero",
+        "tiramisu",
+        "bombon-escoces",
+        "copa-helada"
+      ]
+    },
+    {
+      "id": "aperitivos",
+      "title": "Aperitivos",
+      "items": [
+        "cinzano-soda-y-rodaja-de-limon",
+        "carpano-bianco-soda-y-rodaja-de-limon",
+        "martini-bianco-tonica-y-rodaja-de-limon",
+        "carpano-rosso-soda-y-rodaja-de-naranja",
+        "martini-rosso-piel-de-naranja-y-aceituna-verde",
+        "vermut-ferroviario",
+        "negroni",
+        "aperol-champagne-y-rodajas-de-naranja",
+        "cynar-jugo-de-pomelo-jugo-de-limon-y-hojas-de-menta",
+        "fernet-branca-con-coca-cola",
+        "campari-con-jugo-de-naranja"
+      ]
+    },
+    {
+      "id": "bebidas-con-alcohol",
+      "title": "Bebidas con Alcohol",
+      "items": [
+        "copa-de-espumante",
+        "whisky-johnnie-walker-double-black",
+        "cervezas-lata",
+        "copa-de-vino"
+      ]
+    },
+    {
+      "id": "bebidas-sin-alcohol",
+      "title": "Bebidas sin Alcohol",
+      "items": [
+        "agua-sin-gas",
+        "agua-con-gas",
+        "agua-saborizada",
+        "gaseosas",
+        "jarra-de-limonada-con-menta",
+        "vaso-de-limonada"
+      ]
+    }
+  ],
+  "items": {
+    "combinado-de-fiambres-y-conservas-x-2-pers": {
+      "slug": "combinado-de-fiambres-y-conservas-x-2-pers",
+      "name": "Combinado de Fiambres y Conservas x 2 Pers.",
+      "price": "23000",
+      "type": "Picada",
+      "icon": "🧀"
+    },
+    "jamon-crudo": {
+      "slug": "jamon-crudo",
+      "name": "Jamón Crudo",
+      "price": "7700",
+      "type": "Fiambre",
+      "icon": "🧀"
+    },
+    "lomito-horneado-ahumado": {
+      "slug": "lomito-horneado-ahumado",
+      "name": "Lomito Horneado Ahumado",
+      "price": "5500",
+      "type": "Fiambre",
+      "icon": "🧀"
+    },
+    "salame-de-oncativo": {
+      "slug": "salame-de-oncativo",
+      "name": "Salame de Oncativo",
+      "price": "6600",
+      "type": "Fiambre",
+      "icon": "🧀"
+    },
+    "mortadela-con-pistachos": {
+      "slug": "mortadela-con-pistachos",
+      "name": "Mortadela con Pistachos",
+      "price": "7700",
+      "type": "Fiambre",
+      "icon": "🧀"
+    },
+    "queso-holanda": {
+      "slug": "queso-holanda",
+      "name": "Queso Holanda",
+      "price": "6600",
+      "type": "Queso",
+      "icon": "🧀"
+    },
+    "queso-azul": {
+      "slug": "queso-azul",
+      "name": "Queso Azul",
+      "price": "6300",
+      "type": "Queso",
+      "icon": "🧀"
+    },
+    "queso-parmesano": {
+      "slug": "queso-parmesano",
+      "name": "Queso Parmesano",
+      "price": "7800",
+      "type": "Queso",
+      "icon": "🧀"
+    },
+    "queso-camembert": {
+      "slug": "queso-camembert",
+      "name": "Queso Camembert",
+      "price": "14000",
+      "type": "Queso",
+      "icon": "🧀"
+    },
+    "queso-marinado-en-aceite-ahumado": {
+      "slug": "queso-marinado-en-aceite-ahumado",
+      "name": "Queso Marinado en Aceite Ahumado",
+      "price": "6000",
+      "type": "Queso",
+      "icon": "🧀"
+    },
+    "hongos-en-escabeche": {
+      "slug": "hongos-en-escabeche",
+      "name": "Hongos en Escabeche",
+      "price": "11000",
+      "type": "Conservas",
+      "icon": "🍢"
+    },
+    "pepinillos-en-vinagre": {
+      "slug": "pepinillos-en-vinagre",
+      "name": "Pepinillos en Vinagre",
+      "price": "4000",
+      "type": "Conservas",
+      "icon": "🍢"
+    },
+    "olivas-negras-picantes": {
+      "slug": "olivas-negras-picantes",
+      "name": "Olivas Negras Picantes",
+      "price": "4000",
+      "type": "Conservas",
+      "icon": "🍢"
+    },
+    "tomates-confitados-al-romero": {
+      "slug": "tomates-confitados-al-romero",
+      "name": "Tomates Confitados al Romero",
+      "price": "5000",
+      "type": "Conservas",
+      "icon": "🍢"
+    },
+    "pimientos-asados": {
+      "slug": "pimientos-asados",
+      "name": "Pimientos Asados",
+      "price": "8000",
+      "type": "Conservas",
+      "icon": "🍢"
+    },
+    "bife-de-chorizo": {
+      "slug": "bife-de-chorizo",
+      "name": "Bife de Chorizo",
+      "price": "18000",
+      "type": "Carne",
+      "icon": "🥩"
+    },
+    "spaghettis": {
+      "slug": "spaghettis",
+      "name": "Spaghettis",
+      "price": "10600",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "tagliatelles": {
+      "slug": "tagliatelles",
+      "name": "Tagliatelles",
+      "price": "10600",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "fetuccinis-verdes": {
+      "slug": "fetuccinis-verdes",
+      "name": "Fetuccinis Verdes",
+      "price": "12200",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "noquis": {
+      "slug": "noquis",
+      "name": "Ñoquis",
+      "price": "11000",
+      "type": "Pasta",
+      "icon": "🍝"
+    },
+    "malfattis-de-ricota-y-espinaca": {
+      "slug": "malfattis-de-ricota-y-espinaca",
+      "name": "Malfattis de Ricota y Espinaca",
+      "price": "13400",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "ravioles-de-ricota-y-nuez": {
+      "slug": "ravioles-de-ricota-y-nuez",
+      "name": "Ravioles de Ricota y Nuez",
+      "price": "12200",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "ravioles-de-ricota-y-espinaca": {
+      "slug": "ravioles-de-ricota-y-espinaca",
+      "name": "Ravioles de Ricota y Espinaca",
+      "price": "12200",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "ravioles-de-carne-y-verdura": {
+      "slug": "ravioles-de-carne-y-verdura",
+      "name": "Ravioles de Carne y Verdura",
+      "price": "13200",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-ricota-jamon-y-nuez": {
+      "slug": "sorrentinos-de-ricota-jamon-y-nuez",
+      "name": "Sorrentinos de Ricota, Jamón y Nuez",
+      "price": "13200",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-jamon-y-queso": {
+      "slug": "sorrentinos-de-jamon-y-queso",
+      "name": "Sorrentinos de Jamón y Queso",
+      "price": "14900",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-caprese": {
+      "slug": "sorrentinos-caprese",
+      "name": "Sorrentinos Caprese",
+      "price": "15700",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-cuatro-quesos": {
+      "slug": "sorrentinos-de-cuatro-quesos",
+      "name": "Sorrentinos de Cuatro Quesos",
+      "price": "15700",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-mozzarella-hongos-y-castanas-de-caju": {
+      "slug": "sorrentinos-de-mozzarella-hongos-y-castanas-de-caju",
+      "name": "Sorrentinos de Mozzarella, Hongos y Castañas de Cajún",
+      "price": "17800",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-salmon-ricota-y-camarones": {
+      "slug": "sorrentinos-de-salmon-ricota-y-camarones",
+      "name": "Sorrentinos de Salmón, Ricota y Camarones",
+      "price": "17800",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "sorrentinos-de-jamon-crudo-mozzarella-olivas-negras-y-verdeo": {
+      "slug": "sorrentinos-de-jamon-crudo-mozzarella-olivas-negras-y-verdeo",
+      "name": "Sorrentinos de Jamón Crudo, Mozzarella, Olivas Negras y Verdeo",
+      "price": "17000",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "combinado-de-sorrentinos": {
+      "slug": "combinado-de-sorrentinos",
+      "name": "Combinado de Sorrentinos",
+      "price": "17000",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "canelones-de-carne-y-verduras": {
+      "slug": "canelones-de-carne-y-verduras",
+      "name": "Canelones de Carne y Verduras",
+      "price": "16500",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "canelones-de-cordero-y-espinaca": {
+      "slug": "canelones-de-cordero-y-espinaca",
+      "name": "Canelones de Cordero y Espinaca",
+      "price": "19000",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "canelones-de-crema-de-choclo": {
+      "slug": "canelones-de-crema-de-choclo",
+      "name": "Canelones de Crema de Choclo",
+      "price": "16500",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "panzottis-rossi": {
+      "slug": "panzottis-rossi",
+      "name": "Panzottis Rossi",
+      "price": "15400",
+      "shortDescription": "Calabaza, queso y huevo",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "panzottis-verdes": {
+      "slug": "panzottis-verdes",
+      "name": "Panzottis Verdes",
+      "price": "15400",
+      "shortDescription": "Ricota, almendras, espinacas y pimientos asados",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "creste-di-gallo": {
+      "slug": "creste-di-gallo",
+      "name": "Creste di Gallo",
+      "price": "17000",
+      "shortDescription": "Pasta rellena con berenjenas ahumadas, ricota artesanal, queso parmesano y tomillo",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "tortellinis-de-ricota-chorizo-colorado-panceta-ahumada-queso-parmesano-y-puerro-ahumado": {
+      "slug": "tortellinis-de-ricota-chorizo-colorado-panceta-ahumada-queso-parmesano-y-puerro-ahumado",
+      "name": "Tortellinis de Ricota, Chorizo Colorado, Panceta Ahumada, Queso Parmesano y Puerro Ahumado",
+      "price": "19200",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "lasana-tradicional": {
+      "slug": "lasana-tradicional",
+      "name": "Lasaña Tradicional",
+      "price": "17000",
+      "type": "Pasta rellena",
+      "icon": "🍝"
+    },
+    "salsa-filetto": {
+      "slug": "salsa-filetto",
+      "name": "Salsa Filetto",
+      "price": "_dato no disponible_",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "salsa-mixta": {
+      "slug": "salsa-mixta",
+      "name": "Salsa Mixta",
+      "price": "_dato no disponible_",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "salsa-blanca": {
+      "slug": "salsa-blanca",
+      "name": "Salsa Blanca",
+      "price": "_dato no disponible_",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "cuatro-quesos": {
+      "slug": "cuatro-quesos",
+      "name": "Cuatro Quesos",
+      "price": "2300",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "salteado-de-cubos-de-tomate-con-aceite-de-oliva-perfumado-y-hierbas-frescas": {
+      "slug": "salteado-de-cubos-de-tomate-con-aceite-de-oliva-perfumado-y-hierbas-frescas",
+      "name": "Salteado de Cubos de Tomate con Aceite de Oliva Perfumado y Hierbas Frescas",
+      "price": "3000",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "crema-de-puerro-y-panceta": {
+      "slug": "crema-de-puerro-y-panceta",
+      "name": "Crema de Puerro y Panceta",
+      "price": "3000",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "salsa-de-pollo-y-tomate-estofado": {
+      "slug": "salsa-de-pollo-y-tomate-estofado",
+      "name": "Salsa de Pollo y Tomate Estofado",
+      "price": "6000",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "albondigas-en-salsa-de-tomate": {
+      "slug": "albondigas-en-salsa-de-tomate",
+      "name": "Albóndigas en Salsa de Tomate",
+      "price": "7000",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "carne-de-res-braseada-en-tomate": {
+      "slug": "carne-de-res-braseada-en-tomate",
+      "name": "Carne de Res Braseada en Tomate",
+      "price": "8200",
+      "shortDescription": "(Estofado de carne)",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "abadejo-calamar-langostinos-y-mejillones": {
+      "slug": "abadejo-calamar-langostinos-y-mejillones",
+      "name": "Abadejo, Calamar, Langostinos y Mejillones",
+      "price": "9100",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "crema-de-champinones-al-oporto": {
+      "slug": "crema-de-champinones-al-oporto",
+      "name": "Crema de Champiñones al Oporto",
+      "price": "6100",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "pesto": {
+      "slug": "pesto",
+      "name": "Pesto",
+      "price": "3300",
+      "shortDescription": "(Aceite de hierbas, ajo y nueces)",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "bolonesa": {
+      "slug": "bolonesa",
+      "name": "Boloñesa",
+      "price": "3900",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "crema": {
+      "slug": "crema",
+      "name": "Crema",
+      "price": "3300",
+      "type": "Salsa",
+      "icon": "🍽️"
+    },
+    "adicional-de-crema": {
+      "slug": "adicional-de-crema",
+      "name": "Adicional de Crema",
+      "price": "2200",
+      "type": "Adicional",
+      "icon": "🍽️"
+    },
+    "adicional-gratinado": {
+      "slug": "adicional-gratinado",
+      "name": "Adicional Gratinado",
+      "price": "4400",
+      "type": "Adicional",
+      "icon": "🍽️"
+    },
+    "crema-de-cabutia-gratinada": {
+      "slug": "crema-de-cabutia-gratinada",
+      "name": "Crema de Cabutia Gratinada",
+      "price": "4600",
+      "type": "Adicional",
+      "icon": "🍽️"
+    },
+    "flan-casero": {
+      "slug": "flan-casero",
+      "name": "Flan Casero",
+      "price": "5100",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "tiramisu": {
+      "slug": "tiramisu",
+      "name": "Tiramisú",
+      "price": "6900",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "bombon-escoces": {
+      "slug": "bombon-escoces",
+      "name": "Bombón Escocés",
+      "price": "7000",
+      "shortDescription": "(Helado)",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "copa-helada": {
+      "slug": "copa-helada",
+      "name": "Copa Helada",
+      "price": "9000",
+      "shortDescription": "(Brownie, frutos secos, helado y ron)",
+      "type": "Postre",
+      "icon": "🍰"
+    },
+    "cinzano-soda-y-rodaja-de-limon": {
+      "slug": "cinzano-soda-y-rodaja-de-limon",
+      "name": "Cinzano, Soda y Rodaja de Limón",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "carpano-bianco-soda-y-rodaja-de-limon": {
+      "slug": "carpano-bianco-soda-y-rodaja-de-limon",
+      "name": "Carpano Bianco, Soda y Rodaja de Limón",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "martini-bianco-tonica-y-rodaja-de-limon": {
+      "slug": "martini-bianco-tonica-y-rodaja-de-limon",
+      "name": "Martini Bianco, Tónica y Rodaja de Limón",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "carpano-rosso-soda-y-rodaja-de-naranja": {
+      "slug": "carpano-rosso-soda-y-rodaja-de-naranja",
+      "name": "Carpano Rosso, Soda y Rodaja de Naranja",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "martini-rosso-piel-de-naranja-y-aceituna-verde": {
+      "slug": "martini-rosso-piel-de-naranja-y-aceituna-verde",
+      "name": "Martini Rosso, Piel de Naranja y Aceituna Verde",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "vermut-ferroviario": {
+      "slug": "vermut-ferroviario",
+      "name": "Vermut Ferroviario",
+      "price": "6600",
+      "shortDescription": "(Vermut Rosso, fernet, soda y rodaja de limón)",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "negroni": {
+      "slug": "negroni",
+      "name": "Negroni",
+      "price": "8500",
+      "shortDescription": "(Campari, gin, vermut Rosso y piel de naranja)",
+      "type": "Cóctel",
+      "icon": "🍹"
+    },
+    "aperol-champagne-y-rodajas-de-naranja": {
+      "slug": "aperol-champagne-y-rodajas-de-naranja",
+      "name": "Aperol, Champagne y Rodajas de Naranja",
+      "price": "8000",
+      "type": "Cóctel",
+      "icon": "🍹"
+    },
+    "cynar-jugo-de-pomelo-jugo-de-limon-y-hojas-de-menta": {
+      "slug": "cynar-jugo-de-pomelo-jugo-de-limon-y-hojas-de-menta",
+      "name": "Cynar, Jugo de Pomelo, Jugo de Limón y Hojas de Menta",
+      "price": "8000",
+      "type": "Cóctel",
+      "icon": "🍹"
+    },
+    "fernet-branca-con-coca-cola": {
+      "slug": "fernet-branca-con-coca-cola",
+      "name": "Fernet Branca con Coca-Cola",
+      "price": "8000",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "campari-con-jugo-de-naranja": {
+      "slug": "campari-con-jugo-de-naranja",
+      "name": "Campari con Jugo de Naranja",
+      "price": "8000",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "copa-de-espumante": {
+      "slug": "copa-de-espumante",
+      "name": "Copa de Espumante",
+      "price": "5200",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "whisky-johnnie-walker-double-black": {
+      "slug": "whisky-johnnie-walker-double-black",
+      "name": "Whisky Johnnie Walker Double Black",
+      "price": "17000",
+      "type": "Whisky",
+      "icon": "🥃"
+    },
+    "cervezas-lata": {
+      "slug": "cervezas-lata",
+      "name": "Cervezas (Lata)",
+      "price": "5000",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "copa-de-vino": {
+      "slug": "copa-de-vino",
+      "name": "Copa de Vino",
+      "price": "4500",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "agua-sin-gas": {
+      "slug": "agua-sin-gas",
+      "name": "Agua Sin Gas",
+      "price": "3300",
+      "type": "Agua",
+      "icon": "🥤"
+    },
+    "agua-con-gas": {
+      "slug": "agua-con-gas",
+      "name": "Agua Con Gas",
+      "price": "3300",
+      "type": "Agua",
+      "icon": "🥤"
+    },
+    "agua-saborizada": {
+      "slug": "agua-saborizada",
+      "name": "Agua Saborizada",
+      "price": "3300",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "gaseosas": {
+      "slug": "gaseosas",
+      "name": "Gaseosas",
+      "price": "3300",
+      "type": "Gaseosa",
+      "icon": "🥤"
+    },
+    "jarra-de-limonada-con-menta": {
+      "slug": "jarra-de-limonada-con-menta",
+      "name": "Jarra de Limonada con Menta",
+      "price": "8500",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "vaso-de-limonada": {
+      "slug": "vaso-de-limonada",
+      "name": "Vaso de Limonada",
+      "price": "4000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    }
+  }
+}

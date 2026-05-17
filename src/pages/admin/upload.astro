@@ -23,45 +23,48 @@ import '../../styles/admin.css';
         action="/api/admin/upload"
         enctype="multipart/form-data"
         id="upload-form"
+        class="upload-form"
       >
         <label
           for="pdf-input"
-          style="display: block; margin-bottom: 0.75rem; font-size: 0.88rem; opacity: 0.85;"
+          style="display: block; font-size: 0.88rem; opacity: 0.85;"
         >
           PDF del menú (máximo 4 MB)
         </label>
         <input
           id="pdf-input"
+          class="upload-input"
           type="file"
           name="pdf"
-          accept="application/pdf"
+          accept="application/pdf,.pdf"
           required
-          style="width: 100%; padding: 0.75rem; background: color-mix(in srgb, currentColor 4%, transparent); border: 1px dashed color-mix(in srgb, currentColor 30%, transparent); border-radius: 0.5rem; color: inherit;"
         />
 
-        <div id="size-warning" class="admin-banner admin-banner--err" hidden style="margin-top: 1rem;">
-          El archivo elegido supera los 4 MB. Vercel rechaza request bodies más grandes.
+        <div id="size-warning" class="admin-banner admin-banner--err" hidden>
+          <span>El archivo elegido supera los 4 MB. Vercel rechaza request bodies más grandes.</span>
         </div>
 
-        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">
+        <p style="font-size: 0.85rem; opacity: 0.7; margin: 0;">
           ⏱ Después de subir, el endpoint puede tardar entre 60 y 180 segundos (Gemini procesa el
           texto + commit a GitHub). No cierres la pestaña.
         </p>
 
-        <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; align-items: center;">
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
           <button type="submit" class="admin-btn admin-btn--primary" id="submit-btn">
-            Procesar PDF
+            <span class="admin-btn__icon" aria-hidden="true">📤</span>
+            <span class="submit-label">Procesar PDF</span>
           </button>
           <span id="submitting" hidden style="font-size: 0.88rem; opacity: 0.75;">
+            <span class="admin-spinner" aria-hidden="true"></span>
             Procesando… esperá, esto tarda hasta 3 min.
           </span>
         </div>
       </form>
     </section>
 
-    <section class="admin-panel" style="max-width: 640px; margin-top: 1.5rem;">
+    <section class="admin-panel" style="max-width: 640px; margin-top: 1.25rem;">
       <h2 class="admin-panel__title">¿Qué pasa adentro?</h2>
-      <ol style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; padding-left: 1.2rem;">
+      <ol style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; padding-left: 1.2rem; margin: 0;">
         <li>Tu browser sube el PDF a <code>/api/admin/upload</code> en Vercel.</li>
         <li>El endpoint forwardea el PDF al webhook de n8n (en tu Mac vía Cloudflare Tunnel).</li>
         <li>n8n extrae el texto con pdf-parse.</li>
@@ -81,15 +84,21 @@ import '../../styles/admin.css';
     const warn = document.getElementById('size-warning') as HTMLElement | null;
     const submit = document.getElementById('submit-btn') as HTMLButtonElement | null;
     const submitting = document.getElementById('submitting') as HTMLElement | null;
+
     if (form && input && warn && submit && submitting) {
       input.addEventListener('change', () => {
         const file = input.files?.[0];
         if (!file) return;
-        warn.hidden = file.size <= MAX_BYTES;
-        submit.disabled = file.size > MAX_BYTES;
+        const tooBig = file.size > MAX_BYTES;
+        warn.hidden = !tooBig;
+        submit.disabled = tooBig;
+        submit.setAttribute('aria-disabled', String(tooBig));
       });
       form.addEventListener('submit', () => {
         submit.disabled = true;
+        submit.setAttribute('aria-disabled', 'true');
+        const label = submit.querySelector('.submit-label');
+        if (label) label.textContent = 'Subiendo…';
         submitting.hidden = false;
       });
     }

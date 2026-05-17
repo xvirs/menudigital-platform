@@ -7,19 +7,34 @@ interface Props {
 }
 
 const { title, description = 'Menús digitales para restaurantes argentinos.' } = Astro.props;
+const pathname = Astro.url.pathname;
+const isAdmin = pathname === '/admin' || pathname.startsWith('/admin/');
 ---
 
 <!doctype html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0d0d0d" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+
+    {isAdmin && (
+      <>
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Menú Admin" />
+      </>
+    )}
+
     <title>{title}</title>
 
     <style is:global>
@@ -31,9 +46,26 @@ const { title, description = 'Menús digitales para restaurantes argentinos.' } 
         --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
         --font-body: 'Inter', system-ui, -apple-system, sans-serif;
       }
+
+      body {
+        padding-top: env(safe-area-inset-top, 0);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+        padding-left: env(safe-area-inset-left, 0);
+        padding-right: env(safe-area-inset-right, 0);
+      }
     </style>
   </head>
   <body>
     <slot />
+
+    {isAdmin && (
+      <script is:inline>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(() => {});
+          });
+        }
+      </script>
+    )}
   </body>
 </html>

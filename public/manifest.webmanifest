@@ -1,0 +1,20 @@
+{
+  "name": "Menú Digital Admin",
+  "short_name": "Menú Admin",
+  "description": "Subí PDFs de menús y publicá restaurantes automáticamente.",
+  "start_url": "/admin",
+  "scope": "/admin",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0d0d0d",
+  "background_color": "#0d0d0d",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

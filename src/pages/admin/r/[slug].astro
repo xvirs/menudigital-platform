@@ -27,6 +27,7 @@ const editUrl = restaurant
 const publicUrl = restaurant ? `/r/${restaurant.slug}/` : '#';
 const nextStatus = restaurant?.status === 'active' ? 'hidden' : 'active';
 const toggleLabel = restaurant?.status === 'active' ? 'Ocultar' : 'Mostrar';
+const toggleIcon = restaurant?.status === 'active' ? '👁' : '👀';
 
 const dateFormatter = new Intl.DateTimeFormat('es-AR', {
   dateStyle: 'medium',
@@ -45,8 +46,8 @@ const formattedUpdated = restaurant
     <a class="admin-back" href="/admin">← Volver a la lista</a>
 
     {loadError ? (
-      <div class="admin-banner admin-banner--err">
-        <strong>No se pudo leer el restaurante.</strong> {loadError}
+      <div class="admin-banner admin-banner--err" role="alert">
+        <span><strong>No se pudo leer el restaurante.</strong> {loadError}</span>
       </div>
     ) : restaurant && (
       <>
@@ -54,27 +55,40 @@ const formattedUpdated = restaurant
           <div>
             <h1 class="admin-shell__title">{restaurant.info.name}</h1>
             <p class="admin-shell__sub">
-              <code>{restaurant.slug}</code> ·
-              <span class={`admin-status admin-status--${restaurant.status}`} style="margin-left:0.4rem;">
+              <code>{restaurant.slug}</code>
+              <span class={`admin-status admin-status--${restaurant.status}`} style="margin-left:0.5rem;">
                 {restaurant.status}
               </span>
             </p>
           </div>
           <div class="admin-actions">
-            <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">Ver público</a>
-            <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">Editar JSON en GitHub</a>
-            <form method="POST" action="/api/admin/toggle">
+            <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">
+              <span class="admin-btn__icon" aria-hidden="true">↗</span>
+              <span>Ver público</span>
+            </a>
+            <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
+              <span class="admin-btn__icon" aria-hidden="true">✎</span>
+              <span>Editar en GitHub</span>
+            </a>
+            <form method="POST" action="/api/admin/toggle" data-pending>
               <input type="hidden" name="slug" value={restaurant.slug} />
               <input type="hidden" name="status" value={nextStatus} />
-              <button class="admin-btn" type="submit">{toggleLabel}</button>
+              <button class="admin-btn" type="submit">
+                <span class="admin-btn__icon" aria-hidden="true">{toggleIcon}</span>
+                <span>{toggleLabel}</span>
+              </button>
             </form>
             <form
               method="POST"
               action="/api/admin/delete"
-              onsubmit={`return confirm('¿Eliminar ${restaurant.slug}? El JSON se borra del repo. NO se puede deshacer desde el dashboard.')`}
+              data-pending
+              data-confirm={`¿Eliminar ${restaurant.slug}? El JSON se borra del repo. NO se puede deshacer desde el dashboard.`}
             >
               <input type="hidden" name="slug" value={restaurant.slug} />
-              <button class="admin-btn admin-btn--danger" type="submit">Eliminar</button>
+              <button class="admin-btn admin-btn--danger" type="submit">
+                <span class="admin-btn__icon" aria-hidden="true">🗑</span>
+                <span>Eliminar</span>
+              </button>
             </form>
           </div>
         </header>
@@ -82,7 +96,7 @@ const formattedUpdated = restaurant
         <div class="admin-grid">
           <section class="admin-panel">
             <h2 class="admin-panel__title">Preview público</h2>
-            <iframe class="admin-iframe" src={publicUrl} title={`Preview ${restaurant.info.name}`}></iframe>
+            <iframe class="admin-iframe" src={publicUrl} title={`Preview ${restaurant.info.name}`} loading="lazy"></iframe>
           </section>
 
           <aside style="display: flex; flex-direction: column; gap: 1rem;">
@@ -121,4 +135,24 @@ const formattedUpdated = restaurant
       </>
     )}
   </main>
+
+  <script>
+    const forms = document.querySelectorAll<HTMLFormElement>('form[data-pending]');
+    for (const form of Array.from(forms)) {
+      form.addEventListener('submit', (e) => {
+        const confirmMsg = form.dataset.confirm;
+        if (confirmMsg && !window.confirm(confirmMsg)) {
+          e.preventDefault();
+          return;
+        }
+        const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+        if (btn) {
+          btn.disabled = true;
+          btn.setAttribute('aria-disabled', 'true');
+          const span = btn.querySelector('span:last-child');
+          if (span) span.innerHTML = '<span class="admin-spinner" aria-hidden="true"></span> Procesando…';
+        }
+      });
+    }
+  </script>
 </BaseLayout>

@@ -21,6 +21,11 @@ const dateFormatter = new Intl.DateTimeFormat('es-AR', {
   timeStyle: 'short',
 });
 
+function formatDate(value: string) {
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? value : dateFormatter.format(d);
+}
+
 const url = new URL(Astro.request.url);
 const banner = url.searchParams.get('msg');
 const bannerKind = url.searchParams.get('kind') ?? 'ok';
@@ -32,88 +37,177 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
       <div>
         <h1 class="admin-shell__title">Restaurantes</h1>
         <p class="admin-shell__sub">
-          Datos en vivo desde <code>{owner}/{repo}@{branch}</code>.
+          Datos en vivo desde <code>{owner}/{repo}@{branch}</code>
         </p>
       </div>
       <a class="admin-btn admin-btn--primary" href="/admin/upload">
-        + Nuevo menú
+        <span class="admin-btn__icon" aria-hidden="true">＋</span>
+        <span>Nuevo menú</span>
       </a>
     </header>
 
     {banner && (
-      <div class={`admin-banner admin-banner--${bannerKind === 'err' ? 'err' : 'ok'}`}>
-        {banner}
+      <div class={`admin-banner admin-banner--${bannerKind === 'err' ? 'err' : 'ok'}`} role="status">
+        <span>{banner}</span>
       </div>
     )}
 
     {loadError ? (
-      <div class="admin-banner admin-banner--err">
-        <strong>No se pudo leer el repo.</strong> {loadError}
+      <div class="admin-banner admin-banner--err" role="alert">
+        <span><strong>No se pudo leer el repo.</strong> {loadError}</span>
       </div>
     ) : restaurants.length === 0 ? (
       <p class="admin-empty">Todavía no hay restaurantes.</p>
     ) : (
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Slug</th>
-            <th>Estado</th>
-            <th>Actualizado</th>
-            <th>Warnings</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
+      <>
+        {/* Mobile-first: cards */}
+        <div class="admin-cards" role="list">
           {restaurants.map((r) => {
             const editUrl = `https://github.com/${owner}/${repo}/edit/${branch}/content/restaurants/${r.slug}.json`;
             const publicUrl = `/r/${r.slug}/`;
             const adminDetail = `/admin/r/${r.slug}`;
             const nextStatus = r.status === 'active' ? 'hidden' : 'active';
             const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
-            const formattedDate = (() => {
-              const d = new Date(r.updatedAt);
-              return Number.isNaN(d.getTime()) ? r.updatedAt : dateFormatter.format(d);
-            })();
+            const toggleIcon = r.status === 'active' ? '👁' : '👀';
             return (
-              <tr>
-                <td><a href={adminDetail}>{r.name}</a></td>
-                <td><code style="font-size: 0.82rem; opacity: 0.75;">{r.slug}</code></td>
-                <td>
-                  <span class={`admin-status admin-status--${r.status}`}>{r.status}</span>
-                </td>
-                <td>{formattedDate}</td>
-                <td>
-                  {r.missingFieldsCount > 0 ? (
-                    <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
-                  ) : (
-                    <span style="opacity: 0.4;">—</span>
-                  )}
-                </td>
-                <td>
-                  <div class="admin-actions">
-                    <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">Ver</a>
-                    <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">Editar JSON</a>
-                    <form method="POST" action="/api/admin/toggle">
-                      <input type="hidden" name="slug" value={r.slug} />
-                      <input type="hidden" name="status" value={nextStatus} />
-                      <button class="admin-btn" type="submit">{toggleLabel}</button>
-                    </form>
-                    <form
-                      method="POST"
-                      action="/api/admin/delete"
-                      onsubmit={`return confirm('¿Eliminar ${r.slug}? El JSON se borra del repo. Esta acción NO se puede deshacer desde el dashboard (solo con git revert manual).')`}
-                    >
-                      <input type="hidden" name="slug" value={r.slug} />
-                      <button class="admin-btn admin-btn--danger" type="submit">Eliminar</button>
-                    </form>
+              <article class="admin-card" role="listitem">
+                <div class="admin-card__header">
+                  <h2 class="admin-card__name">
+                    <a href={adminDetail}>{r.name}</a>
+                  </h2>
+                  <div class="admin-card__chips">
+                    <span class={`admin-status admin-status--${r.status}`}>{r.status}</span>
+                    {r.missingFieldsCount > 0 && (
+                      <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
+                    )}
+                    <span class="admin-card__slug">{r.slug}</span>
                   </div>
-                </td>
-              </tr>
+                </div>
+                <p class="admin-card__meta">Actualizado: {formatDate(r.updatedAt)}</p>
+                <div class="admin-card__actions">
+                  <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">
+                    <span class="admin-btn__icon" aria-hidden="true">↗</span>
+                    <span>Ver</span>
+                  </a>
+                  <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
+                    <span class="admin-btn__icon" aria-hidden="true">✎</span>
+                    <span>Editar JSON</span>
+                  </a>
+                  <form method="POST" action="/api/admin/toggle" data-pending>
+                    <input type="hidden" name="slug" value={r.slug} />
+                    <input type="hidden" name="status" value={nextStatus} />
+                    <button class="admin-btn" type="submit">
+                      <span class="admin-btn__icon" aria-hidden="true">{toggleIcon}</span>
+                      <span>{toggleLabel}</span>
+                    </button>
+                  </form>
+                  <form
+                    method="POST"
+                    action="/api/admin/delete"
+                    data-pending
+                    data-confirm={`¿Eliminar ${r.slug}? El JSON se borra del repo. NO se puede deshacer desde el dashboard.`}
+                  >
+                    <input type="hidden" name="slug" value={r.slug} />
+                    <button class="admin-btn admin-btn--danger" type="submit">
+                      <span class="admin-btn__icon" aria-hidden="true">🗑</span>
+                      <span>Eliminar</span>
+                    </button>
+                  </form>
+                </div>
+              </article>
             );
           })}
-        </tbody>
-      </table>
+        </div>
+
+        {/* Desktop: same data in a table */}
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Slug</th>
+              <th>Estado</th>
+              <th>Actualizado</th>
+              <th>Warnings</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {restaurants.map((r) => {
+              const editUrl = `https://github.com/${owner}/${repo}/edit/${branch}/content/restaurants/${r.slug}.json`;
+              const publicUrl = `/r/${r.slug}/`;
+              const adminDetail = `/admin/r/${r.slug}`;
+              const nextStatus = r.status === 'active' ? 'hidden' : 'active';
+              const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
+              return (
+                <tr>
+                  <td><a href={adminDetail}>{r.name}</a></td>
+                  <td><code style="font-size: 0.82rem; opacity: 0.75;">{r.slug}</code></td>
+                  <td><span class={`admin-status admin-status--${r.status}`}>{r.status}</span></td>
+                  <td>{formatDate(r.updatedAt)}</td>
+                  <td>
+                    {r.missingFieldsCount > 0 ? (
+                      <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
+                    ) : (
+                      <span style="opacity: 0.4;">—</span>
+                    )}
+                  </td>
+                  <td>
+                    <div class="admin-actions">
+                      <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">Ver</a>
+                      <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">Editar</a>
+                      <form method="POST" action="/api/admin/toggle" data-pending>
+                        <input type="hidden" name="slug" value={r.slug} />
+                        <input type="hidden" name="status" value={nextStatus} />
+                        <button class="admin-btn" type="submit">{toggleLabel}</button>
+                      </form>
+                      <form
+                        method="POST"
+                        action="/api/admin/delete"
+                        data-pending
+                        data-confirm={`¿Eliminar ${r.slug}? El JSON se borra del repo. NO se puede deshacer.`}
+                      >
+                        <input type="hidden" name="slug" value={r.slug} />
+                        <button class="admin-btn admin-btn--danger" type="submit">Eliminar</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </>
     )}
   </main>
+
+  <script>
+    // Confirmaciones + loading state en cada form con [data-pending].
+    const forms = document.querySelectorAll<HTMLFormElement>('form[data-pending]');
+    for (const form of Array.from(forms)) {
+      form.addEventListener('submit', (e) => {
+        const confirmMsg = form.dataset.confirm;
+        if (confirmMsg && !window.confirm(confirmMsg)) {
+          e.preventDefault();
+          return;
+        }
+        const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+        if (btn) {
+          btn.disabled = true;
+          btn.setAttribute('aria-disabled', 'true');
+          const span = btn.querySelector('span:last-child');
+          if (span) span.innerHTML = '<span class="admin-spinner" aria-hidden="true"></span> Procesando…';
+        }
+      });
+    }
+
+    // Auto-hide banners después de 8s.
+    const banners = document.querySelectorAll<HTMLElement>('.admin-banner');
+    for (const b of Array.from(banners)) {
+      setTimeout(() => {
+        b.style.transition = 'opacity 0.5s ease';
+        b.style.opacity = '0';
+        setTimeout(() => (b.style.display = 'none'), 600);
+      }, 8000);
+    }
+  </script>
 </BaseLayout>

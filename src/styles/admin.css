@@ -1,48 +1,82 @@
+/* Admin styles — mobile-first. Desktop layout kicks in via media queries. */
+
 .admin-shell {
-  padding-block: clamp(2rem, 5vw, 3rem);
+  padding-block: clamp(1.25rem, 4vw, 3rem);
 }
 
 .admin-shell__header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-shell__header > div {
+  min-width: 0;
 }
 
 .admin-shell__title {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
   margin: 0;
+  line-height: 1.15;
+  word-break: break-word;
 }
 
 .admin-shell__sub {
-  margin: 0.3rem 0 0;
+  margin: 0.25rem 0 0;
   opacity: 0.65;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  word-break: break-word;
 }
+
+@media (min-width: 760px) {
+  .admin-shell__header {
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ── Buttons (touch targets ≥44px on mobile) ───────────────────────────── */
 
 .admin-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  padding: 0.55rem 1rem;
+  padding: 0.65rem 1rem;
+  min-height: 44px;
   border-radius: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 500;
   background: color-mix(in srgb, currentColor 8%, transparent);
   border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
   text-decoration: none;
   color: inherit;
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+
+.admin-btn:active {
+  transform: scale(0.97);
 }
 
 .admin-btn:hover,
 .admin-btn:focus-visible {
   background: color-mix(in srgb, var(--primary-color) 16%, transparent);
   border-color: color-mix(in srgb, var(--primary-color) 40%, transparent);
+}
+
+.admin-btn[disabled],
+.admin-btn[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .admin-btn--primary {
@@ -56,6 +90,7 @@
 .admin-btn--primary:focus-visible {
   background: var(--accent-color);
   border-color: var(--accent-color);
+  color: #0b0b0b;
 }
 
 .admin-btn--danger {
@@ -66,42 +101,126 @@
 .admin-btn--danger:focus-visible {
   background: color-mix(in srgb, #ff4d4d 18%, transparent);
   border-color: color-mix(in srgb, #ff4d4d 50%, transparent);
+  color: #ff8585;
 }
+
+.admin-btn__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Restaurant list: cards on mobile, table on desktop ────────────────── */
 
 .admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.92rem;
+  display: none;
 }
 
-.admin-table th,
-.admin-table td {
-  text-align: left;
-  padding: 0.85rem 0.9rem;
-  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
-  vertical-align: middle;
+.admin-cards {
+  display: grid;
+  gap: 0.85rem;
 }
 
-.admin-table th {
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.6;
+.admin-card {
   background: color-mix(in srgb, currentColor 4%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 0.85rem;
+  padding: 1rem 1.1rem 1.1rem;
 }
 
-.admin-table tr:last-child td {
-  border-bottom: 0;
+.admin-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
 }
+
+.admin-card__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.admin-card__name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-card__name a:hover {
+  color: var(--primary-color);
+}
+
+.admin-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.admin-card__slug {
+  font-size: 0.78rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  opacity: 0.65;
+  word-break: break-all;
+}
+
+.admin-card__meta {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin: 0 0 0.85rem;
+}
+
+.admin-card__actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+  gap: 0.45rem;
+}
+
+.admin-card__actions form {
+  display: contents;
+}
+
+/* On wider screens use a real table */
+@media (min-width: 880px) {
+  .admin-cards {
+    display: none;
+  }
+  .admin-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .admin-table th,
+  .admin-table td {
+    text-align: left;
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+    vertical-align: middle;
+  }
+  .admin-table th {
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    background: color-mix(in srgb, currentColor 4%, transparent);
+  }
+  .admin-table tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+/* ── Chips & status ────────────────────────────────────────────────────── */
 
 .admin-status {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -121,11 +240,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.18rem 0.55rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 999px;
   background: color-mix(in srgb, #ffb648 22%, transparent);
   color: #ffd086;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
 .admin-actions {
@@ -139,9 +259,12 @@
   margin: 0;
 }
 
-.admin-actions .admin-btn {
-  padding: 0.4rem 0.7rem;
-  font-size: 0.82rem;
+@media (min-width: 880px) {
+  .admin-actions .admin-btn {
+    padding: 0.4rem 0.7rem;
+    min-height: 36px;
+    font-size: 0.82rem;
+  }
 }
 
 .admin-empty {
@@ -154,38 +277,43 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem 0;
   opacity: 0.75;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  min-height: 44px;
 }
 
 .admin-back:hover {
   opacity: 1;
 }
 
+/* ── Grid for detail page ──────────────────────────────────────────────── */
+
 .admin-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   align-items: start;
 }
 
-@media (max-width: 760px) {
+@media (min-width: 880px) {
   .admin-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 2rem;
   }
 }
 
 .admin-panel {
   border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
   border-radius: 0.75rem;
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   background: color-mix(in srgb, currentColor 3%, transparent);
 }
 
 .admin-panel__title {
   margin: 0 0 1rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--primary-color);
@@ -195,17 +323,18 @@
   background: #000;
   color: #d6d6d6;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.78rem;
-  padding: 1rem;
+  font-size: 0.75rem;
+  padding: 0.85rem;
   border-radius: 0.5rem;
   overflow: auto;
-  max-height: 60vh;
+  max-height: 50vh;
   white-space: pre;
+  -webkit-overflow-scrolling: touch;
 }
 
 .admin-iframe {
   width: 100%;
-  height: 70vh;
+  height: clamp(420px, 70vh, 800px);
   border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
   border-radius: 0.75rem;
   background: #fff;
@@ -221,28 +350,129 @@
 .admin-meta dt {
   opacity: 0.6;
   text-transform: uppercase;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   align-self: center;
 }
 
 .admin-meta dd {
   margin: 0;
+  word-break: break-word;
 }
 
+/* ── Banners (sticky on mobile so they're not lost above the fold) ─────── */
+
 .admin-banner {
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.6rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.92rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.admin-banner::before {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .admin-banner--ok {
-  background: color-mix(in srgb, #2ecc71 14%, transparent);
-  border: 1px solid color-mix(in srgb, #2ecc71 40%, transparent);
+  background: color-mix(in srgb, #2ecc71 18%, transparent);
+  border: 1px solid color-mix(in srgb, #2ecc71 45%, transparent);
+}
+
+.admin-banner--ok::before {
+  content: '✓';
+  color: #5ee49a;
+  font-weight: 700;
 }
 
 .admin-banner--err {
-  background: color-mix(in srgb, #ff4d4d 14%, transparent);
-  border: 1px solid color-mix(in srgb, #ff4d4d 40%, transparent);
+  background: color-mix(in srgb, #ff4d4d 18%, transparent);
+  border: 1px solid color-mix(in srgb, #ff4d4d 50%, transparent);
+}
+
+.admin-banner--err::before {
+  content: '⚠';
+  color: #ffb0b0;
+}
+
+/* ── Loading skeleton (used during form submits) ───────────────────────── */
+
+.admin-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: admin-spin 0.7s linear infinite;
+  vertical-align: -2px;
+}
+
+@keyframes admin-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Form for upload page ──────────────────────────────────────────────── */
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.upload-input {
+  width: 100%;
+  padding: 0.9rem 0.85rem;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  border: 1px dashed color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: 0.6rem;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.upload-input::file-selector-button {
+  margin-right: 0.85rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.4rem;
+  border: 0;
+  background: var(--primary-color);
+  color: #0b0b0b;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── PWA install hint banner (admin only) ──────────────────────────────── */
+
+.admin-install-hint {
+  position: sticky;
+  top: env(safe-area-inset-top, 0);
+  z-index: 10;
+  margin: -0.5rem -1rem 1rem;
+  padding: 0.7rem 1rem;
+  background: color-mix(in srgb, var(--primary-color) 18%, var(--background-color));
+  border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 40%, transparent);
+  font-size: 0.86rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.admin-install-hint button {
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  opacity: 0.65;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
 }

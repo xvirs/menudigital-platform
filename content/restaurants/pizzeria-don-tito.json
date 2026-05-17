@@ -1,10 +1,10 @@
 {
   "$schema": "../../schema/menu.schema.json",
   "slug": "pizzeria-don-tito",
-  "status": "hidden",
-  "version": 2,
+  "status": "active",
+  "version": 3,
   "createdAt": "2026-05-16T20:15:00Z",
-  "updatedAt": "2026-05-17T03:27:37.928Z",
+  "updatedAt": "2026-05-17T03:28:30.776Z",
   "_meta": {
     "sourcePdfName": "seed-fixture-don-tito.pdf",
     "extractedBy": "manual",

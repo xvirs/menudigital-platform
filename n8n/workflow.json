@@ -1,0 +1,138 @@
+{
+  "name": "Menu Digital - PDF to JSON",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-pdf",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a1b2c3d4-1111-2222-3333-444444444444",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        100,
+        300
+      ],
+      "webhookId": "menudigital-new-pdf"
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Valida X-Webhook-Secret contra la env var.\nconst headers = $input.first().json.headers ?? {};\nconst received =\n  headers['x-webhook-secret'] ?? headers['X-Webhook-Secret'];\nconst expected = $env.WEBHOOK_SECRET;\n\nif (!expected) {\n  throw new Error('WEBHOOK_SECRET not set. Restart n8n with ~/start-n8n.sh.');\n}\nif (!received) {\n  throw new Error('Missing X-Webhook-Secret header.');\n}\nif (received !== expected) {\n  throw new Error('Invalid X-Webhook-Secret.');\n}\n\nreturn $input.all();\n"
+      },
+      "id": "b2c3d4e5-2222-3333-4444-555555555555",
+      "name": "Validate Secret",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "pdf",
+        "options": {}
+      },
+      "id": "d4e5f6a7-4444-5555-6666-777777777777",
+      "name": "Extract PDF Text",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        540,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Llama directamente a la API de Gemini con fetch nativo y parsea la respuesta.\n// Reemplaza 3 nodos (Build body + HTTP Request + Parse) por uno solo más simple.\n\nconst pdfText = ($input.first().json.text ?? '').trim();\n\nif (!pdfText) {\n  throw new Error(\n    'No text extracted from PDF. Probablemente el PDF es escaneado (sin texto seleccionable). El fallback a Vision LLM no está implementado todavía.'\n  );\n}\n\nconst apiKey = $env.GEMINI_API_KEY;\nif (!apiKey) {\n  throw new Error('GEMINI_API_KEY not set in n8n environment.');\n}\n\nconst prompt =\n  'Sos un asistente experto en menús de restaurantes argentinos. Extraé los datos del siguiente texto y devolvé un JSON con esta estructura exacta:\\n\\n' +\n  '{\\n' +\n  '  \"info\": { \"name\": string, \"location\": string },\\n' +\n  '  \"menuSections\": [{ \"id\": string (kebab-case), \"title\": string, \"items\": [slug,...] }],\\n' +\n  '  \"items\": {\\n' +\n  '    \"<slug>\": {\\n' +\n  '      \"slug\": string (kebab-case ASCII sin acentos),\\n' +\n  '      \"name\": string,\\n' +\n  '      \"price\": string (solo dígitos, ej \\'5500\\'),\\n' +\n  '      \"shortDescription\": string,\\n' +\n  '      \"icon\": string (emoji según categoría),\\n' +\n  '      \"type\": string\\n' +\n  '    }\\n' +\n  '  }\\n' +\n  '}\\n\\n' +\n  'Reglas: precios sin $ ni puntos. Slugs kebab-case ASCII sin acentos. Cada slug en menuSections.items debe existir en items{}. Idioma español argentino. Iconos por categoría (pizza:🍕 pasta:🍝 ensalada:🥗 carne:🥩 hamburguesa:🍔 pescado:🐟 postre:🍰 vino:🍷 cerveza:🍺 café:☕ bebida:🥤 sushi:🍣 sopa:🍲 tapa:🍢 vermut:🍹 picada:🧀 sandwich:🥪 fritura:🍟 default:🍽️).\\n\\n' +\n  'Si el texto no es un menú, respondé: {\"error\":\"no_es_menu\"}.\\n\\n' +\n  'Respondé SOLO el JSON, sin markdown ni texto extra.\\n\\n' +\n  'Texto del menú:\\n\\n' +\n  pdfText;\n\nconst payload = {\n  contents: [{ parts: [{ text: prompt }] }],\n  generationConfig: {\n    responseMimeType: 'application/json',\n    temperature: 0.2,\n  },\n};\n\nconst url =\n  'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' +\n  apiKey;\n\nlet data;\ntry {\n  data = await this.helpers.httpRequest({\n    method: 'POST',\n    url: url,\n    body: payload,\n    json: true,\n    headers: { 'Content-Type': 'application/json' },\n    returnFullResponse: false,\n  });\n} catch (err) {\n  const status = err?.httpCode ?? err?.statusCode ?? '?';\n  const body = err?.response?.body ?? err?.message ?? 'unknown';\n  throw new Error(\n    'Gemini API error ' + status + ': ' + JSON.stringify(body).slice(0, 500)\n  );\n}\n\nconst raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';\n\nlet parsed;\ntry {\n  parsed = JSON.parse(raw);\n} catch (err) {\n  return [\n    {\n      json: {\n        ok: false,\n        error: 'gemini_returned_invalid_json',\n        message: err.message,\n        rawSample: raw.slice(0, 500),\n        pdfCharCount: pdfText.length,\n      },\n    },\n  ];\n}\n\nreturn [\n  {\n    json: {\n      ok: true,\n      extracted: parsed,\n      pdfCharCount: pdfText.length,\n      promptCharCount: prompt.length,\n    },\n  },\n];\n"
+      },
+      "id": "e5f6a7b8-5555-6666-7777-888888888888",
+      "name": "Call Gemini",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "c3d4e5f6-3333-4444-5555-666666666666",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        980,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Secret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Secret": {
+      "main": [
+        [
+          {
+            "node": "Extract PDF Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract PDF Text": {
+      "main": [
+        [
+          {
+            "node": "Call Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Gemini": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fase3-call-gemini-fetch",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "tags": []
+}

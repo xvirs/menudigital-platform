@@ -1,0 +1,39 @@
+---
+import type { Restaurant } from '../../types/restaurant';
+import { isMissing } from '../../types/restaurant';
+
+interface Props {
+  restaurant: Restaurant;
+}
+
+const { restaurant } = Astro.props;
+const { info } = restaurant;
+const year = new Date().getFullYear();
+const showSince = !isMissing(info.since);
+---
+
+<footer class="menu-footer">
+  <div class="container">
+    <p class="menu-footer__line">© {year} {info.name}</p>
+    {showSince && <p class="menu-footer__since">Desde {info.since}</p>}
+  </div>
+</footer>
+
+<style>
+  .menu-footer {
+    padding-block: 2.5rem;
+    text-align: center;
+    border-top: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+    margin-top: 2rem;
+  }
+
+  .menu-footer__line {
+    font-size: 0.9rem;
+  }
+
+  .menu-footer__since {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import type { Restaurant } from '../../types/restaurant';
+import SearchBar from './SearchBar.astro';
+
+interface Props {
+  restaurant: Restaurant;
+}
+
+const { restaurant } = Astro.props;
+const { menuSections } = restaurant;
+---
+
+<nav class="menu-nav" aria-label="Secciones del menú">
+  <div class="menu-nav__inner container">
+    <ul class="menu-nav__list">
+      {menuSections.map((section) => (
+        <li class="menu-nav__item">
+          <a class="menu-nav__link" href={`#${section.id}`} data-section-link={section.id}>
+            {section.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <SearchBar />
+  </div>
+</nav>
+
+<script>
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('[data-section-link]')
+  );
+  const targetIds = links
+    .map((a) => a.dataset.sectionLink)
+    .filter((s): s is string => Boolean(s));
+
+  for (const a of links) {
+    a.addEventListener('click', (e) => {
+      const id = a.dataset.sectionLink;
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${id}`);
+    });
+  }
+
+  if ('IntersectionObserver' in window && targetIds.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const id = entry.target.id;
+          for (const link of links) {
+            link.classList.toggle('menu-nav__link--active', link.dataset.sectionLink === id);
+          }
+        }
+      },
+      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+    );
+    for (const id of targetIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+  }
+</script>

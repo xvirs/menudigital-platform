@@ -1,0 +1,29 @@
+---
+import RestaurantLayout from '../../../layouts/RestaurantLayout.astro';
+import RestaurantHeader from '../../../components/menu/RestaurantHeader.astro';
+import MenuNav from '../../../components/menu/MenuNav.astro';
+import MenuSection from '../../../components/menu/MenuSection.astro';
+import Footer from '../../../components/menu/Footer.astro';
+import { getActiveRestaurants } from '../../../lib/restaurants';
+import '../../../styles/menu.css';
+
+export function getStaticPaths() {
+  return getActiveRestaurants().map((restaurant) => ({
+    params: { slug: restaurant.slug },
+    props: { restaurant },
+  }));
+}
+
+const { restaurant } = Astro.props;
+---
+
+<RestaurantLayout restaurant={restaurant}>
+  <RestaurantHeader restaurant={restaurant} />
+  <MenuNav restaurant={restaurant} />
+  <main class="container">
+    {restaurant.menuSections.map((section) => (
+      <MenuSection section={section} restaurant={restaurant} />
+    ))}
+  </main>
+  <Footer restaurant={restaurant} />
+</RestaurantLayout>

@@ -1,0 +1,63 @@
+---
+import type { MenuItem, Restaurant } from '../../types/restaurant';
+import { isMissing } from '../../types/restaurant';
+import { formatPrice, getSectionForDish } from '../../lib/restaurants';
+
+interface Props {
+  restaurant: Restaurant;
+  dish: MenuItem;
+}
+
+const { restaurant, dish } = Astro.props;
+const section = getSectionForDish(restaurant, dish.slug);
+
+const hasDescription = !isMissing(dish.description);
+const hasShort = !isMissing(dish.shortDescription);
+const hasIngredients = Array.isArray(dish.ingredients) && dish.ingredients.length > 0;
+const hasType = !isMissing(dish.type);
+const priceLabel = isMissing(dish.price) ? '—' : formatPrice(dish.price);
+
+const menuUrl = `/r/${restaurant.slug}/`;
+---
+
+<article class="dish-detail">
+  <a class="dish-detail__back" href={menuUrl}>
+    <span aria-hidden="true">←</span>
+    <span>Volver al menú</span>
+  </a>
+
+  <header class="dish-detail__header">
+    <span class="dish-detail__icon" aria-hidden="true">{dish.icon}</span>
+    {section && <p class="dish-detail__section">{section.title}</p>}
+    <h1 class="dish-detail__name">{dish.name}</h1>
+    {hasType && <p class="dish-detail__type">{dish.type}</p>}
+    <p class="dish-detail__price">{priceLabel}</p>
+  </header>
+
+  {hasShort && (
+    <p class="dish-detail__lead">{dish.shortDescription}</p>
+  )}
+
+  {hasDescription && (
+    <section class="dish-detail__section-block">
+      <h2 class="dish-detail__heading">Descripción</h2>
+      <p class="dish-detail__body">{dish.description}</p>
+    </section>
+  )}
+
+  {hasIngredients && (
+    <section class="dish-detail__section-block">
+      <h2 class="dish-detail__heading">Ingredientes</h2>
+      <ul class="dish-detail__ingredients">
+        {dish.ingredients!.map((ing) => (
+          <li class="dish-detail__ingredient">{ing}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <a class="dish-detail__back dish-detail__back--bottom" href={menuUrl}>
+    <span aria-hidden="true">←</span>
+    <span>Volver al menú completo</span>
+  </a>
+</article>

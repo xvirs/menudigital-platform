@@ -1,17 +1,57 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getActiveRestaurants } from '../lib/restaurants';
+import '../styles/landing.css';
 
+const restaurants = getActiveRestaurants().slice().sort((a, b) =>
+  a.info.name.localeCompare(b.info.name, 'es-AR')
+);
+
+const year = new Date().getFullYear();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Menú Digital · Plataforma de menús">
+  <main class="container">
+    <section class="landing-hero">
+      <span class="landing-hero__eyebrow">Plataforma de menús digitales</span>
+      <h1 class="landing-hero__title">Menús que se actualizan en minutos.</h1>
+      <p class="landing-hero__sub">
+        Cada restaurante con su URL propia, su paleta, su tipografía. Sin app que descargar.
+      </p>
+    </section>
+
+    {restaurants.length === 0 ? (
+      <p class="landing-empty">Todavía no hay restaurantes publicados.</p>
+    ) : (
+      <section class="landing-grid">
+        {restaurants.map((r) => {
+          const sectionsCount = r.menuSections.length;
+          const itemsCount = Object.keys(r.items).length;
+          return (
+            <a
+              class="restaurant-card"
+              href={`/r/${r.slug}/`}
+              style={`--card-color: ${r.info.theme.primaryColor};`}
+            >
+              {r.info.location && (
+                <p class="restaurant-card__location">{r.info.location}</p>
+              )}
+              <h2 class="restaurant-card__name">{r.info.name}</h2>
+              {r.info.subtitle && (
+                <p class="restaurant-card__subtitle">{r.info.subtitle}</p>
+              )}
+              <div class="restaurant-card__meta">
+                <span class="restaurant-card__count">
+                  {sectionsCount} secciones · {itemsCount} platos
+                </span>
+                <span class="restaurant-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          );
+        })}
+      </section>
+    )}
+
+    <footer class="landing-footer">© {year} Menú Digital</footer>
+  </main>
+</BaseLayout>

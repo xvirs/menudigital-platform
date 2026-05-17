@@ -1,0 +1,56 @@
+---
+import type { Restaurant } from '../types/restaurant';
+import '../styles/global.css';
+
+interface Props {
+  restaurant: Restaurant;
+  pageTitle?: string;
+  pageDescription?: string;
+}
+
+const { restaurant, pageTitle, pageDescription } = Astro.props;
+const { info } = restaurant;
+const { theme } = info;
+
+const title = pageTitle ?? info.name;
+const description = pageDescription ?? info.description ?? `Menú de ${info.name}`;
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="restaurant.menu" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <style
+      is:global
+      define:vars={{
+        primaryColor: theme.primaryColor,
+        backgroundColor: theme.backgroundColor,
+        textColor: theme.textColor,
+        accentColor: theme.accentColor,
+        fontHeading: theme.fonts.heading,
+        fontBody: theme.fonts.body,
+      }}
+    >
+      :root {
+        --primary-color: var(--primaryColor);
+        --background-color: var(--backgroundColor);
+        --text-color: var(--textColor);
+        --accent-color: var(--accentColor);
+        --font-heading: var(--fontHeading);
+        --font-body: var(--fontBody);
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

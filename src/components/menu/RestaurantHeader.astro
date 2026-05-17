@@ -1,0 +1,44 @@
+---
+import type { Restaurant } from '../../types/restaurant';
+import { isMissing } from '../../types/restaurant';
+
+interface Props {
+  restaurant: Restaurant;
+}
+
+const { restaurant } = Astro.props;
+const { info } = restaurant;
+
+const showLocation = !isMissing(info.location);
+const showSubtitle = !isMissing(info.subtitle);
+const showSince = !isMissing(info.since);
+const showDescription = !isMissing(info.description);
+const showSchedule = !isMissing(info.schedule);
+const ig = info.social?.instagram;
+const showInstagram = ig && !isMissing(ig.url);
+---
+
+<header class="restaurant-header">
+  <div class="restaurant-header__inner container">
+    {showLocation && <p class="restaurant-header__location">{info.location}</p>}
+    <h1 class="restaurant-header__name">{info.name}</h1>
+    {showSubtitle && <p class="restaurant-header__subtitle">{info.subtitle}</p>}
+    {showDescription && <p class="restaurant-header__description">{info.description}</p>}
+    <div class="restaurant-header__meta">
+      {showSince && <span class="restaurant-header__chip">Desde {info.since}</span>}
+      {showSchedule && <span class="restaurant-header__chip">{info.schedule}</span>}
+      {showInstagram && (
+        <a
+          class="restaurant-header__chip restaurant-header__chip--link"
+          href={ig!.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Instagram de ${info.name}`}
+        >
+          <span aria-hidden="true">📷</span>
+          <span>{ig!.handle ?? 'Instagram'}</span>
+        </a>
+      )}
+    </div>
+  </div>
+</header>

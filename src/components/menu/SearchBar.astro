@@ -1,0 +1,85 @@
+---
+// Standalone search input. The actual filtering script is inline below so
+// it ships as one tiny chunk and doesn't need a framework island.
+---
+
+<div class="search-bar">
+  <label class="sr-only" for="menu-search">Buscar en el menú</label>
+  <span class="search-bar__icon" aria-hidden="true">🔍</span>
+  <input
+    id="menu-search"
+    class="search-bar__input"
+    type="search"
+    placeholder="Buscar plato, ingrediente..."
+    autocomplete="off"
+    inputmode="search"
+  />
+  <button
+    class="search-bar__clear"
+    type="button"
+    aria-label="Limpiar búsqueda"
+    hidden
+  >
+    ✕
+  </button>
+</div>
+
+<p class="search-empty" hidden>No encontramos resultados para tu búsqueda.</p>
+
+<script>
+  function normalize(text: string): string {
+    return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  }
+
+  function debounce<T extends (...args: any[]) => void>(fn: T, ms: number) {
+    let t: ReturnType<typeof setTimeout> | undefined;
+    return (...args: Parameters<T>) => {
+      if (t) clearTimeout(t);
+      t = setTimeout(() => fn(...args), ms);
+    };
+  }
+
+  const input = document.getElementById('menu-search') as HTMLInputElement | null;
+  const clearBtn = document.querySelector('.search-bar__clear') as HTMLButtonElement | null;
+  const empty = document.querySelector('.search-empty') as HTMLElement | null;
+  if (!input || !clearBtn || !empty) {
+    // Page without search; nothing to wire up.
+  } else {
+    const items = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-search]')
+    );
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-section]')
+    );
+
+    function applyFilter(raw: string) {
+      const q = normalize(raw.trim());
+      let visibleCount = 0;
+
+      for (const el of items) {
+        const haystack = el.dataset.search ?? '';
+        const matches = q === '' || haystack.includes(q);
+        el.hidden = !matches;
+        if (matches) visibleCount++;
+      }
+
+      for (const section of sections) {
+        const anyVisible = Array.from(
+          section.querySelectorAll<HTMLElement>('[data-search]')
+        ).some((el) => !el.hidden);
+        section.hidden = !anyVisible;
+      }
+
+      clearBtn.hidden = q === '';
+      empty.hidden = !(q !== '' && visibleCount === 0);
+    }
+
+    const debounced = debounce(applyFilter, 200);
+    input.addEventListener('input', () => debounced(input.value));
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      applyFilter('');
+      input.focus();
+    });
+  }
+</script>

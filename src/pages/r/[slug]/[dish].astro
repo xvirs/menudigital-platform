@@ -1,0 +1,30 @@
+---
+import RestaurantLayout from '../../../layouts/RestaurantLayout.astro';
+import DishDetail from '../../../components/menu/DishDetail.astro';
+import Footer from '../../../components/menu/Footer.astro';
+import { getActiveRestaurants } from '../../../lib/restaurants';
+import '../../../styles/detail.css';
+
+export function getStaticPaths() {
+  return getActiveRestaurants().flatMap((restaurant) =>
+    Object.values(restaurant.items).map((dish) => ({
+      params: { slug: restaurant.slug, dish: dish.slug },
+      props: { restaurant, dish },
+    }))
+  );
+}
+
+const { restaurant, dish } = Astro.props;
+const pageTitle = `${dish.name} · ${restaurant.info.name}`;
+---
+
+<RestaurantLayout
+  restaurant={restaurant}
+  pageTitle={pageTitle}
+  pageDescription={dish.shortDescription ?? dish.description}
+>
+  <main class="container">
+    <DishDetail restaurant={restaurant} dish={dish} />
+  </main>
+  <Footer restaurant={restaurant} />
+</RestaurantLayout>

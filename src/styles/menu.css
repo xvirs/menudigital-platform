@@ -1,0 +1,288 @@
+/* Layout shell for a restaurant menu page. Lives on top of global.css. */
+
+.restaurant-header {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 100%
+  );
+  color: #fff;
+  padding-block: clamp(2.5rem, 8vw, 4.5rem);
+  text-align: center;
+}
+
+.restaurant-header__location {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.restaurant-header__name {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.restaurant-header__subtitle {
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.92;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.restaurant-header__description {
+  margin-top: 1.25rem;
+  max-width: 50ch;
+  margin-inline: auto;
+  opacity: 0.92;
+  line-height: 1.55;
+}
+
+.restaurant-header__meta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.restaurant-header__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+}
+
+.restaurant-header__chip--link {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.restaurant-header__chip--link:hover,
+.restaurant-header__chip--link:focus-visible {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateY(-1px);
+}
+
+/* ── Sticky nav with sections + search ─────────────────────────────────── */
+
+.menu-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--background-color) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.menu-nav__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-block: 0.85rem;
+}
+
+.menu-nav__list {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: calc(clamp(1rem, 4vw, 2rem) * -1);
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-nav__item {
+  flex: 0 0 auto;
+}
+
+.menu-nav__link {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-nav__link:hover,
+.menu-nav__link:focus-visible {
+  background: color-mix(in srgb, var(--primary-color) 18%, transparent);
+}
+
+.menu-nav__link--active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* ── Search bar ────────────────────────────────────────────────────────── */
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 999px;
+  padding: 0.1rem 0.4rem 0.1rem 0.85rem;
+}
+
+.search-bar:focus-within {
+  border-color: var(--primary-color);
+}
+
+.search-bar__icon {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.search-bar__input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0.6rem 0.35rem;
+  color: inherit;
+  font: inherit;
+  min-width: 0;
+}
+
+.search-bar__input::placeholder {
+  color: color-mix(in srgb, currentColor 55%, transparent);
+}
+
+.search-bar__clear {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.search-bar__clear:hover {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.search-empty {
+  margin: 1.5rem auto;
+  text-align: center;
+  color: color-mix(in srgb, currentColor 70%, transparent);
+  font-style: italic;
+}
+
+/* ── Menu sections + items ─────────────────────────────────────────────── */
+
+.menu-section {
+  padding-block: clamp(2rem, 5vw, 3rem);
+  border-bottom: 1px solid color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.menu-section:last-of-type {
+  border-bottom: 0;
+}
+
+.menu-section__title {
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.menu-section__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.menu-section__items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Items */
+
+.menu-item {
+  border-bottom: 1px dashed color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.menu-item:last-child {
+  border-bottom: 0;
+}
+
+.menu-item__link,
+.menu-item__static {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding-block: 0.95rem;
+  width: 100%;
+  text-align: left;
+}
+
+.menu-item__link {
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.menu-item__link:hover,
+.menu-item__link:focus-visible {
+  background: color-mix(in srgb, var(--primary-color) 6%, transparent);
+  transform: translateX(2px);
+}
+
+.menu-item__icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.menu-item__body {
+  min-width: 0;
+}
+
+.menu-item__name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: var(--font-body);
+  letter-spacing: 0.005em;
+}
+
+.menu-item__short {
+  margin-top: 0.2rem;
+  font-size: 0.88rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.menu-item__price {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.02rem;
+  white-space: nowrap;
+}
+
+/* Footer styles moved into the Footer.astro component so it works
+   across all pages that import it, not just the menu page. */

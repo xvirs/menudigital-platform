@@ -1,0 +1,29 @@
+---
+import type { Restaurant, MenuSection } from '../../types/restaurant';
+import MenuItem from './MenuItem.astro';
+
+interface Props {
+  section: MenuSection;
+  restaurant: Restaurant;
+}
+
+const { section, restaurant } = Astro.props;
+
+const items = section.items
+  .map((slug) => restaurant.items[slug])
+  .filter((item): item is NonNullable<typeof item> => Boolean(item));
+---
+
+<section
+  id={section.id}
+  class="menu-section"
+  data-section={section.id}
+  aria-labelledby={`${section.id}-title`}
+>
+  <h2 id={`${section.id}-title`} class="menu-section__title">{section.title}</h2>
+  <ul class="menu-section__items">
+    {items.map((item) => (
+      <MenuItem item={item} restaurantSlug={restaurant.slug} />
+    ))}
+  </ul>
+</section>

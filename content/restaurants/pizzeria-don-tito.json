@@ -1,0 +1,209 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "pizzeria-don-tito",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-05-16T20:15:00Z",
+  "updatedAt": "2026-05-16T20:15:00Z",
+  "_meta": {
+    "sourcePdfName": "seed-fixture-don-tito.pdf",
+    "extractedBy": "manual",
+    "missingFields": []
+  },
+  "info": {
+    "name": "Pizzería Don Tito",
+    "location": "General Paz, Córdoba",
+    "subtitle": "A la piedra desde 1987",
+    "since": "1987",
+    "description": "Pizzería de barrio con horno a leña. Masa de fermentación lenta, productos del país y la receta de la abuela.",
+    "schedule": "Mié a Lun, 19 a 00 hs",
+    "social": {
+      "instagram": {
+        "url": "https://instagram.com/pizzeriadontito",
+        "handle": "@pizzeriadontito"
+      },
+      "whatsapp": {
+        "number": "5493514111222",
+        "message": "Hola Don Tito! Quiero hacer un pedido."
+      }
+    },
+    "theme": {
+      "primaryColor": "#E84A1F",
+      "backgroundColor": "#111111",
+      "textColor": "#F5F1E8",
+      "accentColor": "#F5B940",
+      "fonts": {
+        "heading": "'Oswald', 'Bebas Neue', Impact, sans-serif",
+        "body": "'Inter', 'Helvetica Neue', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "pizzas",
+      "title": "Pizzas",
+      "items": [
+        "pizza-margarita",
+        "pizza-cuatro-quesos",
+        "pizza-calabresa",
+        "pizza-don-tito",
+        "pizza-napolitana"
+      ]
+    },
+    {
+      "id": "para-picar",
+      "title": "Para Picar",
+      "items": [
+        "empanadas-don-tito",
+        "provoleta",
+        "fugazza-rellena"
+      ]
+    },
+    {
+      "id": "postres",
+      "title": "Postres",
+      "items": [
+        "tiramisu-de-la-casa",
+        "helado-dolce-de-leche"
+      ]
+    },
+    {
+      "id": "bebidas",
+      "title": "Bebidas",
+      "items": [
+        "fernet-con-coca",
+        "quilmes-litro",
+        "vino-tinto-de-la-casa"
+      ]
+    }
+  ],
+  "items": {
+    "pizza-margarita": {
+      "slug": "pizza-margarita",
+      "name": "Pizza Margarita",
+      "price": "7500",
+      "shortDescription": "Mozzarella, tomate San Marzano, albahaca",
+      "description": "La clásica napolitana. Salsa de tomate San Marzano, mozzarella fior di latte, albahaca fresca y un hilo de oliva al final del horno.",
+      "ingredients": ["Masa madre", "Tomate San Marzano", "Mozzarella fior di latte", "Albahaca fresca", "Aceite de oliva"],
+      "type": "Pizza a la piedra",
+      "icon": "🍕"
+    },
+    "pizza-cuatro-quesos": {
+      "slug": "pizza-cuatro-quesos",
+      "name": "Pizza Cuatro Quesos",
+      "price": "9200",
+      "shortDescription": "Mozzarella, provolone, parmesano, roquefort",
+      "description": "Combinación intensa de cuatro quesos italianos sobre nuestra masa de fermentación lenta. Para los que no le tienen miedo al sabor.",
+      "ingredients": ["Mozzarella", "Provolone", "Parmesano", "Roquefort", "Orégano"],
+      "type": "Pizza a la piedra",
+      "icon": "🧀"
+    },
+    "pizza-calabresa": {
+      "slug": "pizza-calabresa",
+      "name": "Pizza Calabresa",
+      "price": "8400",
+      "shortDescription": "Mozzarella, longaniza calabresa, morrón",
+      "description": "Mozzarella, longaniza calabresa picante traída desde Oncativo, morrones asados y un toque de oliva.",
+      "ingredients": ["Mozzarella", "Longaniza calabresa", "Morrón asado", "Aceitunas negras"],
+      "type": "Pizza a la piedra",
+      "icon": "🌶️"
+    },
+    "pizza-don-tito": {
+      "slug": "pizza-don-tito",
+      "name": "Pizza Don Tito",
+      "price": "10800",
+      "shortDescription": "La especialidad: prosciutto, rúcula y parmesano",
+      "description": "La pizza que nos hace conocidos en el barrio. Base de mozzarella, jamón crudo italiano fileteado al momento, rúcula fresca y láminas de parmesano reggiano.",
+      "ingredients": ["Mozzarella", "Jamón crudo italiano", "Rúcula fresca", "Parmesano reggiano", "Aceite de oliva extra virgen"],
+      "type": "Pizza especialidad",
+      "icon": "⭐"
+    },
+    "pizza-napolitana": {
+      "slug": "pizza-napolitana",
+      "name": "Pizza Napolitana",
+      "price": "7900",
+      "shortDescription": "Mozzarella, tomate fresco, ajo y orégano",
+      "description": "Mozzarella generosa, rodajas de tomate fresco, dientes de ajo laminado y orégano. Simple, perfecta.",
+      "ingredients": ["Mozzarella", "Tomate fresco", "Ajo", "Orégano", "Aceite de oliva"],
+      "type": "Pizza a la piedra",
+      "icon": "🍕"
+    },
+    "empanadas-don-tito": {
+      "slug": "empanadas-don-tito",
+      "name": "Empanadas Don Tito",
+      "price": "1800",
+      "shortDescription": "Carne, pollo, jamón y queso o humita",
+      "description": "Empanadas caseras al horno. Elegí: carne cortada a cuchillo, pollo desmenuzado, jamón y queso, o humita. Por unidad.",
+      "ingredients": ["Masa casera", "Carne cortada a cuchillo / Pollo / Jamón y queso / Humita"],
+      "type": "Para compartir",
+      "icon": "🥟"
+    },
+    "provoleta": {
+      "slug": "provoleta",
+      "name": "Provoleta",
+      "price": "6500",
+      "shortDescription": "Al horno con orégano y chimichurri",
+      "description": "Provolone cremoso fundido al horno con orégano. Se sirve con pan crocante y chimichurri casero.",
+      "ingredients": ["Queso provolone", "Orégano", "Chimichurri casero", "Pan crocante"],
+      "type": "Para compartir",
+      "icon": "🧀"
+    },
+    "fugazza-rellena": {
+      "slug": "fugazza-rellena",
+      "name": "Fugazza Rellena",
+      "price": "9500",
+      "shortDescription": "Doble masa, jamón, queso y cebolla",
+      "description": "Dos discos de masa entre los que va jamón cocido y mozzarella, coronada con cebolla blanca dorada al horno. Clásico argentino imbatible.",
+      "ingredients": ["Masa", "Jamón cocido", "Mozzarella", "Cebolla blanca", "Aceite de oliva"],
+      "type": "Pizza rellena",
+      "icon": "🧅"
+    },
+    "tiramisu-de-la-casa": {
+      "slug": "tiramisu-de-la-casa",
+      "name": "Tiramisú de la Casa",
+      "price": "5200",
+      "shortDescription": "Receta tradicional, mascarpone y café",
+      "description": "Mascarpone batido con yemas, capas de vainillas embebidas en café espresso y cacao amargo en polvo. Receta tradicional sin atajos.",
+      "ingredients": ["Mascarpone", "Yemas de huevo", "Vainillas", "Café espresso", "Cacao amargo", "Marsala"],
+      "type": "Postre frío",
+      "icon": "🍰"
+    },
+    "helado-dolce-de-leche": {
+      "slug": "helado-dolce-de-leche",
+      "name": "Helado de Dolce de Leche",
+      "price": "3800",
+      "shortDescription": "Dos bochas artesanales",
+      "description": "Dos bochas de helado artesanal de dulce de leche granizado. Servido con crocante de almendras.",
+      "ingredients": ["Dulce de leche", "Crema", "Granizado", "Almendras"],
+      "type": "Postre frío",
+      "icon": "🍨"
+    },
+    "fernet-con-coca": {
+      "slug": "fernet-con-coca",
+      "name": "Fernet con Coca",
+      "price": "4500",
+      "shortDescription": "Medida generosa, como debe ser",
+      "description": "Fernet Branca con Coca-Cola, hielo y rodaja de limón. Medida cordobesa.",
+      "type": "Trago",
+      "icon": "🥃"
+    },
+    "quilmes-litro": {
+      "slug": "quilmes-litro",
+      "name": "Quilmes 1 Litro",
+      "price": "3900",
+      "shortDescription": "Bien fría",
+      "description": "Botella retornable de litro, servida bien fría.",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "vino-tinto-de-la-casa": {
+      "slug": "vino-tinto-de-la-casa",
+      "name": "Vino Tinto de la Casa",
+      "price": "5500",
+      "shortDescription": "Malbec mendocino por jarra",
+      "description": "Malbec joven mendocino en jarra de 500 ml. Frutado y suave, ideal para acompañar pizzas.",
+      "type": "Vino tinto",
+      "icon": "🍷"
+    }
+  }
+}

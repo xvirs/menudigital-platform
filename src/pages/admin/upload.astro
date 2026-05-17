@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/admin.css';
+---
+
+<BaseLayout title="Admin · Nuevo menú">
+  <main class="container admin-shell">
+    <a class="admin-back" href="/admin">← Volver a la lista</a>
+
+    <header class="admin-shell__header">
+      <div>
+        <h1 class="admin-shell__title">Nuevo menú</h1>
+        <p class="admin-shell__sub">
+          Subí un PDF del menú. n8n lo procesa con Gemini, valida el JSON contra el schema y commitea
+          directo al repo. Vercel rebuildea solo y el restaurante queda público en ~1-2 minutos.
+        </p>
+      </div>
+    </header>
+
+    <section class="admin-panel" style="max-width: 640px;">
+      <form
+        method="POST"
+        action="/api/admin/upload"
+        enctype="multipart/form-data"
+        id="upload-form"
+      >
+        <label
+          for="pdf-input"
+          style="display: block; margin-bottom: 0.75rem; font-size: 0.88rem; opacity: 0.85;"
+        >
+          PDF del menú (máximo 4 MB)
+        </label>
+        <input
+          id="pdf-input"
+          type="file"
+          name="pdf"
+          accept="application/pdf"
+          required
+          style="width: 100%; padding: 0.75rem; background: color-mix(in srgb, currentColor 4%, transparent); border: 1px dashed color-mix(in srgb, currentColor 30%, transparent); border-radius: 0.5rem; color: inherit;"
+        />
+
+        <div id="size-warning" class="admin-banner admin-banner--err" hidden style="margin-top: 1rem;">
+          El archivo elegido supera los 4 MB. Vercel rechaza request bodies más grandes.
+        </div>
+
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">
+          ⏱ Después de subir, el endpoint puede tardar entre 60 y 180 segundos (Gemini procesa el
+          texto + commit a GitHub). No cierres la pestaña.
+        </p>
+
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; align-items: center;">
+          <button type="submit" class="admin-btn admin-btn--primary" id="submit-btn">
+            Procesar PDF
+          </button>
+          <span id="submitting" hidden style="font-size: 0.88rem; opacity: 0.75;">
+            Procesando… esperá, esto tarda hasta 3 min.
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-panel" style="max-width: 640px; margin-top: 1.5rem;">
+      <h2 class="admin-panel__title">¿Qué pasa adentro?</h2>
+      <ol style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; padding-left: 1.2rem;">
+        <li>Tu browser sube el PDF a <code>/api/admin/upload</code> en Vercel.</li>
+        <li>El endpoint forwardea el PDF al webhook de n8n (en tu Mac vía Cloudflare Tunnel).</li>
+        <li>n8n extrae el texto con pdf-parse.</li>
+        <li>Gemini 2.5 Flash genera el JSON estructurado.</li>
+        <li>n8n wrappea + genera slug único + commit al repo.</li>
+        <li>GitHub Actions valida el JSON contra el schema.</li>
+        <li>Vercel rebuildea con el nuevo restaurante.</li>
+        <li>La URL <code>/r/&lt;slug&gt;/</code> queda viva.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    const MAX_BYTES = 4 * 1024 * 1024;
+    const form = document.getElementById('upload-form') as HTMLFormElement | null;
+    const input = document.getElementById('pdf-input') as HTMLInputElement | null;
+    const warn = document.getElementById('size-warning') as HTMLElement | null;
+    const submit = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    const submitting = document.getElementById('submitting') as HTMLElement | null;
+    if (form && input && warn && submit && submitting) {
+      input.addEventListener('change', () => {
+        const file = input.files?.[0];
+        if (!file) return;
+        warn.hidden = file.size <= MAX_BYTES;
+        submit.disabled = file.size > MAX_BYTES;
+      });
+      form.addEventListener('submit', () => {
+        submit.disabled = true;
+        submitting.hidden = false;
+      });
+    }
+  </script>
+</BaseLayout>

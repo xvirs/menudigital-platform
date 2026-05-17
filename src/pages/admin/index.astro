@@ -35,9 +35,9 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
           Datos en vivo desde <code>{owner}/{repo}@{branch}</code>.
         </p>
       </div>
-      <button class="admin-btn admin-btn--primary" type="button" disabled title="Disponible en Fase 4">
-        + Nuevo menú (Fase 4)
-      </button>
+      <a class="admin-btn admin-btn--primary" href="/admin/upload">
+        + Nuevo menú
+      </a>
     </header>
 
     {banner && (

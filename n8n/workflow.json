@@ -1,4 +1,5 @@
 {
+  "id": "YWiYlJkNCLkB6i4c",
   "name": "Menu Digital - PDF to JSON",
   "nodes": [
     {
@@ -6,7 +7,9 @@
         "httpMethod": "POST",
         "path": "new-pdf",
         "responseMode": "responseNode",
-        "options": {}
+        "options": {
+          "allowedOrigins": "*"
+        }
       },
       "id": "a1b2c3d4-1111-2222-3333-444444444444",
       "name": "Webhook",

@@ -3,6 +3,10 @@
    Dark Mode, Glassmorphism, Responsive Grid, and Rich Animations
    ───────────────────────────────────────────────────────────────────────── */
 
+[hidden] {
+  display: none !important;
+}
+
 :root {
   --primary-color: #f5b940;      /* Warm Argentine Sun Gold */
   --accent-color: #e84a1f;       /* Fiery Copper Orange */

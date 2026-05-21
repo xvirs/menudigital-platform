@@ -69,6 +69,29 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
             <span>El archivo elegido supera los 20 MB. Por favor elegí un archivo más liviano.</span>
           </div>
 
+          {/* Configuración del Webhook (para túneles dinámicos) */}
+          <div class="admin-panel__section" style="margin-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.25rem;">
+            <details>
+              <summary style="font-size: 0.85rem; color: var(--primary-color); cursor: pointer; font-weight: 600; outline: none; user-select: none;">
+                ⚙️ Configuración del túnel / n8n
+              </summary>
+              <div style="margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="webhook-url-input" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
+                  URL del Webhook de n8n:
+                </label>
+                <input
+                  type="url"
+                  id="webhook-url-input"
+                  placeholder="https://xxx.trycloudflare.com/webhook/new-pdf"
+                  style="width: 100%; padding: 0.6rem 0.8rem; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--panel-border); border-radius: 0.5rem; color: #fff; font-family: ui-monospace, monospace; font-size: 0.85rem;"
+                />
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.3;">
+                  Si reiniciaste el túnel de Cloudflare, podés pegar la nueva URL acá. Se guardará en la memoria local de tu navegador.
+                </p>
+              </div>
+            </details>
+          </div>
+
           <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
             <button type="submit" class="admin-btn admin-btn--primary" id="submit-btn" disabled style="width: 100%;">
               <span class="admin-btn__icon" aria-hidden="true">📤</span>
@@ -159,6 +182,7 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
     const sizeWarning = document.getElementById('size-warning') as HTMLElement | null;
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
     const progressPanel = document.getElementById('upload-progress-panel') as HTMLElement | null;
+    const webhookUrlInput = document.getElementById('webhook-url-input') as HTMLInputElement | null;
     
     // Elementos del Stepper
     const progressFillBar = document.getElementById('progress-fill-bar') as HTMLElement | null;
@@ -166,6 +190,12 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
     const progressStatusText = document.getElementById('progress-status-text') as HTMLElement | null;
     
     if (form && fileInput && dropzone && dropzoneDefault && dropzoneFile && fileNameEl && fileSizeEl && fileRemoveBtn && sizeWarning && submitBtn) {
+      
+      // Inicializar URL del webhook desde localStorage o default expuesto por SSR
+      if (webhookUrlInput) {
+        const savedUrl = localStorage.getItem('n8n_webhook_url');
+        webhookUrlInput.value = savedUrl || form.dataset.webhookUrl || '';
+      }
       
       // Abre el selector de archivos al hacer clic en el dropzone (si está vacío)
       dropzone.addEventListener('click', (e) => {
@@ -286,13 +316,18 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
           startSimulatedProgress();
         }
 
-        // Obtener credenciales de n8n expuestas en SSR
-        const webhookUrl = form.dataset.webhookUrl;
+        // Obtener credenciales de n8n (priorizando el input editable del usuario)
+        const webhookUrl = webhookUrlInput?.value.trim() || form.dataset.webhookUrl;
         const webhookSecret = form.dataset.webhookSecret;
 
         if (!webhookUrl || !webhookSecret) {
-          window.location.href = `/admin?kind=err&msg=${encodeURIComponent('Error: Falta N8N_WEBHOOK_URL o N8N_WEBHOOK_SECRET en la configuración.')}`;
+          window.location.href = `/admin?kind=err&msg=${encodeURIComponent('Error: Falta la URL del Webhook o el Secreto en la configuración.')}`;
           return;
+        }
+
+        // Guardar la URL del webhook en localStorage para futuras visitas
+        if (webhookUrlInput && webhookUrl) {
+          localStorage.setItem('n8n_webhook_url', webhookUrl);
         }
 
         // Crear FormData para enviar directamente a n8n

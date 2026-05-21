@@ -29,6 +29,12 @@ function formatDate(value: string) {
 const url = new URL(Astro.request.url);
 const banner = url.searchParams.get('msg');
 const bannerKind = url.searchParams.get('kind') ?? 'ok';
+
+// Stats Calculations
+const totalCount = restaurants.length;
+const activeCount = restaurants.filter((r) => r.status === 'active').length;
+const hiddenCount = restaurants.filter((r) => r.status === 'hidden').length;
+const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount > 0 ? 1 : 0), 0);
 ---
 
 <BaseLayout title="Admin · Restaurantes">
@@ -57,11 +63,66 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
         <span><strong>No se pudo leer el repo.</strong> {loadError}</span>
       </div>
     ) : restaurants.length === 0 ? (
-      <p class="admin-empty">Todavía no hay restaurantes.</p>
+      <div class="admin-panel" style="text-align: center; padding: 4rem 1rem;">
+        <p class="admin-empty" style="padding: 0; font-size: 1.1rem; font-weight: 600;">Todavía no hay restaurantes.</p>
+        <p style="font-size: 0.9rem; opacity: 0.6; margin-top: 0.5rem; margin-bottom: 1.5rem;">Cargá un menú en PDF para comenzar.</p>
+        <a class="admin-btn admin-btn--primary" href="/admin/upload">Subir primer menú</a>
+      </div>
     ) : (
       <>
+        {/* Stats Grid */}
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">📋</span>
+            <div class="admin-stat-content">
+              <span class="admin-stat-val">{totalCount}</span>
+              <span class="admin-stat-label">Total Menús</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon" style="color: #2ecc71;">👁</span>
+            <div class="admin-stat-content">
+              <span class="admin-stat-val">{activeCount}</span>
+              <span class="admin-stat-label">Activos</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon" style="color: #9e9eb0;">👀</span>
+            <div class="admin-stat-content">
+              <span class="admin-stat-val">{hiddenCount}</span>
+              <span class="admin-stat-label">Ocultos</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon" style="color: #f5b940;">⚠</span>
+            <div class="admin-stat-content">
+              <span class="admin-stat-val">{warningCount}</span>
+              <span class="admin-stat-label">Con Alertas</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Search & Filter Bar */}
+        <div class="admin-filter-bar">
+          <div class="admin-search-wrapper">
+            <span class="admin-search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="admin-search-input" 
+              placeholder="Buscar por nombre o slug..." 
+              autocomplete="off"
+            />
+          </div>
+          <div class="admin-filter-group">
+            <button class="admin-filter-btn admin-filter-btn--active" data-filter="all">Todos</button>
+            <button class="admin-filter-btn" data-filter="active">Activos</button>
+            <button class="admin-filter-btn" data-filter="hidden">Ocultos</button>
+          </div>
+        </div>
+
         {/* Mobile-first: cards */}
-        <div class="admin-cards" role="list">
+        <div class="admin-cards" id="admin-cards-list" role="list">
           {restaurants.map((r) => {
             const editUrl = `https://github.com/${owner}/${repo}/edit/${branch}/content/restaurants/${r.slug}.json`;
             const publicUrl = `/r/${r.slug}/`;
@@ -70,18 +131,26 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
             const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
             const toggleIcon = r.status === 'active' ? '👁' : '👀';
             return (
-              <article class="admin-card" role="listitem">
+              <article 
+                class="admin-card" 
+                role="listitem"
+                data-name={r.name.toLowerCase()}
+                data-slug={r.slug.toLowerCase()}
+                data-status={r.status}
+              >
                 <div class="admin-card__header">
-                  <h2 class="admin-card__name">
-                    <a href={adminDetail}>{r.name}</a>
-                  </h2>
-                  <div class="admin-card__chips">
-                    <span class={`admin-status admin-status--${r.status}`}>{r.status}</span>
-                    {r.missingFieldsCount > 0 && (
-                      <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
-                    )}
-                    <span class="admin-card__slug">{r.slug}</span>
+                  <div>
+                    <h2 class="admin-card__name">
+                      <a href={adminDetail}>{r.name}</a>
+                    </h2>
+                    <div class="admin-card__chips">
+                      <span class={`admin-status admin-status--${r.status}`}>{r.status}</span>
+                      {r.missingFieldsCount > 0 && (
+                        <span class="admin-warning" title={`${r.missingFieldsCount} campos faltantes`}>⚠ {r.missingFieldsCount}</span>
+                      )}
+                    </div>
                   </div>
+                  <span class="admin-card__slug">/{r.slug}</span>
                 </div>
                 <p class="admin-card__meta">Actualizado: {formatDate(r.updatedAt)}</p>
                 <div class="admin-card__actions">
@@ -91,7 +160,7 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
                   </a>
                   <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
                     <span class="admin-btn__icon" aria-hidden="true">✎</span>
-                    <span>Editar JSON</span>
+                    <span>Editar</span>
                   </a>
                   <form method="POST" action="/api/admin/toggle" data-pending>
                     <input type="hidden" name="slug" value={r.slug} />
@@ -120,7 +189,7 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
         </div>
 
         {/* Desktop: same data in a table */}
-        <table class="admin-table">
+        <table class="admin-table" id="admin-table-list">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -139,26 +208,38 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
               const nextStatus = r.status === 'active' ? 'hidden' : 'active';
               const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
               return (
-                <tr>
-                  <td><a href={adminDetail}>{r.name}</a></td>
-                  <td><code style="font-size: 0.82rem; opacity: 0.75;">{r.slug}</code></td>
+                <tr 
+                  data-name={r.name.toLowerCase()}
+                  data-slug={r.slug.toLowerCase()}
+                  data-status={r.status}
+                >
+                  <td style="font-weight: 600;"><a href={adminDetail} style="color: #fff; transition: color 0.15s ease;">{r.name}</a></td>
+                  <td><code style="font-size: 0.82rem; color: var(--primary-color); opacity: 0.9;">{r.slug}</code></td>
                   <td><span class={`admin-status admin-status--${r.status}`}>{r.status}</span></td>
-                  <td>{formatDate(r.updatedAt)}</td>
+                  <td style="font-size: 0.85rem; opacity: 0.85;">{formatDate(r.updatedAt)}</td>
                   <td>
                     {r.missingFieldsCount > 0 ? (
-                      <span class="admin-warning">⚠ {r.missingFieldsCount}</span>
+                      <span class="admin-warning" title={`${r.missingFieldsCount} campos faltantes`}>⚠ {r.missingFieldsCount}</span>
                     ) : (
-                      <span style="opacity: 0.4;">—</span>
+                      <span style="opacity: 0.3;">—</span>
                     )}
                   </td>
                   <td>
                     <div class="admin-actions">
-                      <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">Ver</a>
-                      <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">Editar</a>
+                      <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">
+                        <span class="admin-btn__icon" aria-hidden="true">↗</span>
+                        <span>Ver</span>
+                      </a>
+                      <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
+                        <span class="admin-btn__icon" aria-hidden="true">✎</span>
+                        <span>Editar</span>
+                      </a>
                       <form method="POST" action="/api/admin/toggle" data-pending>
                         <input type="hidden" name="slug" value={r.slug} />
                         <input type="hidden" name="status" value={nextStatus} />
-                        <button class="admin-btn" type="submit">{toggleLabel}</button>
+                        <button class="admin-btn" type="submit">
+                          <span>{toggleLabel}</span>
+                        </button>
                       </form>
                       <form
                         method="POST"
@@ -167,7 +248,10 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
                         data-confirm={`¿Eliminar ${r.slug}? El JSON se borra del repo. NO se puede deshacer.`}
                       >
                         <input type="hidden" name="slug" value={r.slug} />
-                        <button class="admin-btn admin-btn--danger" type="submit">Eliminar</button>
+                        <button class="admin-btn admin-btn--danger" type="submit">
+                          <span class="admin-btn__icon" aria-hidden="true">🗑</span>
+                          <span>Eliminar</span>
+                        </button>
                       </form>
                     </div>
                   </td>
@@ -194,8 +278,16 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
         if (btn) {
           btn.disabled = true;
           btn.setAttribute('aria-disabled', 'true');
-          const span = btn.querySelector('span:last-child');
-          if (span) span.innerHTML = '<span class="admin-spinner" aria-hidden="true"></span> Procesando…';
+          const btnSpan = btn.querySelector('span:not(.admin-btn__icon)');
+          const iconSpan = btn.querySelector('.admin-btn__icon');
+          if (iconSpan) {
+            iconSpan.innerHTML = '<span class="admin-spinner" aria-hidden="true"></span>';
+          }
+          if (btnSpan) {
+            btnSpan.textContent = 'Procesando…';
+          } else {
+            btn.innerHTML = '<span class="admin-spinner" aria-hidden="true"></span> Procesando…';
+          }
         }
       });
     }
@@ -209,5 +301,64 @@ const bannerKind = url.searchParams.get('kind') ?? 'ok';
         setTimeout(() => (b.style.display = 'none'), 600);
       }, 8000);
     }
+
+    // Filtros e Búsqueda en vivo (Live search & filters)
+    const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+    const filterBtns = document.querySelectorAll('.admin-filter-btn');
+    const cards = document.querySelectorAll('.admin-card');
+    const rows = document.querySelectorAll('.admin-table tbody tr');
+
+    let currentSearch = '';
+    let currentFilter = 'all';
+
+    function updateFilters() {
+      // Filtrar Tarjetas
+      cards.forEach((card) => {
+        const name = card.getAttribute('data-name') || '';
+        const slug = card.getAttribute('data-slug') || '';
+        const status = card.getAttribute('data-status') || '';
+        const matchesSearch = name.includes(currentSearch) || slug.includes(currentSearch);
+        const matchesFilter = currentFilter === 'all' || status === currentFilter;
+        
+        const el = card as HTMLElement;
+        if (matchesSearch && matchesFilter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+
+      // Filtrar Filas de la tabla
+      rows.forEach((row) => {
+        const name = row.getAttribute('data-name') || '';
+        const slug = row.getAttribute('data-slug') || '';
+        const status = row.getAttribute('data-status') || '';
+        const matchesSearch = name.includes(currentSearch) || slug.includes(currentSearch);
+        const matchesFilter = currentFilter === 'all' || status === currentFilter;
+        
+        const el = row as HTMLElement;
+        if (matchesSearch && matchesFilter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        currentSearch = searchInput.value.toLowerCase().trim();
+        updateFilters();
+      });
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('admin-filter-btn--active'));
+        btn.classList.add('admin-filter-btn--active');
+        currentFilter = btn.getAttribute('data-filter') || 'all';
+        updateFilters();
+      });
+    });
   </script>
 </BaseLayout>

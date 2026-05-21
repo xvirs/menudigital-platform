@@ -1,11 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/admin.css';
+
+const webhookUrl = import.meta.env.N8N_WEBHOOK_URL || '';
+const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
 ---
 
 <BaseLayout title="Admin · Nuevo menú">
   <main class="container admin-shell">
-    <a class="admin-back" href="/admin">← Volver a la lista</a>
+    <a class="admin-back" href="/admin">
+      <span class="admin-btn__icon">←</span>
+      <span>Volver a la lista</span>
+    </a>
 
     <header class="admin-shell__header">
       <div>
@@ -17,90 +23,372 @@ import '../../styles/admin.css';
       </div>
     </header>
 
-    <section class="admin-panel" style="max-width: 640px;">
-      <form
-        method="POST"
-        action="/api/admin/upload"
-        enctype="multipart/form-data"
-        id="upload-form"
-        class="upload-form"
-      >
-        <label
-          for="pdf-input"
-          style="display: block; font-size: 0.88rem; opacity: 0.85;"
+    <div class="admin-grid" style="max-width: 900px; margin-inline: auto;">
+      {/* Columna izquierda: Formulario */}
+      <section class="admin-panel">
+        <h2 class="admin-panel__title" style="margin-bottom: 1.5rem;">Cargar Documento</h2>
+        
+        <form
+          method="POST"
+          action="/api/admin/upload"
+          enctype="multipart/form-data"
+          id="upload-form"
+          class="upload-form"
+          data-webhook-url={webhookUrl}
+          data-webhook-secret={webhookSecret}
         >
-          PDF del menú (máximo 20 MB)
-        </label>
-        <input
-          id="pdf-input"
-          class="upload-input"
-          type="file"
-          name="pdf"
-          accept="application/pdf,.pdf"
-          required
-        />
+          {/* Campo de archivo real oculto */}
+          <input
+            id="pdf-input"
+            type="file"
+            name="pdf"
+            accept="application/pdf,.pdf"
+            style="display: none;"
+            required
+          />
 
-        <div id="size-warning" class="admin-banner admin-banner--err" hidden>
-          <span>El archivo elegido supera los 20 MB.</span>
+          {/* Zona de Dropzone interactiva */}
+          <div id="dropzone" class="upload-dropzone">
+            <div id="dropzone-default">
+              <div class="upload-dropzone-icon">📄</div>
+              <p class="upload-dropzone-text">Arrastrá tu PDF acá o hacé clic para seleccionar</p>
+              <p class="upload-dropzone-sub">Formatos aceptados: PDF (máx. 20 MB)</p>
+            </div>
+            
+            <div id="dropzone-file" class="upload-file-card" hidden style="width: 100%;">
+              <span class="upload-file-icon">📕</span>
+              <div class="upload-file-details">
+                <div class="upload-file-name" id="file-name">menu_restaurante.pdf</div>
+                <div class="upload-file-meta" id="file-size">1.42 MB</div>
+              </div>
+              <button type="button" id="file-remove" class="upload-file-remove" aria-label="Quitar archivo">✕</button>
+            </div>
+          </div>
+
+          <div id="size-warning" class="admin-banner admin-banner--err" hidden>
+            <span>El archivo elegido supera los 20 MB. Por favor elegí un archivo más liviano.</span>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
+            <button type="submit" class="admin-btn admin-btn--primary" id="submit-btn" disabled style="width: 100%;">
+              <span class="admin-btn__icon" aria-hidden="true">📤</span>
+              <span class="submit-label">Procesar PDF con IA</span>
+            </button>
+          </div>
+        </form>
+
+        {/* Stepper de Progreso (Oculto inicialmente) */}
+        <div id="upload-progress-panel" class="upload-progress" hidden>
+          <div class="progress-header">
+            <span class="progress-header-title" id="progress-status-text">Procesando menú...</span>
+            <span class="progress-header-percent" id="progress-percent">0%</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill-bar" class="progress-fill"></div>
+          </div>
+          
+          <div class="progress-steps">
+            <div class="progress-step progress-step--active" id="step-1">
+              <span class="progress-step__bullet">1</span>
+              <div class="progress-step__content">
+                <div class="progress-step__title">Subiendo PDF</div>
+                <div class="progress-step__desc">Subiendo el archivo de menú al servidor de Astro...</div>
+              </div>
+            </div>
+            <div class="progress-step" id="step-2">
+              <span class="progress-step__bullet">2</span>
+              <div class="progress-step__content">
+                <div class="progress-step__title">Extrayendo texto del PDF</div>
+                <div class="progress-step__desc">n8n lee el archivo para convertirlo a texto procesable...</div>
+              </div>
+            </div>
+            <div class="progress-step" id="step-3">
+              <span class="progress-step__bullet">3</span>
+              <div class="progress-step__content">
+                <div class="progress-step__title">Gemini analiza el contenido</div>
+                <div class="progress-step__desc">Gemini estructura los platos, precios, categorías y traduce la información...</div>
+              </div>
+            </div>
+            <div class="progress-step" id="step-4">
+              <span class="progress-step__bullet">4</span>
+              <div class="progress-step__content">
+                <div class="progress-step__title">Guardando en GitHub</div>
+                <div class="progress-step__desc">Creando el archivo de datos JSON y comiteándolo al repositorio...</div>
+              </div>
+            </div>
+            <div class="progress-step" id="step-5">
+              <span class="progress-step__bullet">5</span>
+              <div class="progress-step__content">
+                <div class="progress-step__title">Compilando sitio web</div>
+                <div class="progress-step__desc">Vercel detecta el cambio e inicia el despliegue automático del nuevo menú...</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <p style="font-size: 0.85rem; opacity: 0.7; margin: 0;">
-          ⏱ Después de subir, el endpoint puede tardar entre 60 y 180 segundos (Gemini procesa el
-          texto + commit a GitHub). No cierres la pestaña.
-        </p>
-
-        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
-          <button type="submit" class="admin-btn admin-btn--primary" id="submit-btn">
-            <span class="admin-btn__icon" aria-hidden="true">📤</span>
-            <span class="submit-label">Procesar PDF</span>
-          </button>
-          <span id="submitting" hidden style="font-size: 0.88rem; opacity: 0.75;">
-            <span class="admin-spinner" aria-hidden="true"></span>
-            Procesando… esperá, esto tarda hasta 3 min.
-          </span>
-        </div>
-      </form>
-    </section>
-
-    <section class="admin-panel" style="max-width: 640px; margin-top: 1.25rem;">
-      <h2 class="admin-panel__title">¿Qué pasa adentro?</h2>
-      <ol style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; padding-left: 1.2rem; margin: 0;">
-        <li>Tu browser sube el PDF a <code>/api/admin/upload</code> en Vercel.</li>
-        <li>El endpoint forwardea el PDF al webhook de n8n (en tu Mac vía Cloudflare Tunnel).</li>
-        <li>n8n extrae el texto con pdf-parse.</li>
-        <li>Gemini 2.5 Flash genera el JSON estructurado.</li>
-        <li>n8n wrappea + genera slug único + commit al repo.</li>
-        <li>GitHub Actions valida el JSON contra el schema.</li>
-        <li>Vercel rebuildea con el nuevo restaurante.</li>
-        <li>La URL <code>/r/&lt;slug&gt;/</code> queda viva.</li>
-      </ol>
-    </section>
+      {/* Columna derecha: Explicación de cómo funciona */}
+      <aside style="display: flex; flex-direction: column; gap: 1rem;">
+        <section class="admin-panel">
+          <h2 class="admin-panel__title" style="margin-bottom: 1rem;">¿Qué pasa tras bambalinas?</h2>
+          <ol style="display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.88rem; padding-left: 1.2rem; margin: 0; line-height: 1.45;">
+            <li><strong style="color: #fff;">Envío directo:</strong> Tu navegador envía el PDF directamente al webhook de n8n mediante el túnel seguro.</li>
+            <li><strong style="color: #fff;">Sin límites de Vercel:</strong> Esto evita los límites de 4.5 MB de Vercel, permitiendo cargar archivos de hasta 20 MB.</li>
+            <li><strong style="color: #fff;">Parser PDF:</strong> n8n extrae el texto usando analizadores de documentos.</li>
+            <li><strong style="color: #fff;">Análisis de IA:</strong> Gemini 2.0 Flash estructura platos, descripciones y precios en formato JSON.</li>
+            <li><strong style="color: #fff;">Commit a GitHub:</strong> Se valida la integridad del JSON y se sube directamente a tu repositorio.</li>
+            <li><strong style="color: #fff;">Puesta en marcha:</strong> Vercel rebuildea la app en segundos y el menú queda público inmediatamente.</li>
+          </ol>
+        </section>
+      </aside>
+    </div>
   </main>
 
   <script>
-    const MAX_BYTES = 20 * 1024 * 1024;
+    const MAX_BYTES = 20 * 1024 * 1024; // 20 MB
+    
+    // Elementos del DOM
     const form = document.getElementById('upload-form') as HTMLFormElement | null;
-    const input = document.getElementById('pdf-input') as HTMLInputElement | null;
-    const warn = document.getElementById('size-warning') as HTMLElement | null;
-    const submit = document.getElementById('submit-btn') as HTMLButtonElement | null;
-    const submitting = document.getElementById('submitting') as HTMLElement | null;
+    const fileInput = document.getElementById('pdf-input') as HTMLInputElement | null;
+    const dropzone = document.getElementById('dropzone') as HTMLElement | null;
+    const dropzoneDefault = document.getElementById('dropzone-default') as HTMLElement | null;
+    const dropzoneFile = document.getElementById('dropzone-file') as HTMLElement | null;
+    const fileNameEl = document.getElementById('file-name') as HTMLElement | null;
+    const fileSizeEl = document.getElementById('file-size') as HTMLElement | null;
+    const fileRemoveBtn = document.getElementById('file-remove') as HTMLButtonElement | null;
+    const sizeWarning = document.getElementById('size-warning') as HTMLElement | null;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    const progressPanel = document.getElementById('upload-progress-panel') as HTMLElement | null;
+    
+    // Elementos del Stepper
+    const progressFillBar = document.getElementById('progress-fill-bar') as HTMLElement | null;
+    const progressPercent = document.getElementById('progress-percent') as HTMLElement | null;
+    const progressStatusText = document.getElementById('progress-status-text') as HTMLElement | null;
+    
+    if (form && fileInput && dropzone && dropzoneDefault && dropzoneFile && fileNameEl && fileSizeEl && fileRemoveBtn && sizeWarning && submitBtn) {
+      
+      // Abre el selector de archivos al hacer clic en el dropzone (si está vacío)
+      dropzone.addEventListener('click', (e) => {
+        // Evita abrir el diálogo si se hizo clic en el botón de eliminar
+        if (e.target === fileRemoveBtn || fileRemoveBtn?.contains(e.target as Node)) {
+          return;
+        }
+        fileInput.click();
+      });
 
-    if (form && input && warn && submit && submitting) {
-      input.addEventListener('change', () => {
-        const file = input.files?.[0];
+      // Manejo de Drag and Drop
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('upload-dropzone--drag');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('upload-dropzone--drag');
+        }, false);
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt?.files;
+        if (files && files.length > 0) {
+          fileInput.files = files;
+          handleFileSelect(files[0]);
+        }
+      });
+
+      // Selección de archivos clásica
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files?.[0];
+        if (file) {
+          handleFileSelect(file);
+        }
+      });
+
+      // Quitar el archivo seleccionado
+      fileRemoveBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resetFileInput();
+      });
+
+      function handleFileSelect(file: File) {
         if (!file) return;
-        const tooBig = file.size > MAX_BYTES;
-        warn.hidden = !tooBig;
-        submit.disabled = tooBig;
-        submit.setAttribute('aria-disabled', String(tooBig));
+
+        // Comprobación de formato (solo PDF)
+        if (file.type && file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+          alert('Tipo de archivo inválido. Solo se admiten archivos PDF.');
+          resetFileInput();
+          return;
+        }
+
+        const isTooBig = file.size > MAX_BYTES;
+        sizeWarning!.hidden = !isTooBig;
+        submitBtn!.disabled = isTooBig;
+        submitBtn!.setAttribute('aria-disabled', String(isTooBig));
+
+        if (!isTooBig) {
+          // Mostrar detalles del archivo
+          fileNameEl!.textContent = file.name;
+          
+          // Formatear tamaño del archivo
+          const sizeInMB = file.size / (1024 * 1024);
+          fileSizeEl!.textContent = sizeInMB < 0.1 
+            ? `${(file.size / 1024).toFixed(1)} KB` 
+            : `${sizeInMB.toFixed(2)} MB`;
+
+          dropzoneDefault!.hidden = true;
+          dropzoneFile!.hidden = false;
+        } else {
+          // Si es muy grande, reseteamos el visual pero mostramos el warning
+          dropzoneDefault!.hidden = false;
+          dropzoneFile!.hidden = true;
+        }
+      }
+
+      function resetFileInput() {
+        fileInput!.value = '';
+        dropzoneDefault!.hidden = false;
+        dropzoneFile!.hidden = true;
+        sizeWarning!.hidden = true;
+        submitBtn!.disabled = true;
+        submitBtn!.setAttribute('aria-disabled', 'true');
+      }
+
+      // Enviar directamente el PDF a n8n desde el cliente para evitar el límite de 4.5 MB de Vercel
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Doble verificación del archivo
+        if (!fileInput.files || fileInput.files.length === 0) {
+          alert('Por favor selecciona un PDF antes de continuar.');
+          return;
+        }
+
+        const file = fileInput.files[0];
+
+        // Bloquear UI
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-disabled', 'true');
+        const submitLabel = submitBtn.querySelector('.submit-label');
+        if (submitLabel) submitLabel.textContent = 'Enviando petición...';
+        dropzone.style.pointerEvents = 'none';
+        dropzone.style.opacity = '0.7';
+
+        // Mostrar panel de progreso
+        if (progressPanel) {
+          progressPanel.hidden = false;
+          startSimulatedProgress();
+        }
+
+        // Obtener credenciales de n8n expuestas en SSR
+        const webhookUrl = form.dataset.webhookUrl;
+        const webhookSecret = form.dataset.webhookSecret;
+
+        if (!webhookUrl || !webhookSecret) {
+          window.location.href = `/admin?kind=err&msg=${encodeURIComponent('Error: Falta N8N_WEBHOOK_URL o N8N_WEBHOOK_SECRET en la configuración.')}`;
+          return;
+        }
+
+        // Crear FormData para enviar directamente a n8n
+        const formData = new FormData();
+        formData.append('pdf', file, file.name);
+
+        try {
+          const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+              'X-Webhook-Secret': webhookSecret
+            },
+            body: formData
+          });
+
+          if (!response.ok) {
+            window.location.href = `/admin?kind=err&msg=${encodeURIComponent(`n8n respondió ${response.status}. Verifique si n8n está activo y si el webhook secret es correcto.`)}`;
+            return;
+          }
+
+          const body = await response.json();
+          if (!body?.ok) {
+            const err = body?.error ?? 'unknown_error';
+            const msg = body?.message ?? '';
+            window.location.href = `/admin?kind=err&msg=${encodeURIComponent(`n8n falló: ${err} ${msg}`.slice(0, 200))}`;
+            return;
+          }
+
+          const slug = body.slug ?? 'unknown';
+          const successMsg = `Listo: "${file.name}" → /r/${slug}/ (${body.itemsCount ?? '?'} items). Vercel está rebuildeando — accesible en ~1 min.`;
+          window.location.href = `/admin?kind=ok&msg=${encodeURIComponent(successMsg)}`;
+
+        } catch (err: any) {
+          const msg = err?.message ?? String(err);
+          window.location.href = `/admin?kind=err&msg=${encodeURIComponent(`Error de conexión con n8n: ${msg.slice(0, 200)}. Verifique que el túnel de Cloudflare esté activo.`)}`;
+        }
       });
-      form.addEventListener('submit', () => {
-        submit.disabled = true;
-        submit.setAttribute('aria-disabled', 'true');
-        const label = submit.querySelector('.submit-label');
-        if (label) label.textContent = 'Subiendo…';
-        submitting.hidden = false;
-      });
+    }
+
+    // Cronograma simulado de pasos en MS
+    // Gemini tarda entre 60 y 130 segundos generalmente
+    function startSimulatedProgress() {
+      const steps = [
+        { id: 'step-1', duration: 4000, startPct: 0, endPct: 15, text: 'Subiendo PDF al servidor...' },
+        { id: 'step-2', duration: 15000, startPct: 15, endPct: 35, text: 'n8n extrayendo contenido del menú...' },
+        { id: 'step-3', duration: 75000, startPct: 35, endPct: 75, text: 'Gemini analizando la estructura del menú (platos, precios)...' },
+        { id: 'step-4', duration: 15000, startPct: 75, endPct: 90, text: 'Guardando datos y confirmando en GitHub...' },
+        { id: 'step-5', duration: 20000, startPct: 90, endPct: 99, text: 'Desplegando la web en Vercel (accesible en breve)...' }
+      ];
+
+      let currentStepIndex = 0;
+      let startTime = Date.now();
+
+      function updateProgress() {
+        if (currentStepIndex >= steps.length) return;
+
+        const currentStep = steps[currentStepIndex];
+        const elapsed = Date.now() - startTime;
+        
+        // Calcular porcentaje intermedio del paso
+        const stepProgress = Math.min(elapsed / currentStep.duration, 1);
+        const pctDiff = currentStep.endPct - currentStep.startPct;
+        const currentPct = Math.round(currentStep.startPct + (pctDiff * stepProgress));
+
+        // Actualizar UI de porcentaje y barra
+        if (progressPercent) progressPercent.textContent = `${currentPct}%`;
+        if (progressFillBar) progressFillBar.style.width = `${currentPct}%`;
+        if (progressStatusText) progressStatusText.textContent = currentStep.text;
+
+        // Actualizar estados visuales de los pasos
+        for (let i = 0; i < steps.length; i++) {
+          const stepEl = document.getElementById(steps[i].id);
+          if (!stepEl) continue;
+
+          if (i < currentStepIndex) {
+            stepEl.className = 'progress-step progress-step--done';
+          } else if (i === currentStepIndex) {
+            stepEl.className = 'progress-step progress-step--active';
+          } else {
+            stepEl.className = 'progress-step';
+          }
+        }
+
+        // Cambiar de paso si terminó la duración asignada
+        if (elapsed >= currentStep.duration) {
+          currentStepIndex++;
+          startTime = Date.now();
+        }
+
+        // Seguir llamando si no hemos terminado los pasos
+        if (currentStepIndex < steps.length) {
+          requestAnimationFrame(updateProgress);
+        }
+      }
+
+      requestAnimationFrame(updateProgress);
     }
   </script>
 </BaseLayout>

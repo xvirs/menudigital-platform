@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 // procesando un PDF grande, más el commit a GitHub.
 export const maxDuration = 300;
 
-const MAX_BYTES = 4 * 1024 * 1024; // 4 MB (Vercel Hobby body limit ~4.5 MB)
+const MAX_BYTES = 20 * 1024 * 1024; // 20 MB (increased from 4 MB)
 
 export const POST: APIRoute = async ({ request, redirect }) => {
   const webhookUrl = import.meta.env.N8N_WEBHOOK_URL;

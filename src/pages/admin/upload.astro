@@ -317,16 +317,33 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
         }
 
         // Obtener credenciales de n8n (priorizando el input editable del usuario)
-        const webhookUrl = webhookUrlInput?.value.trim() || form.dataset.webhookUrl;
+        let webhookUrl = webhookUrlInput?.value.trim() || form.dataset.webhookUrl || '';
         const webhookSecret = form.dataset.webhookSecret;
+
+        // Normalizar la URL del Webhook
+        if (webhookUrl) {
+          // Agregar protocolo si no tiene
+          if (!webhookUrl.startsWith('http://') && !webhookUrl.startsWith('https://')) {
+            webhookUrl = 'https://' + webhookUrl;
+          }
+          // Quitar la barra al final si existe
+          if (webhookUrl.endsWith('/')) {
+            webhookUrl = webhookUrl.slice(0, -1);
+          }
+          // Si no incluye el path del webhook, agregarlo automáticamente
+          if (!webhookUrl.includes('/webhook/')) {
+            webhookUrl += '/webhook/new-pdf';
+          }
+        }
 
         if (!webhookUrl || !webhookSecret) {
           window.location.href = `/admin?kind=err&msg=${encodeURIComponent('Error: Falta la URL del Webhook o el Secreto en la configuración.')}`;
           return;
         }
 
-        // Guardar la URL del webhook en localStorage para futuras visitas
+        // Guardar la URL del webhook ya normalizada en localStorage para futuras visitas
         if (webhookUrlInput && webhookUrl) {
+          webhookUrlInput.value = webhookUrl;
           localStorage.setItem('n8n_webhook_url', webhookUrl);
         }
 

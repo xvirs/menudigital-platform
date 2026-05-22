@@ -193,8 +193,19 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
       
       // Inicializar URL del webhook desde localStorage o default expuesto por SSR
       if (webhookUrlInput) {
+        const envUrl = form.dataset.webhookUrl || '';
         const savedUrl = localStorage.getItem('n8n_webhook_url');
-        webhookUrlInput.value = savedUrl || form.dataset.webhookUrl || '';
+        const savedEnvUrl = localStorage.getItem('n8n_env_webhook_url');
+
+        if (envUrl && envUrl !== savedEnvUrl) {
+          // El túnel en .env.local cambió o se reinició. Actualizamos la URL guardada.
+          localStorage.setItem('n8n_webhook_url', envUrl);
+          localStorage.setItem('n8n_env_webhook_url', envUrl);
+          webhookUrlInput.value = envUrl;
+        } else {
+          // Si no cambió en .env.local, priorizar el guardado en localStorage o el env de fallback
+          webhookUrlInput.value = savedUrl || envUrl;
+        }
       }
       
       // Abre el selector de archivos al hacer clic en el dropzone (si está vacío)
@@ -345,6 +356,8 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
         if (webhookUrlInput && webhookUrl) {
           webhookUrlInput.value = webhookUrl;
           localStorage.setItem('n8n_webhook_url', webhookUrl);
+          const envUrl = form.dataset.webhookUrl || '';
+          localStorage.setItem('n8n_env_webhook_url', envUrl);
         }
 
         // Crear FormData para enviar directamente a n8n
@@ -365,10 +378,23 @@ const webhookSecret = import.meta.env.N8N_WEBHOOK_SECRET || '';
             return;
           }
 
-          const body = await response.json();
-          if (!body?.ok) {
-            const err = body?.error ?? 'unknown_error';
-            const msg = body?.message ?? '';
+          const text = await response.text();
+          let body;
+          try {
+            body = text ? JSON.parse(text) : null;
+          } catch (jsonErr) {
+            window.location.href = `/admin?kind=err&msg=${encodeURIComponent(`n8n no devolvió JSON válido. Respuesta: ${text.slice(0, 150)}`)}`;
+            return;
+          }
+
+          if (!body) {
+            window.location.href = `/admin?kind=err&msg=${encodeURIComponent('n8n devolvió una respuesta vacía. Verifique que el túnel de Cloudflare esté activo.')}`;
+            return;
+          }
+
+          if (!body.ok) {
+            const err = body.error ?? 'unknown_error';
+            const msg = body.message ?? '';
             window.location.href = `/admin?kind=err&msg=${encodeURIComponent(`n8n falló: ${err} ${msg}`.slice(0, 200))}`;
             return;
           }

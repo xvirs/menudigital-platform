@@ -1,0 +1,320 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "augustopastas",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-06-03T23:49:08.919Z",
+  "updatedAt": "2026-06-03T23:49:08.919Z",
+  "_meta": {
+    "sourcePdfName": "webhook-upload.pdf",
+    "extractedBy": "gemini-2.0-flash",
+    "missingFields": []
+  },
+  "info": {
+    "name": "AUGUSTOPASTAS",
+    "location": "_dato no disponible_",
+    "subtitle": "ritual del aperitivo italiano",
+    "description": "Con sabor a barrio",
+    "theme": {
+      "primaryColor": "#B71C1C",
+      "backgroundColor": "#F5F5F5",
+      "textColor": "#212121",
+      "accentColor": "#FFC107",
+      "fonts": {
+        "heading": "'Playfair Display', serif",
+        "body": "'Open Sans', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "tapas-frias",
+      "title": "Tapas Frías",
+      "items": [
+        "olivas-negras-picantes",
+        "champignones-en-escabeche",
+        "plato-de-jamon-crudo",
+        "salame-de-oncativo-y-focaccia",
+        "queso-marinado-y-tomates-cherrys",
+        "duo-de-bruschetas",
+        "parmesano-con-pesto-de-albahaca"
+      ]
+    },
+    {
+      "id": "tapas-calientes",
+      "title": "Tapas Calientes",
+      "items": [
+        "papas-bravas",
+        "langostinos-al-oporto",
+        "duo-de-tortellinis-y-cresta-di-gallo-gratinados",
+        "mejillones-media-valva-al-vino-blanco",
+        "camembert-gratin-y-tomates-confitados"
+      ]
+    },
+    {
+      "id": "entrepanes-de-focaccia",
+      "title": "Entrepanes de Focaccia",
+      "items": [
+        "entrepane-jamon-crudo-oliva-tomates-cherry-queso-holanda-y-queso-crema-con-hierbas",
+        "entrepane-lomito-ahumado-queso-fimbo-morrones-en-conserva-y-pesto-de-albahaca"
+      ]
+    },
+    {
+      "id": "vinos-sugeridos-por-copa",
+      "title": "Vinos Sugeridos *por copa*",
+      "items": [
+        "malbec-joven",
+        "cabernet",
+        "sauvignon-blanc",
+        "espumante-rosado"
+      ]
+    },
+    {
+      "id": "vermuts",
+      "title": "Vermuts",
+      "items": [
+        "rosso-clasico-con-soda-y-piel-de-naranja",
+        "bianco-seco-con-oliva-y-romero",
+        "rosado-con-pomelo-y-menta",
+        "bianco-con-tonica-y-limon"
+      ]
+    },
+    {
+      "id": "spritz",
+      "title": "Spritz",
+      "items": [
+        "aperol-spritz",
+        "campari-spritz",
+        "cynar-spritz",
+        "bianco-spritz"
+      ]
+    },
+    {
+      "id": "bebidas-refrescantes-sin-alcohol",
+      "title": "Bebidas Refrescantes S/ Alcohol",
+      "items": [
+        "limonada-con-menta",
+        "jugos-de-frutas",
+        "aguas-saborizadas",
+        "gaseosas"
+      ]
+    }
+  ],
+  "items": {
+    "olivas-negras-picantes": {
+      "slug": "olivas-negras-picantes",
+      "name": "Olivas Negras Picantes",
+      "price": "4000",
+      "type": "Tapa fría",
+      "icon": "🍢"
+    },
+    "champignones-en-escabeche": {
+      "slug": "champignones-en-escabeche",
+      "name": "Champignones en Escabeche",
+      "price": "7000",
+      "type": "Tapa fría",
+      "icon": "🍢"
+    },
+    "plato-de-jamon-crudo": {
+      "slug": "plato-de-jamon-crudo",
+      "name": "Plato de Jamón Crudo",
+      "price": "7000",
+      "type": "Tapa fría",
+      "icon": "🧀"
+    },
+    "salame-de-oncativo-y-focaccia": {
+      "slug": "salame-de-oncativo-y-focaccia",
+      "name": "Salame de Oncativo y Focaccia",
+      "price": "5600",
+      "type": "Tapa fría",
+      "icon": "🧀"
+    },
+    "queso-marinado-y-tomates-cherrys": {
+      "slug": "queso-marinado-y-tomates-cherrys",
+      "name": "Queso Marinado y Tomates Cherrys",
+      "price": "5600",
+      "type": "Tapa fría",
+      "icon": "🧀"
+    },
+    "duo-de-bruschetas": {
+      "slug": "duo-de-bruschetas",
+      "name": "Dúo de Bruschetas",
+      "price": "6500",
+      "shortDescription": "Jamón crudo y escabeche de mar",
+      "type": "Tapa fría",
+      "icon": "🥖"
+    },
+    "parmesano-con-pesto-de-albahaca": {
+      "slug": "parmesano-con-pesto-de-albahaca",
+      "name": "Parmesano con Pesto de Albahaca",
+      "price": "5600",
+      "type": "Tapa fría",
+      "icon": "🧀"
+    },
+    "papas-bravas": {
+      "slug": "papas-bravas",
+      "name": "Papas Bravas",
+      "price": "6500",
+      "type": "Tapa caliente",
+      "icon": "🍟"
+    },
+    "langostinos-al-oporto": {
+      "slug": "langostinos-al-oporto",
+      "name": "Langostinos al Oporto",
+      "price": "7400",
+      "type": "Tapa caliente",
+      "icon": "🐟"
+    },
+    "duo-de-tortellinis-y-cresta-di-gallo-gratinados": {
+      "slug": "duo-de-tortellinis-y-cresta-di-gallo-gratinados",
+      "name": "Dúo de Tortellinis y Cresta di Gallo Gratinados",
+      "price": "7400",
+      "type": "Tapa caliente",
+      "icon": "🍝"
+    },
+    "mejillones-media-valva-al-vino-blanco": {
+      "slug": "mejillones-media-valva-al-vino-blanco",
+      "name": "Mejillones Media Valva al Vino Blanco",
+      "price": "15000",
+      "type": "Tapa caliente",
+      "icon": "🐟"
+    },
+    "camembert-gratin-y-tomates-confitados": {
+      "slug": "camembert-gratin-y-tomates-confitados",
+      "name": "Camembert Gratín y Tomates Confitados",
+      "price": "8800",
+      "type": "Tapa caliente",
+      "icon": "🧀"
+    },
+    "entrepane-jamon-crudo-oliva-tomates-cherry-queso-holanda-y-queso-crema-con-hierbas": {
+      "slug": "entrepane-jamon-crudo-oliva-tomates-cherry-queso-holanda-y-queso-crema-con-hierbas",
+      "name": "Entrepán de Focaccia: Jamón Crudo, Oliva, Tomates Cherry, Queso Holanda y Queso Crema con Hierbas",
+      "price": "12000",
+      "type": "Entrepán",
+      "icon": "🥪"
+    },
+    "entrepane-lomito-ahumado-queso-fimbo-morrones-en-conserva-y-pesto-de-albahaca": {
+      "slug": "entrepane-lomito-ahumado-queso-fimbo-morrones-en-conserva-y-pesto-de-albahaca",
+      "name": "Entrepán de Focaccia: Lomito Ahumado, Queso Fimbo, Morrones en Conserva y Pesto de Albahaca",
+      "price": "12000",
+      "type": "Entrepán",
+      "icon": "🥪"
+    },
+    "malbec-joven": {
+      "slug": "malbec-joven",
+      "name": "Malbec Joven",
+      "price": "4500",
+      "shortDescription": "Suave y frutado",
+      "type": "Vino tinto",
+      "icon": "🍷"
+    },
+    "cabernet": {
+      "slug": "cabernet",
+      "name": "Cabernet",
+      "price": "4500",
+      "shortDescription": "Estructurado y aterciopelado",
+      "type": "Vino tinto",
+      "icon": "🍷"
+    },
+    "sauvignon-blanc": {
+      "slug": "sauvignon-blanc",
+      "name": "Sauvignon Blanc",
+      "price": "4500",
+      "shortDescription": "Aromático y fresco",
+      "type": "Vino blanco",
+      "icon": "🍷"
+    },
+    "espumante-rosado": {
+      "slug": "espumante-rosado",
+      "name": "Espumante Rosado",
+      "price": "4500",
+      "shortDescription": "Elegante y refrescante",
+      "type": "Vino espumante",
+      "icon": "🍷"
+    },
+    "rosso-clasico-con-soda-y-piel-de-naranja": {
+      "slug": "rosso-clasico-con-soda-y-piel-de-naranja",
+      "name": "Rosso Clásico con Soda y Piel de Naranja",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "bianco-seco-con-oliva-y-romero": {
+      "slug": "bianco-seco-con-oliva-y-romero",
+      "name": "Bianco Seco con Oliva y Romero",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "rosado-con-pomelo-y-menta": {
+      "slug": "rosado-con-pomelo-y-menta",
+      "name": "Rosado con Pomelo y Menta",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "bianco-con-tonica-y-limon": {
+      "slug": "bianco-con-tonica-y-limon",
+      "name": "Bianco con Tónica y Limón",
+      "price": "6600",
+      "type": "Vermut",
+      "icon": "🍹"
+    },
+    "aperol-spritz": {
+      "slug": "aperol-spritz",
+      "name": "Aperol Spritz",
+      "price": "8000",
+      "type": "Spritz",
+      "icon": "🍹"
+    },
+    "campari-spritz": {
+      "slug": "campari-spritz",
+      "name": "Campari Spritz",
+      "price": "8000",
+      "type": "Spritz",
+      "icon": "🍹"
+    },
+    "cynar-spritz": {
+      "slug": "cynar-spritz",
+      "name": "Cynar Spritz",
+      "price": "8000",
+      "type": "Spritz",
+      "icon": "🍹"
+    },
+    "bianco-spritz": {
+      "slug": "bianco-spritz",
+      "name": "Bianco Spritz",
+      "price": "8000",
+      "type": "Spritz",
+      "icon": "🍹"
+    },
+    "limonada-con-menta": {
+      "slug": "limonada-con-menta",
+      "name": "Limonada con Menta",
+      "price": "4000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "jugos-de-frutas": {
+      "slug": "jugos-de-frutas",
+      "name": "Jugos de Frutas",
+      "price": "4000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "aguas-saborizadas": {
+      "slug": "aguas-saborizadas",
+      "name": "Aguas Saborizadas",
+      "price": "3300",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "gaseosas": {
+      "slug": "gaseosas",
+      "name": "Gaseosas",
+      "price": "3300",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    }
+  }
+}

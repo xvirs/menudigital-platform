@@ -55,20 +55,28 @@ const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${Array.from(fo
     <style
       is:global
       define:vars={{
-        primaryColor: theme.primaryColor,
-        backgroundColor: theme.backgroundColor,
-        textColor: theme.textColor,
-        accentColor: theme.accentColor,
+        pageBackground: theme.pageBackground ?? theme.backgroundColor ?? '#ffffff',
+        textColor: theme.textColor ?? '#1a1a1a',
+        primaryColor: theme.primaryColor ?? '#f5b940',
+        headerBackground: theme.headerBackground ?? theme.primaryColor ?? '#f5b940',
+        headerTextColor: theme.headerTextColor ?? theme.backgroundColor ?? '#ffffff',
+        itemTitleColor: theme.itemTitleColor ?? theme.textColor ?? '#1a1a1a',
+        accentColor: theme.accentColor ?? theme.primaryColor ?? '#e84a1f',
         fontHeading: theme.fonts.heading,
         fontBody: theme.fonts.body,
       }}
     >
       :root {
         color-scheme: light;
-        --primary-color: var(--primaryColor);
-        --background-color: var(--backgroundColor);
+        --page-background: var(--pageBackground);
         --text-color: var(--textColor);
+        --primary-color: var(--primaryColor);
+        --header-background: var(--headerBackground);
+        --header-text-color: var(--headerTextColor);
+        --item-title-color: var(--itemTitleColor);
         --accent-color: var(--accentColor);
+        /* Legacy fallback mappings for global CSS */
+        --background-color: var(--pageBackground);
         --font-heading: var(--fontHeading), 'Playfair Display', Georgia, serif;
         --font-body: var(--fontBody), 'Inter', system-ui, -apple-system, sans-serif;
       }

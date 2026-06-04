@@ -85,12 +85,16 @@
         "theme": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["primaryColor", "backgroundColor", "textColor", "accentColor", "fonts"],
+          "required": ["fonts"],
           "properties": {
-            "primaryColor": { "$ref": "#/$defs/hexColor" },
-            "backgroundColor": { "$ref": "#/$defs/hexColor" },
-            "textColor": { "$ref": "#/$defs/hexColor" },
-            "accentColor": { "$ref": "#/$defs/hexColor" },
+            "pageBackground": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "textColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "primaryColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "headerBackground": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "headerTextColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "itemTitleColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "backgroundColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+            "accentColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
             "fonts": {
               "type": "object",
               "additionalProperties": false,

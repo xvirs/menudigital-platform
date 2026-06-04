@@ -14,13 +14,15 @@
     "name": "IT ITALY",
     "location": "_dato no disponible_",
     "theme": {
-      "primaryColor": "#A52A2A",
-      "backgroundColor": "#F5F5DC",
-      "textColor": "#333333",
-      "accentColor": "#8B4513",
+      "pageBackground": "#000000",
+      "textColor": "#ffffff",
+      "primaryColor": "#ff0000",
+      "headerBackground": "#cc0000",
+      "headerTextColor": "#ffffff",
+      "itemTitleColor": "#39ff14",
       "fonts": {
-        "heading": "Georgia, serif",
-        "body": "'Helvetica Neue', sans-serif"
+        "heading": "'Oswald', sans-serif",
+        "body": "'Inter', sans-serif"
       }
     }
   },

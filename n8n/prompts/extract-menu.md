@@ -79,12 +79,16 @@ Asigná `items.<slug>.icon` con un emoji según la categoría del plato:
 11. **Mirá el PDF visualmente**. Identificá colores predominantes, tipografía
     usada, estilo general del local (rústico / moderno / italiano / japonés /
     minimalista / colorido / oscuro / artesanal).
-12. **4 colores hex coherentes**:
-    - `primaryColor`: color de marca, usado en acentos, botones, precios.
-    - `backgroundColor`: fondo del menú.
-    - `textColor`: color del cuerpo de texto. Debe tener buen contraste con
-      `backgroundColor`.
-    - `accentColor`: variante del primary, usado en gradientes.
+12. **Estética (theme)**: Observá los colores dominantes en el PDF.
+    ES CRÍTICO que los colores mantengan la coherencia y el contraste del PDF original.
+    Si el PDF tiene fondo oscuro (ej. Negro), los textos DEBEN extraerse con colores claros.
+    Extrae los colores en formato HEX (ej. `#000000`).
+    - `pageBackground`: El color de fondo predominante de la página (Ej: Blanco, o Negro si es oscuro).
+    - `textColor`: El color principal del texto de descripciones. Debe tener buen contraste con `pageBackground`.
+    - `primaryColor`: El color para elementos clave como precios y botones.
+    - `headerBackground`: El color de fondo de los bloques de título o el encabezado principal (Ej: Cintas rojas, recuadros amarillos).
+    - `headerTextColor`: El color del texto del título que va sobre el `headerBackground` (Ej: Blanco sobre cinta roja).
+    - `itemTitleColor`: El color de los nombres de los platos (A veces tienen un color distinto al texto general, ej. Verde brillante).
 13. **2 fuentes EXCLUSIVAS de Google Fonts**:
     - `heading`: Elegí el nombre EXACTO de una fuente de Google Fonts que mejor represente la identidad visual. Ejemplos:
       - Elegante/Clásico: `'Playfair Display', serif`, `'Lora', serif`
@@ -94,10 +98,12 @@ Asigná `items.<slug>.icon` con un emoji según la categoría del plato:
     - Usá EXACTAMENTE el formato CSS `font-family` con las comillas simples si el nombre tiene espacios, listo para pegar en CSS.
 14. **Si no podés inferir colores/fuentes** del PDF, usá estos defaults
     neutros y agregá los paths a `missingFields`:
+    - `pageBackground: "#F9F9F9"`
+    - `textColor: "#4A4A4A"`
     - `primaryColor: "#2C2C2C"`
-    - `backgroundColor: "#FAFAFA"`
-    - `textColor: "#1A1A1A"`
-    - `accentColor: "#777777"`
+    - `headerBackground: "#2C2C2C"`
+    - `headerTextColor: "#F9F9F9"`
+    - `itemTitleColor: "#2C2C2C"`
     - `fonts.heading: "Georgia, serif"`
     - `fonts.body: "'Helvetica Neue', Helvetica, Arial, sans-serif"`
 15. **Contraste mínimo**: si el texto sobre el fondo no es legible

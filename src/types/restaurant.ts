@@ -1,10 +1,18 @@
 export type HexColor = `#${string}`;
 
 export interface Theme {
-  primaryColor: HexColor;
-  backgroundColor: HexColor;
-  textColor: HexColor;
-  accentColor: HexColor;
+  // New specific colors for high fidelity
+  pageBackground?: HexColor;
+  textColor?: HexColor;
+  primaryColor?: HexColor;
+  headerBackground?: HexColor;
+  headerTextColor?: HexColor;
+  itemTitleColor?: HexColor;
+  
+  // Legacy colors (kept for backward compatibility with older extracted JSONs)
+  backgroundColor?: HexColor;
+  accentColor?: HexColor;
+  
   fonts: {
     heading: string;
     body: string;

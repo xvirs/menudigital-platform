@@ -27,6 +27,9 @@ const description = pageDescription ?? info.description ?? `Menú de ${info.name
     <meta property="og:description" content={description} />
     <meta property="og:type" content="restaurant.menu" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     <title>{title}</title>
 
     <style
@@ -45,8 +48,8 @@ const description = pageDescription ?? info.description ?? `Menú de ${info.name
         --background-color: var(--backgroundColor);
         --text-color: var(--textColor);
         --accent-color: var(--accentColor);
-        --font-heading: var(--fontHeading);
-        --font-body: var(--fontBody);
+        --font-heading: var(--fontHeading), 'Playfair Display', Georgia, serif;
+        --font-body: var(--fontBody), 'Inter', system-ui, -apple-system, sans-serif;
       }
     </style>
   </head>

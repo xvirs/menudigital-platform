@@ -40,6 +40,7 @@ const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${Array.from(fo
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -63,6 +64,7 @@ const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${Array.from(fo
       }}
     >
       :root {
+        color-scheme: light;
         --primary-color: var(--primaryColor);
         --background-color: var(--backgroundColor);
         --text-color: var(--textColor);

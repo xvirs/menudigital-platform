@@ -46,10 +46,18 @@ const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount 
           Datos en vivo desde <code>{owner}/{repo}@{branch}</code>
         </p>
       </div>
-      <a class="admin-btn admin-btn--primary" href="/admin/upload">
-        <span class="admin-btn__icon" aria-hidden="true">＋</span>
-        <span>Nuevo menú</span>
-      </a>
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <form method="POST" action="/api/admin/logout" style="margin: 0;">
+          <button type="submit" class="admin-btn" style="background: transparent; border-color: rgba(255,255,255,0.15); color: #aaa;">
+            <span class="admin-btn__icon" aria-hidden="true">🚪</span>
+            <span>Salir</span>
+          </button>
+        </form>
+        <a class="admin-btn admin-btn--primary" href="/admin/upload">
+          <span class="admin-btn__icon" aria-hidden="true">＋</span>
+          <span>Nuevo menú</span>
+        </a>
+      </div>
     </header>
 
     {banner && (

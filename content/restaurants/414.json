@@ -1,0 +1,1138 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "414",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-06-04T02:13:42.490Z",
+  "updatedAt": "2026-06-04T02:13:42.490Z",
+  "_meta": {
+    "sourcePdfName": "webhook-upload.pdf",
+    "extractedBy": "gemini-2.0-flash",
+    "missingFields": []
+  },
+  "info": {
+    "name": "414",
+    "location": "_dato no disponible_",
+    "theme": {
+      "primaryColor": "#1A1A1A",
+      "backgroundColor": "#FAFAFA",
+      "textColor": "#1A1A1A",
+      "accentColor": "#C62828",
+      "fonts": {
+        "heading": "'Helvetica Neue', sans-serif",
+        "body": "'Helvetica Neue', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "promos",
+      "title": "PROMOS",
+      "items": [
+        "happy-hour-2-clasicos",
+        "happy-hour-2-caipis",
+        "happy-hour-2-absolut",
+        "happy-hour-2-tanqueray",
+        "happy-hour-2-jagermeister",
+        "promo-4x3-fernet-branca-coca",
+        "promo-4x3-gin-gordons-tonica",
+        "promo-4x3-vodka-smirnoff-red-bull",
+        "promo-piola-para-10-personas",
+        "promo-piola-para-15-personas"
+      ]
+    },
+    {
+      "id": "la-cocina",
+      "title": "LA COCINA",
+      "items": [
+        "papas-americanas",
+        "papas-al-romero-con-huevo-frito",
+        "bastones-de-queso",
+        "langostinos-rellenos",
+        "picada-gourmet",
+        "rabas"
+      ]
+    },
+    {
+      "id": "entre-panes",
+      "title": "ENTRE PANES",
+      "items": [
+        "burger-414",
+        "burger-veggie-simple",
+        "burger-veggie-doble",
+        "sandwich-mediterraneo",
+        "sandwich-argento",
+        "sandwich-de-bondiola"
+      ]
+    },
+    {
+      "id": "pizzas-a-la-piedra",
+      "title": "Pizzas a la piedra",
+      "items": [
+        "muzarella-clasica",
+        "napolitana",
+        "crudo-y-rucula"
+      ]
+    },
+    {
+      "id": "combos-y-picoteos",
+      "title": "Combos y Picoteos",
+      "items": [
+        "picoteo-para-6",
+        "paladar-para-6",
+        "paladar-para-10",
+        "picoteo-para-10",
+        "tranqui-para-6-bud",
+        "tranqui-para-6-corona",
+        "tranqui-para-6-clasicos",
+        "tranqui-para-10-bud",
+        "tranqui-para-10-corona",
+        "tranqui-para-10-clasicos"
+      ]
+    },
+    {
+      "id": "caipis",
+      "title": "CAIPIS",
+      "items": [
+        "caipirinha",
+        "caipiroska",
+        "caipirisima-de-maracuya",
+        "caipirinha-de-frutos-rojos",
+        "caipiroska-de-kiwi"
+      ]
+    },
+    {
+      "id": "clasicos",
+      "title": "CLÁSICOS",
+      "items": [
+        "fernet",
+        "mojito-de-coco",
+        "scotch-old-fashioned",
+        "campari-orange",
+        "aperol-spritz",
+        "vermut-lunfa-rosso",
+        "vermut-carpano",
+        "negroni",
+        "tom-collins",
+        "vermut-lunfa-rosado"
+      ]
+    },
+    {
+      "id": "el-gin-tour-de-414",
+      "title": "El Gin Tour de 414",
+      "items": [
+        "gin-gordons",
+        "gin-heraclito",
+        "gin-tanqueray-flor-de-sevilla",
+        "gin-gordons-pink",
+        "gin-tanqueray",
+        "gin-tanqueray-royale-dark-berry"
+      ]
+    },
+    {
+      "id": "cervezas",
+      "title": "Cervezas",
+      "items": [
+        "corona-monjita",
+        "budweiser-lata-473cc"
+      ]
+    },
+    {
+      "id": "sin-alcohol",
+      "title": "Sin Alcohol",
+      "items": [
+        "gaseosas-y-agua",
+        "limonada-vaso",
+        "red-bull"
+      ]
+    },
+    {
+      "id": "vinos-y-espumantes",
+      "title": "Vinos y Espumantes",
+      "items": [
+        "vino-blanco-dulce",
+        "chandon",
+        "trumpeter-malbec",
+        "baron-b",
+        "chandon-delice"
+      ]
+    },
+    {
+      "id": "bottle-service",
+      "title": "BOTTLE SERVICE",
+      "items": [
+        "smirnoff-4-red-bull-simple",
+        "smirnoff-4-red-bull-doblete",
+        "tanqueray-royale-sevilla-tonica-simple",
+        "tanqueray-royale-sevilla-tonica-doblete",
+        "ciroc-4-red-bull-simple",
+        "ciroc-4-red-bull-doblete",
+        "jagermeister-4-red-bull-simple",
+        "jagermeister-4-red-bull-doblete",
+        "absolut-4-red-bull-simple",
+        "absolut-4-red-bull-doblete",
+        "fernet-branca-coca-simple",
+        "fernet-branca-coca-doblete",
+        "tanqueray-tonica-simple",
+        "tanqueray-tonica-doblete",
+        "johnnie-walker-black-label-simple",
+        "johnnie-walker-black-label-doblete",
+        "gordons-tonica-simple",
+        "gordons-tonica-doblete",
+        "johnnie-walker-red-label-simple",
+        "johnnie-walker-red-label-doblete"
+      ]
+    },
+    {
+      "id": "medidas",
+      "title": "MEDIDAS",
+      "items": [
+        "johnnie-walker-red-label-medida",
+        "jagermeister-red-bull-medida",
+        "johnnie-walker-black-label-medida",
+        "smirnoff-red-bull-medida",
+        "absolut-red-bull-medida"
+      ]
+    },
+    {
+      "id": "cocktails-de-autor",
+      "title": "COCKTAILS DE AUTOR",
+      "items": [
+        "coco-jager",
+        "clerico-amazonico",
+        "blood-julep",
+        "spring-hunter",
+        "franui-cream"
+      ]
+    }
+  ],
+  "items": {
+    "happy-hour-2-clasicos": {
+      "slug": "happy-hour-2-clasicos",
+      "name": "2 CLÁSICOS",
+      "price": "20000",
+      "shortDescription": "Dos tragos clásicos a elección.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "happy-hour-2-caipis": {
+      "slug": "happy-hour-2-caipis",
+      "name": "2 CAIPIS",
+      "price": "22000",
+      "shortDescription": "Dos caipis a elección.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "happy-hour-2-absolut": {
+      "slug": "happy-hour-2-absolut",
+      "name": "2 ABSOLUT",
+      "price": "25000",
+      "shortDescription": "Dos tragos con Absolut.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "happy-hour-2-tanqueray": {
+      "slug": "happy-hour-2-tanqueray",
+      "name": "2 TANQUERAY",
+      "price": "25000",
+      "shortDescription": "Dos tragos con Tanqueray.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "happy-hour-2-jagermeister": {
+      "slug": "happy-hour-2-jagermeister",
+      "name": "2 JÄGERMEISTER",
+      "price": "25000",
+      "shortDescription": "Dos tragos con Jägermeister.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "promo-4x3-fernet-branca-coca": {
+      "slug": "promo-4x3-fernet-branca-coca",
+      "name": "4x3 FERNET BRANCA + 6 LATAS COCA-COLA",
+      "price": "195000",
+      "shortDescription": "Promoción de botellas: 4x3 Fernet Branca con 6 latas de Coca-Cola.",
+      "type": "Promoción de botellas",
+      "icon": "🍾"
+    },
+    "promo-4x3-gin-gordons-tonica": {
+      "slug": "promo-4x3-gin-gordons-tonica",
+      "name": "4X3 GIN GORDON’S + 6 LATAS A. TÓNICA",
+      "price": "195000",
+      "shortDescription": "Promoción de botellas: 4x3 Gin Gordon’s con 6 latas de agua tónica.",
+      "type": "Promoción de botellas",
+      "icon": "🍾"
+    },
+    "promo-4x3-vodka-smirnoff-red-bull": {
+      "slug": "promo-4x3-vodka-smirnoff-red-bull",
+      "name": "4x3 VODKA SMIRNOFF + 4 RED BULL",
+      "price": "195000",
+      "shortDescription": "Promoción de botellas: 4x3 Vodka Smirnoff con 4 Red Bull.",
+      "type": "Promoción de botellas",
+      "icon": "🍾"
+    },
+    "promo-piola-para-10-personas": {
+      "slug": "promo-piola-para-10-personas",
+      "name": "Promo Piola Para 10 Personas",
+      "price": "120000",
+      "description": "Incluye 3 Pizzas a elección, 3 Papas a elección y 1 Promo de botellas (Fernet/Gordons/Smirnoff) o 10 latas Budweiser.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "promo-piola-para-15-personas": {
+      "slug": "promo-piola-para-15-personas",
+      "name": "Promo Piola Para 15 Personas",
+      "price": "225000",
+      "description": "Incluye 5 Pizzas a elección, 4 Papas a elección y 2 Promos de botellas (Fernet/Gordons/Smirnoff) o 15 latas Budweiser.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "papas-americanas": {
+      "slug": "papas-americanas",
+      "name": "PAPAS AMERICANAS",
+      "price": "16500",
+      "description": "Papas fritas con cheddar, verdeo y panceta.",
+      "ingredients": [
+        "papas fritas",
+        "cheddar",
+        "verdeo",
+        "panceta"
+      ],
+      "type": "Entrada",
+      "icon": "🍟"
+    },
+    "papas-al-romero-con-huevo-frito": {
+      "slug": "papas-al-romero-con-huevo-frito",
+      "name": "PAPAS AL ROMERO CON HUEVO FRITO",
+      "price": "14000",
+      "description": "Papas fritas sazonadas con romero y coronadas con huevos fritos.",
+      "ingredients": [
+        "papas fritas",
+        "romero",
+        "huevos fritos"
+      ],
+      "type": "Entrada",
+      "icon": "🍟"
+    },
+    "bastones-de-queso": {
+      "slug": "bastones-de-queso",
+      "name": "BASTONES DE QUESO",
+      "price": "12000",
+      "description": "Bastones de queso apanados y fritos, con dips.",
+      "ingredients": [
+        "queso",
+        "apanado",
+        "frito",
+        "dips"
+      ],
+      "type": "Entrada",
+      "icon": "🧀"
+    },
+    "langostinos-rellenos": {
+      "slug": "langostinos-rellenos",
+      "name": "LANGOSTINOS RELLENOS",
+      "price": "17000",
+      "description": "Langostinos rellenos de queso crema y hierbas, apanados y fritos, con papas.",
+      "ingredients": [
+        "langostinos",
+        "queso crema",
+        "hierbas",
+        "apanado",
+        "frito",
+        "papas"
+      ],
+      "type": "Entrada",
+      "icon": "🐟"
+    },
+    "picada-gourmet": {
+      "slug": "picada-gourmet",
+      "name": "PICADA GOURMET",
+      "price": "18000",
+      "description": "Selección de quesos sardo y dambo marinado, mortadela con pistachos, jamón crudo, salame de la colonia, papas, aceitunas aliñadas y pan rústico.",
+      "ingredients": [
+        "queso sardo",
+        "queso dambo",
+        "mortadela con pistachos",
+        "jamón crudo",
+        "salame de la colonia",
+        "papas",
+        "aceitunas aliñadas",
+        "pan rústico"
+      ],
+      "type": "Picada",
+      "icon": "🧀"
+    },
+    "rabas": {
+      "slug": "rabas",
+      "name": "RABAS",
+      "price": "24000",
+      "description": "Rabas servidas con papas y lactonesa de lima.",
+      "ingredients": [
+        "rabas",
+        "papas",
+        "lactonesa de lima"
+      ],
+      "type": "Entrada",
+      "icon": "🐟"
+    },
+    "burger-414": {
+      "slug": "burger-414",
+      "name": "BURGER 414",
+      "price": "14000",
+      "description": "Carne Angus, queso cheddar, panceta crujiente, cebolla caramelizada y salsa de la casa en pan brioche.",
+      "ingredients": [
+        "carne Angus",
+        "queso cheddar",
+        "panceta crujiente",
+        "cebolla caramelizada",
+        "salsa de la casa",
+        "pan brioche"
+      ],
+      "type": "Hamburguesa",
+      "icon": "🍔"
+    },
+    "burger-veggie-simple": {
+      "slug": "burger-veggie-simple",
+      "name": "BURGER VEGGIE SIMPLE",
+      "price": "14000",
+      "description": "Medallón de legumbre, lactonesa de berenjena ahumada, rúcula, queso y tomate asado.",
+      "ingredients": [
+        "medallón de legumbre",
+        "lactonesa de berenjena ahumada",
+        "rúcula",
+        "queso",
+        "tomate asado"
+      ],
+      "type": "Hamburguesa vegetariana",
+      "icon": "🍔"
+    },
+    "burger-veggie-doble": {
+      "slug": "burger-veggie-doble",
+      "name": "BURGER VEGGIE DOBLE",
+      "price": "16500",
+      "description": "Medallón de legumbre, lactonesa de berenjena ahumada, rúcula, queso y tomate asado (doble).",
+      "ingredients": [
+        "medallón de legumbre",
+        "lactonesa de berenjena ahumada",
+        "rúcula",
+        "queso",
+        "tomate asado"
+      ],
+      "type": "Hamburguesa vegetariana",
+      "icon": "🍔"
+    },
+    "sandwich-mediterraneo": {
+      "slug": "sandwich-mediterraneo",
+      "name": "SANDWICH MEDITERRANEO",
+      "price": "17000",
+      "description": "Carne de cordero, rúcula, tomates asados, cebolla morada encurtida y lactonesa de berenjena asada.",
+      "ingredients": [
+        "carne de cordero",
+        "rúcula",
+        "tomates asados",
+        "cebolla morada encurtida",
+        "lactonesa de berenjena asada"
+      ],
+      "type": "Sándwich",
+      "icon": "🥪"
+    },
+    "sandwich-argento": {
+      "slug": "sandwich-argento",
+      "name": "SANDWICH ARGENTO",
+      "price": "17000",
+      "description": "Pan de manteca, vacío braseado, cebolla salteada, rúcula, tomate y lactonesa.",
+      "ingredients": [
+        "pan de manteca",
+        "vacío braseado",
+        "cebolla salteada",
+        "rúcula",
+        "tomate",
+        "lactonesa"
+      ],
+      "type": "Sándwich",
+      "icon": "🥪"
+    },
+    "sandwich-de-bondiola": {
+      "slug": "sandwich-de-bondiola",
+      "name": "SANDWICH DE BONDIOLA",
+      "price": "17000",
+      "description": "Pan brioche, bondiola desmenuzada, barbacoa, cebolla morada encurtida.",
+      "ingredients": [
+        "pan brioche",
+        "bondiola desmenuzada",
+        "barbacoa",
+        "cebolla morada encurtida"
+      ],
+      "type": "Sándwich",
+      "icon": "🥪"
+    },
+    "muzarella-clasica": {
+      "slug": "muzarella-clasica",
+      "name": "MUZZA CLÁSICA",
+      "price": "17900",
+      "description": "Masa fina con salsa de tomate casera y mozzarella.",
+      "ingredients": [
+        "masa fina",
+        "salsa de tomate casera",
+        "mozzarella"
+      ],
+      "type": "Pizza a la piedra",
+      "icon": "🍕"
+    },
+    "napolitana": {
+      "slug": "napolitana",
+      "name": "NAPOLITANA",
+      "price": "19900",
+      "description": "Salsa de tomate, mozzarella, rodajas de tomate gratinadas con sardo.",
+      "ingredients": [
+        "salsa de tomate",
+        "mozzarella",
+        "rodajas de tomate",
+        "sardo"
+      ],
+      "type": "Pizza a la piedra",
+      "icon": "🍕"
+    },
+    "crudo-y-rucula": {
+      "slug": "crudo-y-rucula",
+      "name": "CRUDO Y RÚCULA",
+      "price": "19900",
+      "description": "Salsa de tomate, mozzarella, rúcula y jamón crudo.",
+      "ingredients": [
+        "salsa de tomate",
+        "mozzarella",
+        "rúcula",
+        "jamón crudo"
+      ],
+      "type": "Pizza a la piedra",
+      "icon": "🍕"
+    },
+    "picoteo-para-6": {
+      "slug": "picoteo-para-6",
+      "name": "PICOTEO PARA 6",
+      "price": "49000",
+      "description": "1 pizza clásica + 1 pizza napolitana + 1 papas americanas + 1 nachos supreme.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "paladar-para-6": {
+      "slug": "paladar-para-6",
+      "name": "PALADAR PARA 6",
+      "price": "70000",
+      "description": "2 langostinos rellenos + 2 rabas + 2 bastones de queso.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "paladar-para-10": {
+      "slug": "paladar-para-10",
+      "name": "PALADAR PARA 10",
+      "price": "116000",
+      "description": "2 picadas gourmet + 2 rabas + 2 langostinos rellenos + 2 papas americanas.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "picoteo-para-10": {
+      "slug": "picoteo-para-10",
+      "name": "PICOTEO PARA 10",
+      "price": "75000",
+      "description": "1 pizza clásica + 1 pizza napolitana + 1 pizza crudo y rúcula + 1 papas al romero con huevo fritos + 1 papa americana + 1 nacho supreme.",
+      "type": "Combo",
+      "icon": "🍽️"
+    },
+    "tranqui-para-6-bud": {
+      "slug": "tranqui-para-6-bud",
+      "name": "TRANQUI PARA 6: 6 LATAS BUD",
+      "price": "31200",
+      "shortDescription": "6 latas de cerveza Budweiser para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍺"
+    },
+    "tranqui-para-6-corona": {
+      "slug": "tranqui-para-6-corona",
+      "name": "TRANQUI PARA 6: 6 MONJITA CORONA",
+      "price": "35000",
+      "shortDescription": "6 cervezas Corona Monjita para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍺"
+    },
+    "tranqui-para-6-clasicos": {
+      "slug": "tranqui-para-6-clasicos",
+      "name": "TRANQUI PARA 6: 6 CLÁSICOS",
+      "price": "48000",
+      "shortDescription": "6 tragos clásicos para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍹"
+    },
+    "tranqui-para-10-bud": {
+      "slug": "tranqui-para-10-bud",
+      "name": "TRANQUI PARA 10: 10 LATAS BUD",
+      "price": "52000",
+      "shortDescription": "10 latas de cerveza Budweiser para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍺"
+    },
+    "tranqui-para-10-corona": {
+      "slug": "tranqui-para-10-corona",
+      "name": "TRANQUI PARA 10: 10 MONJITA CORONA",
+      "price": "58000",
+      "shortDescription": "10 cervezas Corona Monjita para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍺"
+    },
+    "tranqui-para-10-clasicos": {
+      "slug": "tranqui-para-10-clasicos",
+      "name": "TRANQUI PARA 10: 10 CLÁSICOS",
+      "price": "80000",
+      "shortDescription": "10 tragos clásicos para compartir.",
+      "type": "Combo de bebidas",
+      "icon": "🍹"
+    },
+    "caipirinha": {
+      "slug": "caipirinha",
+      "name": "CAIPIRINHA",
+      "price": "15000",
+      "ingredients": [
+        "cachaça",
+        "lima",
+        "almíbar"
+      ],
+      "type": "Caipi",
+      "icon": "🍹"
+    },
+    "caipiroska": {
+      "slug": "caipiroska",
+      "name": "CAIPIROSKA",
+      "price": "15000",
+      "ingredients": [
+        "vodka",
+        "lima",
+        "almíbar"
+      ],
+      "type": "Caipi",
+      "icon": "🍹"
+    },
+    "caipirisima-de-maracuya": {
+      "slug": "caipirisima-de-maracuya",
+      "name": "CAIPIRISIMA DE MARAUYÁ",
+      "price": "15000",
+      "ingredients": [
+        "ron de coco",
+        "maracuyá",
+        "lima",
+        "almíbar"
+      ],
+      "type": "Caipi",
+      "icon": "🍹"
+    },
+    "caipirinha-de-frutos-rojos": {
+      "slug": "caipirinha-de-frutos-rojos",
+      "name": "CAIPIRINHA DE FRUTOS ROJOS",
+      "price": "15000",
+      "ingredients": [
+        "cachaça",
+        "frutos rojos",
+        "lima",
+        "almíbar"
+      ],
+      "type": "Caipi",
+      "icon": "🍹"
+    },
+    "caipiroska-de-kiwi": {
+      "slug": "caipiroska-de-kiwi",
+      "name": "CAIPIROSKA DE KIWI",
+      "price": "15000",
+      "ingredients": [
+        "vodka",
+        "kiwi",
+        "lima",
+        "almíbar"
+      ],
+      "type": "Caipi",
+      "icon": "🍹"
+    },
+    "fernet": {
+      "slug": "fernet",
+      "name": "FERNET",
+      "price": "14000",
+      "ingredients": [
+        "Coca-Cola",
+        "Fernet"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "mojito-de-coco": {
+      "slug": "mojito-de-coco",
+      "name": "MOJITO DE COCO",
+      "price": "14000",
+      "ingredients": [
+        "ron de coco",
+        "limón",
+        "almíbar",
+        "soda"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "scotch-old-fashioned": {
+      "slug": "scotch-old-fashioned",
+      "name": "SCOTCH OLD FASHIONED",
+      "price": "14000",
+      "ingredients": [
+        "Johnnie Walker Red Label",
+        "angostura",
+        "azúcar",
+        "naranja"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "campari-orange": {
+      "slug": "campari-orange",
+      "name": "CAMPARI ORANGE",
+      "price": "14000",
+      "ingredients": [
+        "Campari",
+        "jugo de naranja"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "aperol-spritz": {
+      "slug": "aperol-spritz",
+      "name": "APEROL SPRITZ",
+      "price": "14000",
+      "ingredients": [
+        "champagne",
+        "Aperol",
+        "soda",
+        "naranja"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "vermut-lunfa-rosso": {
+      "slug": "vermut-lunfa-rosso",
+      "name": "VERMUT LUNFA ROSSO",
+      "price": "14000",
+      "ingredients": [
+        "Vermut Lunfa Rosso",
+        "soda"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "vermut-carpano": {
+      "slug": "vermut-carpano",
+      "name": "VERMUT CARPANO",
+      "price": "14000",
+      "ingredients": [
+        "Carpano",
+        "soda",
+        "rodaja de naranja"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "negroni": {
+      "slug": "negroni",
+      "name": "NEGRONI",
+      "price": "14000",
+      "ingredients": [
+        "vermut rojo",
+        "Campari",
+        "ginebra",
+        "naranja"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "tom-collins": {
+      "slug": "tom-collins",
+      "name": "TOM COLLINS",
+      "price": "14000",
+      "ingredients": [
+        "Gin",
+        "soda",
+        "limón",
+        "almíbar"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "vermut-lunfa-rosado": {
+      "slug": "vermut-lunfa-rosado",
+      "name": "VERMUT LUNFA ROSADO",
+      "price": "14000",
+      "ingredients": [
+        "Vermut Lunfa Rosado",
+        "soda"
+      ],
+      "type": "Clásico",
+      "icon": "🍹"
+    },
+    "gin-gordons": {
+      "slug": "gin-gordons",
+      "name": "GIN GORDONS",
+      "price": "13000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "gin-heraclito": {
+      "slug": "gin-heraclito",
+      "name": "GIN HERACLITO",
+      "price": "15000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "gin-tanqueray-flor-de-sevilla": {
+      "slug": "gin-tanqueray-flor-de-sevilla",
+      "name": "GIN TANQUERAY FLOR DE SEVILLA",
+      "price": "18000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "gin-gordons-pink": {
+      "slug": "gin-gordons-pink",
+      "name": "GIN GORDONS PINK",
+      "price": "14000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "gin-tanqueray": {
+      "slug": "gin-tanqueray",
+      "name": "GIN TANQUERAY",
+      "price": "18000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "gin-tanqueray-royale-dark-berry": {
+      "slug": "gin-tanqueray-royale-dark-berry",
+      "name": "GIN TANQUERAY ROYALE DARK BERRY",
+      "price": "18000",
+      "shortDescription": "Elegí el gin que más te guste y sumale el botánico o fruta que quieras.",
+      "type": "Gin",
+      "icon": "🍹"
+    },
+    "corona-monjita": {
+      "slug": "corona-monjita",
+      "name": "CORONA MONJITA",
+      "price": "8000",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "budweiser-lata-473cc": {
+      "slug": "budweiser-lata-473cc",
+      "name": "BUDWEISER LATA 473 CC",
+      "price": "6500",
+      "type": "Cerveza",
+      "icon": "🍺"
+    },
+    "gaseosas-y-agua": {
+      "slug": "gaseosas-y-agua",
+      "name": "GASEOSAS Y AGUA CON O SIN GAS",
+      "price": "4000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "limonada-vaso": {
+      "slug": "limonada-vaso",
+      "name": "LIMONADA (VASO)",
+      "price": "5000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "red-bull": {
+      "slug": "red-bull",
+      "name": "RED BULL",
+      "price": "5000",
+      "type": "Bebida sin alcohol",
+      "icon": "🥤"
+    },
+    "vino-blanco-dulce": {
+      "slug": "vino-blanco-dulce",
+      "name": "VINO BLANCO DULCE",
+      "price": "80000",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "chandon": {
+      "slug": "chandon",
+      "name": "CHANDON",
+      "price": "27000",
+      "type": "Espumante",
+      "icon": "🍾"
+    },
+    "trumpeter-malbec": {
+      "slug": "trumpeter-malbec",
+      "name": "TRUMPETER MALBEC",
+      "price": "40000",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "baron-b": {
+      "slug": "baron-b",
+      "name": "BARON B",
+      "price": "30000",
+      "type": "Espumante",
+      "icon": "🍾"
+    },
+    "chandon-delice": {
+      "slug": "chandon-delice",
+      "name": "CHANDON DELICE",
+      "price": "40000",
+      "type": "Espumante",
+      "icon": "🍾"
+    },
+    "smirnoff-4-red-bull-simple": {
+      "slug": "smirnoff-4-red-bull-simple",
+      "name": "SMIRNOFF + 4 RED BULL (Simple)",
+      "price": "65000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "smirnoff-4-red-bull-doblete": {
+      "slug": "smirnoff-4-red-bull-doblete",
+      "name": "SMIRNOFF + 4 RED BULL (Doblete)",
+      "price": "90000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "tanqueray-royale-sevilla-tonica-simple": {
+      "slug": "tanqueray-royale-sevilla-tonica-simple",
+      "name": "TANQUERAY ROYALE/SEVILLA + TÓNICA (Simple)",
+      "price": "90000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "tanqueray-royale-sevilla-tonica-doblete": {
+      "slug": "tanqueray-royale-sevilla-tonica-doblete",
+      "name": "TANQUERAY ROYALE/SEVILLA + TÓNICA (Doblete)",
+      "price": "120000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "ciroc-4-red-bull-simple": {
+      "slug": "ciroc-4-red-bull-simple",
+      "name": "CIROC + 4 RED BULL (Simple)",
+      "price": "180000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "ciroc-4-red-bull-doblete": {
+      "slug": "ciroc-4-red-bull-doblete",
+      "name": "CIROC + 4 RED BULL (Doblete)",
+      "price": "_dato no disponible_",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "jagermeister-4-red-bull-simple": {
+      "slug": "jagermeister-4-red-bull-simple",
+      "name": "JÄGERMEISTER + 4 RED BULL (Simple)",
+      "price": "65000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "jagermeister-4-red-bull-doblete": {
+      "slug": "jagermeister-4-red-bull-doblete",
+      "name": "JÄGERMEISTER + 4 RED BULL (Doblete)",
+      "price": "120000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "absolut-4-red-bull-simple": {
+      "slug": "absolut-4-red-bull-simple",
+      "name": "ABSOLUT + 4 RED BULL (Simple)",
+      "price": "85000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "absolut-4-red-bull-doblete": {
+      "slug": "absolut-4-red-bull-doblete",
+      "name": "ABSOLUT + 4 RED BULL (Doblete)",
+      "price": "120000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "fernet-branca-coca-simple": {
+      "slug": "fernet-branca-coca-simple",
+      "name": "FERNET BRANCA + COCA (Simple)",
+      "price": "65000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "fernet-branca-coca-doblete": {
+      "slug": "fernet-branca-coca-doblete",
+      "name": "FERNET BRANCA + COCA (Doblete)",
+      "price": "_dato no disponible_",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "tanqueray-tonica-simple": {
+      "slug": "tanqueray-tonica-simple",
+      "name": "TANQUERAY + TÓNICA (Simple)",
+      "price": "100000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "tanqueray-tonica-doblete": {
+      "slug": "tanqueray-tonica-doblete",
+      "name": "TANQUERAY + TÓNICA (Doblete)",
+      "price": "165000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "johnnie-walker-black-label-simple": {
+      "slug": "johnnie-walker-black-label-simple",
+      "name": "JOHNNIE WALKER BLACK LABEL (Simple)",
+      "price": "95000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "johnnie-walker-black-label-doblete": {
+      "slug": "johnnie-walker-black-label-doblete",
+      "name": "JOHNNIE WALKER BLACK LABEL (Doblete)",
+      "price": "_dato no disponible_",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "gordons-tonica-simple": {
+      "slug": "gordons-tonica-simple",
+      "name": "GORDON´S TÓNICA (Simple)",
+      "price": "130000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "gordons-tonica-doblete": {
+      "slug": "gordons-tonica-doblete",
+      "name": "GORDON´S TÓNICA (Doblete)",
+      "price": "_dato no disponible_",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "johnnie-walker-red-label-simple": {
+      "slug": "johnnie-walker-red-label-simple",
+      "name": "JOHNNIE WALKER RED LABEL (Simple)",
+      "price": "120000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "johnnie-walker-red-label-doblete": {
+      "slug": "johnnie-walker-red-label-doblete",
+      "name": "JOHNNIE WALKER RED LABEL (Doblete)",
+      "price": "165000",
+      "type": "Bottle Service",
+      "icon": "🍾"
+    },
+    "johnnie-walker-red-label-medida": {
+      "slug": "johnnie-walker-red-label-medida",
+      "name": "JOHNNIE WALKER RED LABEL",
+      "price": "18000",
+      "type": "Medida",
+      "icon": "🍹"
+    },
+    "jagermeister-red-bull-medida": {
+      "slug": "jagermeister-red-bull-medida",
+      "name": "JÄGERMEISTER + RED BULL",
+      "price": "16000",
+      "type": "Medida",
+      "icon": "🍹"
+    },
+    "johnnie-walker-black-label-medida": {
+      "slug": "johnnie-walker-black-label-medida",
+      "name": "JOHONNIE WALKER BLACK LABEL",
+      "price": "18000",
+      "type": "Medida",
+      "icon": "🍹"
+    },
+    "smirnoff-red-bull-medida": {
+      "slug": "smirnoff-red-bull-medida",
+      "name": "SMIRNOFF + RED BULL",
+      "price": "20000",
+      "type": "Medida",
+      "icon": "🍹"
+    },
+    "absolut-red-bull-medida": {
+      "slug": "absolut-red-bull-medida",
+      "name": "ABSOLUT + RED BULL",
+      "price": "14000",
+      "type": "Medida",
+      "icon": "🍹"
+    },
+    "coco-jager": {
+      "slug": "coco-jager",
+      "name": "COCO JAGER",
+      "price": "19000",
+      "ingredients": [
+        "ron de coco",
+        "Jagermeister",
+        "sour mix",
+        "jugo de pomelo",
+        "menta"
+      ],
+      "type": "Cóctel de autor",
+      "icon": "🍹"
+    },
+    "clerico-amazonico": {
+      "slug": "clerico-amazonico",
+      "name": "CLERICO AMAZÓNICO",
+      "price": "19000",
+      "ingredients": [
+        "vino blanco dulce",
+        "gin",
+        "jugo de maracuyá",
+        "jugo de pomelo",
+        "sour mix"
+      ],
+      "type": "Cóctel de autor",
+      "icon": "🍹"
+    },
+    "blood-julep": {
+      "slug": "blood-julep",
+      "name": "BLOOD JULEP",
+      "price": "19000",
+      "ingredients": [
+        "ron añejo",
+        "Aperol",
+        "sour mix",
+        "jugo de pomelo",
+        "menta",
+        "frutos rojos"
+      ],
+      "type": "Cóctel de autor",
+      "icon": "🍹"
+    },
+    "spring-hunter": {
+      "slug": "spring-hunter",
+      "name": "SPRING HUNTER",
+      "price": "19000",
+      "ingredients": [
+        "Vermú Lunfa Rosso",
+        "Jagermeister",
+        "licor espiridina",
+        "almíbar de jengibre",
+        "jugo de limón",
+        "jugo de pomelo"
+      ],
+      "type": "Cóctel de autor",
+      "icon": "🍹"
+    },
+    "franui-cream": {
+      "slug": "franui-cream",
+      "name": "FRANUI CREAM",
+      "price": "19000",
+      "ingredients": [
+        "Baileys",
+        "licor cherry brandy",
+        "crema de leche"
+      ],
+      "type": "Cóctel de autor",
+      "icon": "🍹"
+    }
+  }
+}

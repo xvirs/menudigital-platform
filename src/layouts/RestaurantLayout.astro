@@ -14,6 +14,25 @@ const { theme } = info;
 
 const title = pageTitle ?? info.name;
 const description = pageDescription ?? info.description ?? `Menú de ${info.name}`;
+
+const extractFontName = (str: string) => {
+  if (!str) return null;
+  // Match the first font name before a comma, stripping quotes
+  const firstFont = str.split(',')[0].trim();
+  return firstFont.replace(/['"]/g, '');
+};
+
+const headingFontName = extractFontName(theme.fonts.heading);
+const bodyFontName = extractFontName(theme.fonts.body);
+
+const fontFamilies = new Set<string>();
+if (headingFontName) fontFamilies.add(headingFontName.replace(/ /g, '+'));
+if (bodyFontName) fontFamilies.add(bodyFontName.replace(/ /g, '+'));
+// Add our premium fallbacks
+fontFamilies.add('Inter:wght@300;400;500;600');
+fontFamilies.add('Playfair+Display:ital,wght@0,400;0,600;0,700;1,400');
+
+const googleFontsUrl = `https://fonts.googleapis.com/css2?family=${Array.from(fontFamilies).join('&family=')}&display=swap`;
 ---
 
 <!doctype html>
@@ -29,7 +48,7 @@ const description = pageDescription ?? info.description ?? `Menú de ${info.name
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href={googleFontsUrl} rel="stylesheet" />
     <title>{title}</title>
 
     <style

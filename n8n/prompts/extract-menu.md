@@ -85,15 +85,13 @@ Asigná `items.<slug>.icon` con un emoji según la categoría del plato:
     - `textColor`: color del cuerpo de texto. Debe tener buen contraste con
       `backgroundColor`.
     - `accentColor`: variante del primary, usado en gradientes.
-13. **2 fuentes web seguras**:
-    - `heading`: serif si es clásico/elegante (`Georgia, serif`,
-      `Playfair Display, serif`, `Lora, serif`); display si es moderno
-      (`Bebas Neue, sans-serif`, `Oswald, sans-serif`); cursive si es
-      artesanal (con cuidado).
-    - `body`: sans-serif legible (`Inter, sans-serif`,
-      `Helvetica Neue, sans-serif`, `system-ui, sans-serif`).
-    - Usá EXACTAMENTE el formato CSS `font-family`, listo para pegar
-      en CSS sin transformar.
+13. **2 fuentes EXCLUSIVAS de Google Fonts**:
+    - `heading`: Elegí el nombre EXACTO de una fuente de Google Fonts que mejor represente la identidad visual. Ejemplos:
+      - Elegante/Clásico: `'Playfair Display', serif`, `'Lora', serif`
+      - Urbano/Bar: `'Permanent Marker', cursive`, `'Caveat Brush', cursive`
+      - Moderno: `'Bebas Neue', sans-serif`, `'Oswald', sans-serif`
+    - `body`: Una sans-serif legible de Google Fonts (`'Inter', sans-serif`, `'Montserrat', sans-serif`).
+    - Usá EXACTAMENTE el formato CSS `font-family` con las comillas simples si el nombre tiene espacios, listo para pegar en CSS.
 14. **Si no podés inferir colores/fuentes** del PDF, usá estos defaults
     neutros y agregá los paths a `missingFields`:
     - `primaryColor: "#2C2C2C"`

@@ -130,6 +130,11 @@ const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount 
             const nextStatus = r.status === 'active' ? 'hidden' : 'active';
             const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
             const toggleIcon = r.status === 'active' ? '👁' : '👀';
+            
+            // Check if recently updated (less than 60 seconds ago)
+            const ageMs = Date.now() - new Date(r.updatedAt).getTime();
+            const isDeploying = ageMs < 60000 && !Number.isNaN(ageMs);
+
             return (
               <article 
                 class="admin-card" 
@@ -154,9 +159,15 @@ const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount 
                 </div>
                 <p class="admin-card__meta">Actualizado: {formatDate(r.updatedAt)}</p>
                 <div class="admin-card__actions">
-                  <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">
-                    <span class="admin-btn__icon" aria-hidden="true">↗</span>
-                    <span>Ver</span>
+                  <a 
+                    class="admin-btn" 
+                    href={publicUrl} 
+                    target="_blank" 
+                    rel="noopener"
+                    {...(isDeploying ? { onclick: "alert('Vercel está publicando los cambios. Por favor esperá hasta 1 minuto para que la página esté disponible.'); return false;" } : {})}
+                  >
+                    <span class="admin-btn__icon" aria-hidden="true">{isDeploying ? '⏳' : '↗'}</span>
+                    <span>{isDeploying ? 'Publicando...' : 'Ver'}</span>
                   </a>
                   <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
                     <span class="admin-btn__icon" aria-hidden="true">✎</span>
@@ -207,6 +218,11 @@ const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount 
               const adminDetail = `/admin/r/${r.slug}`;
               const nextStatus = r.status === 'active' ? 'hidden' : 'active';
               const toggleLabel = r.status === 'active' ? 'Ocultar' : 'Mostrar';
+              
+              // Check if recently updated
+              const ageMs = Date.now() - new Date(r.updatedAt).getTime();
+              const isDeploying = ageMs < 60000 && !Number.isNaN(ageMs);
+
               return (
                 <tr 
                   data-name={r.name.toLowerCase()}
@@ -226,9 +242,15 @@ const warningCount = restaurants.reduce((acc, r) => acc + (r.missingFieldsCount 
                   </td>
                   <td>
                     <div class="admin-actions">
-                      <a class="admin-btn" href={publicUrl} target="_blank" rel="noopener">
-                        <span class="admin-btn__icon" aria-hidden="true">↗</span>
-                        <span>Ver</span>
+                      <a 
+                        class="admin-btn" 
+                        href={publicUrl} 
+                        target="_blank" 
+                        rel="noopener"
+                        {...(isDeploying ? { onclick: "alert('Vercel está publicando los cambios. Por favor esperá hasta 1 minuto para que la página esté disponible.'); return false;" } : {})}
+                      >
+                        <span class="admin-btn__icon" aria-hidden="true">{isDeploying ? '⏳' : '↗'}</span>
+                        <span>{isDeploying ? 'Publicando...' : 'Ver'}</span>
                       </a>
                       <a class="admin-btn" href={editUrl} target="_blank" rel="noopener">
                         <span class="admin-btn__icon" aria-hidden="true">✎</span>

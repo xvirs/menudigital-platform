@@ -1,0 +1,237 @@
+{
+  "$schema": "../../schema/menu.schema.json",
+  "slug": "la-del-10",
+  "status": "active",
+  "version": 1,
+  "createdAt": "2026-06-04T01:04:52.511Z",
+  "updatedAt": "2026-06-04T01:04:52.511Z",
+  "_meta": {
+    "sourcePdfName": "webhook-upload.pdf",
+    "extractedBy": "gemini-2.0-flash",
+    "missingFields": []
+  },
+  "info": {
+    "name": "LA DEL 10",
+    "location": "_dato no disponible_",
+    "theme": {
+      "primaryColor": "#1A1A1A",
+      "backgroundColor": "#FFFFFF",
+      "textColor": "#333333",
+      "accentColor": "#424242",
+      "fonts": {
+        "heading": "Impact, sans-serif",
+        "body": "'Helvetica Neue', sans-serif"
+      }
+    }
+  },
+  "menuSections": [
+    {
+      "id": "tragos",
+      "title": "Tragos",
+      "items": [
+        "fernet",
+        "gin-tonic",
+        "campari",
+        "gancia",
+        "vermut",
+        "cynar",
+        "aperol-spritz",
+        "vodka-speed",
+        "tintillo-de-verano"
+      ]
+    },
+    {
+      "id": "vinos",
+      "title": "Vinos",
+      "items": [
+        "copa-de-vino"
+      ]
+    },
+    {
+      "id": "cervezas-por-litro",
+      "title": "Cervezas por litro",
+      "items": [
+        "heineken-litro",
+        "stella-artois-litro",
+        "andes-rubia-litro",
+        "andes-roja-litro",
+        "andes-ipa-litro"
+      ]
+    },
+    {
+      "id": "cervezas-en-lata",
+      "title": "Cervezas en lata",
+      "items": [
+        "lata-golden",
+        "lata-scotish",
+        "lata-stout"
+      ]
+    },
+    {
+      "id": "promos",
+      "title": "Promos",
+      "items": [
+        "promo-dos-tragos",
+        "promo-tres-birritas"
+      ]
+    }
+  ],
+  "items": {
+    "fernet": {
+      "slug": "fernet",
+      "name": "Fernet",
+      "price": "8000",
+      "shortDescription": "Fernet Branca con coca cola",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "gin-tonic": {
+      "slug": "gin-tonic",
+      "name": "Gin Tonic",
+      "price": "7500",
+      "shortDescription": "Gin & agua tónica (Consultar frutas disponibles)",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "campari": {
+      "slug": "campari",
+      "name": "Campari",
+      "price": "7500",
+      "shortDescription": "Campari y jugo de naranja",
+      "description": "Vaso $7.500, Jarra $14.000",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "gancia": {
+      "slug": "gancia",
+      "name": "Gancia",
+      "price": "7500",
+      "shortDescription": "Americano Gancia con gaseosa de lima limón",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "vermut": {
+      "slug": "vermut",
+      "name": "Vermut",
+      "price": "7500",
+      "shortDescription": "Vermut Rosso con soda o agua tónica y rodaja de naranja",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "cynar": {
+      "slug": "cynar",
+      "name": "Cynar",
+      "price": "7000",
+      "shortDescription": "Cynar con jugo de pomelo, almíbar simple y menta",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "aperol-spritz": {
+      "slug": "aperol-spritz",
+      "name": "Aperol Spritz",
+      "price": "8000",
+      "shortDescription": "Aperol, espumante seco, dash de soda y rodaja de naranja",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "copa-de-vino": {
+      "slug": "copa-de-vino",
+      "name": "Copa de Vino",
+      "price": "9000",
+      "shortDescription": "Tinto o blanco (consultar variedad)",
+      "type": "Vino",
+      "icon": "🍷"
+    },
+    "tintillo-de-verano": {
+      "slug": "tintillo-de-verano",
+      "name": "Tintillo de Verano",
+      "price": "7000",
+      "shortDescription": "Vino tinto dulce, Sprite, Rodaja de limon.",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "vodka-speed": {
+      "slug": "vodka-speed",
+      "name": "Vodka + Speed",
+      "price": "7500",
+      "shortDescription": "Medida de vodka + Speed. Podes reemplazar el speed por jugo de naranja.",
+      "type": "Trago",
+      "icon": "🍹"
+    },
+    "heineken-litro": {
+      "slug": "heineken-litro",
+      "name": "Heineken",
+      "price": "12000",
+      "type": "Cerveza por litro",
+      "icon": "🍺"
+    },
+    "stella-artois-litro": {
+      "slug": "stella-artois-litro",
+      "name": "Stella Artois",
+      "price": "9000",
+      "type": "Cerveza por litro",
+      "icon": "🍺"
+    },
+    "andes-rubia-litro": {
+      "slug": "andes-rubia-litro",
+      "name": "Andes Rubia",
+      "price": "9000",
+      "type": "Cerveza por litro",
+      "icon": "🍺"
+    },
+    "andes-roja-litro": {
+      "slug": "andes-roja-litro",
+      "name": "Andes Roja",
+      "price": "9000",
+      "type": "Cerveza por litro",
+      "icon": "🍺"
+    },
+    "andes-ipa-litro": {
+      "slug": "andes-ipa-litro",
+      "name": "Andes Ipa",
+      "price": "9000",
+      "type": "Cerveza por litro",
+      "icon": "🍺"
+    },
+    "lata-golden": {
+      "slug": "lata-golden",
+      "name": "Lata Golden",
+      "price": "9000",
+      "shortDescription": "*sin tacc",
+      "type": "Cerveza en lata",
+      "icon": "🍺"
+    },
+    "lata-scotish": {
+      "slug": "lata-scotish",
+      "name": "Lata Scotish",
+      "price": "9000",
+      "shortDescription": "*sin tacc",
+      "type": "Cerveza en lata",
+      "icon": "🍺"
+    },
+    "lata-stout": {
+      "slug": "lata-stout",
+      "name": "Lata Stout",
+      "price": "9000",
+      "shortDescription": "*sin tacc",
+      "type": "Cerveza en lata",
+      "icon": "🍺"
+    },
+    "promo-dos-tragos": {
+      "slug": "promo-dos-tragos",
+      "name": "2 tragos a elección",
+      "price": "13000",
+      "shortDescription": "Tintillo de Verano, Fernet, gin, gancia, vermut o campari.",
+      "type": "Promoción",
+      "icon": "🍹"
+    },
+    "promo-tres-birritas": {
+      "slug": "promo-tres-birritas",
+      "name": "3 Birritas",
+      "price": "12000",
+      "shortDescription": "Consultar variedades",
+      "type": "Promoción",
+      "icon": "🍺"
+    }
+  }
+}

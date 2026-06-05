@@ -48,20 +48,15 @@ En la UI de n8n, ir a **Settings → Variables** y crear:
 4. Click en **Save** (arriba a la derecha).
 5. Activá el workflow con el toggle **"Active"**.
 
-### Levantar el túnel público
+### Levantar el túnel público permanente
 
-En una terminal aparte (no la de n8n):
+En una terminal aparte (no la de n8n), ejecutá:
 
 ```bash
-cloudflared tunnel --url http://localhost:5678
+npm run tunnel
 ```
 
-Copiá la URL `*.trycloudflare.com` que aparece en el output. La vas a usar
-como `N8N_WEBHOOK_URL` en Vercel (ver siguiente sección).
-
-> ⚠️ La URL cambia cada vez que reiniciás `cloudflared`. Hay que actualizarla
-> en Vercel después de cada reinicio. Para un setup estable, usar un Named
-> Tunnel de Cloudflare con dominio propio.
+Esto levanta un túnel de ngrok usando tu dominio estático (`playroom-crayfish-buffalo.ngrok-free.dev`). Esta URL **no cambia nunca más**, por lo que Vercel siempre sabrá a dónde enviar los webhooks aunque reinicies tu computadora.
 
 ### Cargar el webhook URL en Vercel
 

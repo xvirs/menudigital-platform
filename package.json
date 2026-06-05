@@ -12,7 +12,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "validate-menus": "node scripts/validate-menus.mjs"
+    "validate-menus": "node scripts/validate-menus.mjs",
+    "tunnel": "ngrok http --url=playroom-crayfish-buffalo.ngrok-free.dev 5678"
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.7",
